@@ -1,0 +1,11 @@
+
+{
+  "name": "Modular-Armor",
+  "version": "0.1.0",
+  "title": "Modular Armor",
+  "author": "Ranakastrasz",
+  "contact": "~",
+  "homepage": "",
+  "description": "Alters Modular Armor and adds new Modules",
+  "dependencies": ["base"]
+}

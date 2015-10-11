@@ -1,0 +1,12 @@
+T3 armor, 15x15
+1k Lightweight structure
+50 speed
+50 efficiency
+50 productivity
+2 T2 armor
+2k Supercoil
+
+Coil stacks to 200?
+
+Coil to 1 artifact -> 2 coil.
+
