@@ -141,7 +141,43 @@ data:extend(
             {"effectivity-module-3", 1}
         },
         result = "battery-mk4-equipment"
-    }
+    },
+    {
+        type = "recipe",
+        name = "power-armor-mk3",
+        enabled = false,
+        energy_required = 30,
+        ingredients =
+        {
+            {"power-armor-mk2", 2},
+            {"effectivity-module-3", 10},
+            {"speed-module-3", 10},
+            {"productivity-module-3", 10},
+            {"processing-unit", 200},
+            {"electric-engine-unit", 100},
+            {"alien-cable", 1000}
+            
+        },
+        result = "power-armor-mk3"
+    },
+    {
+        type = "recipe",
+        name = "power-armor-mk4",
+        enabled = false,
+        energy_required = 35,
+        ingredients =
+        {
+            {"power-armor-mk3", 2},
+            {"effectivity-module-3",50},
+            {"speed-module-3", 50},
+            {"productivity-module-3", 50},
+            {"processing-unit", 1000},
+            {"electric-engine-unit", 400},
+            {"alien-cable", 5000}
+            
+        },
+        result = "power-armor-mk4"
+    },
 })
 
 data.raw["recipe"]["basic-exoskeleton-equipment"].ingredients =
@@ -237,8 +273,11 @@ data.raw["recipe"]["power-armor"].ingredients =
 
 data.raw["recipe"]["power-armor-mk2"].ingredients =
 {
-    {"power-armor", 1}, {"effectivity-module-3", 5},
-    {"speed-module-3", 5}, {"processing-unit", 100},
+    {"power-armor", 1},
+    {"effectivity-module-3", 5},
+    {"speed-module-3", 5},
+    {"processing-unit", 100},
+    {"electric-engine-unit", 50},
     {"alien-cable", 400}
     
     -- 5 T3 Speed module

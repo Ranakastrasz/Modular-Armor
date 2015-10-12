@@ -1,6 +1,67 @@
 data:extend(
 {
     {
+        type = "armor",
+        name = "power-armor-mk3",
+        icon = "__base__/graphics/icons/power-armor-mk2.png",
+        flags = {"goes-to-main-inventory"},
+        resistances =
+        {
+            {
+                type = "physical",
+                decrease = 12,
+                percent = 45
+            },
+            {
+                type = "acid",
+                decrease = 12,
+                percent = 45
+            },
+            {
+                type = "explosion",
+                decrease = 25,
+                percent = 55
+            }
+        },
+        durability = 30000,
+        subgroup = "armor",
+        order = "f[power-armor-mk3]",
+        stack_size = 1,
+        equipment_grid = {width = 12, height = 12}
+    },
+
+    {
+        type = "armor",
+        name = "power-armor-mk4",
+        icon = "__base__/graphics/icons/power-armor-mk2.png",
+        flags = {"goes-to-main-inventory"},
+        resistances =
+        {
+            {
+                type = "physical",
+                decrease = 15,
+                percent = 50
+            },
+            {
+                type = "acid",
+                decrease = 15,
+                percent = 50
+            },
+            {
+                type = "explosion",
+                decrease = 30,
+                percent = 60
+            }
+        },
+        durability = 40000,
+        subgroup = "armor",
+        order = "g[power-armor-mk4]",
+        stack_size = 1,
+        equipment_grid = {width = 15, height = 15}
+    },
+  
+  ----
+    {
         type = "item",
         name = "solar-panel-equipment-mk2",
         icon = "__Modular-Armor__/graphics/icons/solar-panel-large-equipment.png",

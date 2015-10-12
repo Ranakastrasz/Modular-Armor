@@ -288,6 +288,46 @@ data:extend(
         },
         order = "g-c-a"
     }]]--
+    {
+        type = "technology",
+        name = "power-armor-3",
+        icon = "__base__/graphics/technology/power-armor-mk2.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = "power-armor-mk3"
+            }
+        },
+        prerequisites = {"power-armor-2"},
+        unit =
+        {
+            count = 500,
+            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 2}, {"alien-science-pack", 5}},
+            time = 35
+        },
+        order = "g-c-c"
+    },
+    {
+        type = "technology",
+        name = "power-armor-4",
+        icon = "__base__/graphics/technology/power-armor-mk2.png",
+        effects =
+        {
+            {
+                type = "unlock-recipe",
+                recipe = "power-armor-mk4"
+            }
+        },
+        prerequisites = {"power-armor-3"},
+        unit =
+        {
+            count = 1000,
+            ingredients = {{"science-pack-1", 2}, {"science-pack-2", 3}, {"science-pack-3", 5}, {"alien-science-pack", 5}},
+            time = 60
+        },
+        order = "g-c-d"
+    },
 }
 )
 
