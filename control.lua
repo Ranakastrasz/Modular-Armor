@@ -97,11 +97,11 @@ function onload()  -- this function
     if (global.ticking == nil) then
         global.ticking = 0
     end
-    game.on_event(defines.events.on_tick, ticker)
+    script.on_event(defines.events.on_tick, ticker)
 end
 
-game.on_init(onload)
-game.on_load(onload)
+script.on_init(onload)
+script.on_load(onload)
 
 
 function globalPrint(msg)
@@ -207,7 +207,7 @@ function tick()
                 --modularArmor.storedFuel = {["steam"] = 0, ["fusion"] = 0}
                 global.modularArmor[i] = modularArmor
                 
-                if (config.Debug == true) then
+                --[[if (config.Debug == true) then
             
                     game.always_day=true -- test mode stuff
                     thisPlayer.insert{name="basic-grenade",count=50}
@@ -250,7 +250,7 @@ function tick()
                     thisPlayer.insert{name="solar-panel",count=50}
                     thisPlayer.insert{name="basic-accumulator",count=50}
                     thisPlayer.insert{name="basic-mining-drill",count=50}
-                end
+                end]]--
                 
             end
             if (not modularArmor.storedFuel) then
@@ -470,6 +470,6 @@ function tick()
     
 	if (not shouldKeepTicking) then
 		global.ticking = nil
-		game.onevent(defines.events.ontick, nil)
+		script.onevent(defines.events.ontick, nil)
 	end
 end
