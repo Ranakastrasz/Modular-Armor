@@ -7,8 +7,8 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"solar-panel-equipment", 20},
-            {"processing-unit", 10}
+            {"solar-panel-equipment", 5},
+            {"processing-unit", 5}
         },
         result = "solar-panel-equipment-mk2"
     },
@@ -189,8 +189,8 @@ data.raw["recipe"]["basic-exoskeleton-equipment"].ingredients =
 data.raw["recipe"]["solar-panel-equipment"].ingredients =
 {
     {"solar-panel", 5},
-    {"advanced-circuit", 2},
-    {"steel-plate", 2}
+    {"advanced-circuit", 5},
+    {"steel-plate", 5}
 }
 
 --[[

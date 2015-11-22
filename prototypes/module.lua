@@ -58,15 +58,15 @@ data:extend(
     name = "solar-panel-equipment-mk2",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/solar-panel-large-equipment.png",
-      width = 96,
-      height = 96,
+      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk2-equipment.png",
+      width = 160,
+      height = 32,
       priority = "medium"
     },
     shape =
     {
-      width = 3,
-      height = 3,
+      width = 5,
+      height = 1,
       type = "full"
     },
     energy_source =
@@ -74,7 +74,7 @@ data:extend(
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "26kW"
+    power = "14.5kW"
   },
   {
     type = "generator-equipment",
@@ -302,7 +302,7 @@ thisEquipment.energy_source =
 }]]--
 
 thisEquipment = data.raw["solar-panel-equipment"]["solar-panel-equipment"]
-thisEquipment.power = "2.5kW" -- 10 - 15 - 75
+thisEquipment.power = "7.5kW" -- 10 - 15 - 75
 
 thisEquipment = data.raw["generator-equipment"]["fusion-reactor-equipment"]
 thisEquipment.power = "0W" -- 75 
