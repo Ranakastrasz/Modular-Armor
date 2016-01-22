@@ -61,7 +61,7 @@ data:extend(
     },
   
   ----
-    {
+    --[[{
         type = "item",
         name = "solar-panel-equipment-mk2",
         icon = "__Modular-Armor__/graphics/icons/solar-panel-large-equipment.png",
@@ -70,7 +70,7 @@ data:extend(
         subgroup = "equipment",
         order = "a[energy-source]-c[solar-panel]-b[solar-panel-mk2]",
         stack_size = 20
-    },
+    },]]--
     {
         type = "item",
         name = "engine-equipment",
@@ -190,6 +190,6 @@ data.raw["item"]["basic-exoskeleton-equipment"].icon = "__Modular-Armor__/graphi
 data.raw["item"]["basic-exoskeleton-equipment"].order = "e[exoskeleton]-b[basic-exoskeleton-equipment]"
 
 
-data.raw["item"]["solar-panel-equipment"].order = "a[energy-source]-c[solar-panel]-a[solar-panel]"
+--data.raw["item"]["solar-panel-equipment"].order = "a[energy-source]-c[solar-panel]-a[solar-panel]"
 
 data.raw["item"]["fusion-reactor-equipment"].order = "a[energy-source]-d[fusion-reactor-equipment]-a[fusion-reactor-equipment]"

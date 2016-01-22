@@ -29,7 +29,7 @@ Commercial usage: Not allowed
 
     Fusion: 112.5 MJ, 120
     
-    
+    Set Burner to Blue tier??
 ]]--
 --[[
     Figure out if you can access energy network with the get network command thinggy.
@@ -401,11 +401,13 @@ function tick()
                                     -- Have enough fuel already.
                                 end
                                 energyToGenerate = math.min(modularArmor.storedFuel[i],energyWanted)
+                                
                                 modularArmor.storedFuel[i] = modularArmor.storedFuel[i] - energyToGenerate
                                 
                                     
                                 energyToAdd = energyToAdd + energyToGenerate
                                 
+                                --global.surface.pollute(thisPlayer.character.position, energyToGenerate*config.pollutionCoef)
                                 
                               
                                     

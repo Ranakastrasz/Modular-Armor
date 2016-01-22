@@ -307,6 +307,10 @@ thisEquipment.power = "7.5kW" -- 10 - 15 - 75
 thisEquipment = data.raw["generator-equipment"]["fusion-reactor-equipment"]
 thisEquipment.power = "0W" -- 75 
 
+-- 2400kw, 2400kj -> 20 dmg/800kj on normal turret, 3/sec
+-- 500kw, 550kj -> 20 dmg/500kj, 3/sec. Cheaper per damage as is.
+-- 200kw, 12000kj, 20 dmg/800kj, 10/sec.
+
 -- 4x damage per shot is 20
 thisEquipment = data.raw["active-defense-equipment"]["basic-laser-defense-equipment"]
 --thisEquipment.energy_source.buffer_capacity = "550kJ" -- 11 -> 110 -> 550

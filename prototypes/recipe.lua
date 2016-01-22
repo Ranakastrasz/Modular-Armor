@@ -1,6 +1,6 @@
 data:extend(
 {
-    {
+    --[[{
         type = "recipe",
         name = "solar-panel-equipment-mk2",
         enabled = "false",
@@ -11,7 +11,7 @@ data:extend(
             {"processing-unit", 5}
         },
         result = "solar-panel-equipment-mk2"
-    },
+    },]]--
     {
         type = "recipe",
         name = "basic-actuator-equipment",
@@ -186,12 +186,12 @@ data.raw["recipe"]["basic-exoskeleton-equipment"].ingredients =
     {"processing-unit", 10}
 }
 
-data.raw["recipe"]["solar-panel-equipment"].ingredients =
+--[[data.raw["recipe"]["solar-panel-equipment"].ingredients =
 {
     {"solar-panel", 5},
     {"advanced-circuit", 5},
     {"steel-plate", 5}
-}
+}]]--
 
 --[[
 {
