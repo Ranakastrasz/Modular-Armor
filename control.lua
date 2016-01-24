@@ -129,6 +129,10 @@ function ticker() -- run once per tickRate number of gameticks.
 	else
 	end
 end
+function sfxShield(id,positionz)
+    global.surface.create_entity{name="shield-effect-"..id, position={positionz.x-0.0, positionz.y+0.3}}
+
+end
 
 function tickDummies(id,positionz)
 
@@ -260,6 +264,13 @@ function tick()
                         modularArmor.storedFuel[i] = 1
                     end
                 end
+                if (not modularArmor.shieldSFX) then
+                    modularArmor.shieldSFX = {}
+                    modularArmor.shieldSFX.previousShield = 0
+                    modularArmor.shieldSFX.lastDamage = 0
+                    modularArmor.shieldSFX.direction = 0
+                    modularArmor.shieldSFX.lastSFX = 0
+                end
                 
                 -- Removed till I can figure out how to fix the entity.
                 --[[if modularArmor.units and modularArmor.units.name == "modular-accumulator-dummy" then
@@ -333,7 +344,6 @@ function tick()
                         end
                         
                         local shieldFraction = shieldHealth/shieldCap
-                        
                         local energyWanted = energyCap-energy
                         local transferRate = math.min(transferRate,energyWanted) -- We cant transfer energy without space to put it into
                         
@@ -428,6 +438,7 @@ function tick()
                         --globalPrint("energyToAdd"..energyToAdd)
                         
                         --globalPrint("energySpent"..energySpent)
+                        shieldHealth = 0
                         for i,equipment in ipairs(grid.equipment) do -- Basic Setup. Distribute as much to first in line, remainder to next, and next, till you run out.
                             if (equipment.max_energy ~= 0 and energyToAdd > 0) then          -- Poor Distribution method.
                                 local difference = equipment.max_energy - equipment.energy
@@ -439,15 +450,92 @@ function tick()
                                     energyToAdd = 0
                                     --break -- Removed since it interferes with shield.
                                 end
+                            end  
+                            if (equipment.max_shield ~= 0) then
                                 
-                            --elseif (equipment.max_shield ~= 0) then
-                                --equipment.shield = equipment.max_shield * shieldFraction -- This part is a quick autobalance. All shields get equal power.
+                                equipment.shield = equipment.max_shield * shieldFraction -- This part is a quick autobalance. All shields get equal power.
+                                shieldHealth = shieldHealth + equipment.shield
                                 --equipment.shield = equipment.shield - (equipment.max_shield*ShieldDecayPerTick)
-                            --else -- Ideally, I want to send power from high efficiency ones to lower efficiency ones. That minimizes power consumption.
+                            else -- Ideally, I want to send power from high efficiency ones to lower efficiency ones. That minimizes power consumption.
                                 
                             end
                         end
-                        
+                        --globalPrint("Shield Initial: "..shieldInitial)
+                        --globalPrint("Shield After: "..shieldHealth)
+                        --globalPrint("Shield Diff: "..shieldHealth-shieldInitial)
+                        --if game.tick==0 then
+                        if shieldCap > 0 then
+                            -- Always slide one tile per tick. Unless taking sudden damage, where you start at 14, occulate within range.
+                            -- Charging. Always show 1-4. When finished, go up through to 20 then stop.
+                            -- Taking Damage. 5-95% decending, occulate between 5 and 14. After 2 seconds (120 from last damage) go up to 20.
+                            -- 
+                            
+                            
+                            local currentSFX = 0
+                            if shieldHealth < modularArmor.shieldSFX.previousShield then
+                                -- Took damage last tick.
+                                modularArmor.shieldSFX.lastDamage = 0
+                            else
+                                -- Not taking damage this tick. Might have taken damage previously however.
+                                
+                            end
+                            if modularArmor.shieldSFX.lastDamage < 10 then
+                                -- Still showing damage taken
+                                -- Occulate between 5 and 14.
+                                -- Clamp between 5 and 14, and reverse.
+                                if (modularArmor.shieldSFX.lastSFX <= 5) then
+                                    currentSFX = 6
+                                    modularArmor.shieldSFX.direction = 1
+                                else
+                                    if modularArmor.shieldSFX.lastSFX >= 14 then
+                                        currentSFX = 13
+                                        modularArmor.shieldSFX.direction = -1
+                                    else
+                                        -- Already in range.
+                                        currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
+                                    end
+                                end
+                                
+                            else
+                                -- Damage no longer being taken.
+                                if shieldHealth < shieldCap then
+                                    -- Show 1-4 regen
+                                    -- Clamp between 1 and 4, and reverse.
+                                    -- Instead of 4, use 4 + 1 per 10%. Caps at 14 when it finishes.
+                                    if (modularArmor.shieldSFX.lastSFX <= 1) then
+                                        currentSFX = 2
+                                        modularArmor.shieldSFX.direction = 1
+                                    else
+                                        if modularArmor.shieldSFX.lastSFX >= (1+(shieldFraction*5)) then
+                                            --currentSFX = 3
+                                            modularArmor.shieldSFX.direction = -1
+                                        else
+                                            -- Already in range.
+                                        end
+                                    end
+                                    currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
+                                else
+                                    if modularArmor.shieldSFX.lastSFX ~= 0 and modularArmor.shieldSFX.lastSFX < 20 then
+                                        currentSFX = modularArmor.shieldSFX.lastSFX + 1
+                                    end
+                                    -- at 100%, go up to 20 and end.
+                                end
+                            end
+                            --globalPrint("lastSFX: "..modularArmor.shieldSFX.lastSFX)
+                            --globalPrint("currentSFX: "..currentSFX)
+                            if currentSFX ~= 0 then
+                                
+                                sfxShield(math.floor(currentSFX),thisPlayer.character.position)
+                            else
+                                
+                            end
+                            
+                            modularArmor.shieldSFX.previousShield = shieldHealth
+                            modularArmor.shieldSFX.lastDamage = modularArmor.shieldSFX.lastDamage+1
+                            --modularArmor.shieldSFX.direction = 0
+                            modularArmor.shieldSFX.lastSFX = currentSFX
+                        end
+                        --end
                         
                                
                         --globalPrint("accumulatorEnergy "..accumulatorEnergy)

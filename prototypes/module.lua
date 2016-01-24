@@ -53,7 +53,7 @@ data:extend(
     },
     energy_per_shield = "3kJ" -- 3kj
   },
-  {
+  --[[{
     type = "solar-panel-equipment",
     name = "solar-panel-equipment-mk2",
     sprite = 
@@ -75,7 +75,7 @@ data:extend(
       usage_priority = "primary-output"
     },
     power = "14.5kW"
-  },
+  },]]--
   {
     type = "generator-equipment",
     name = "power-conduit-equipment",
