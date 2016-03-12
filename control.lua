@@ -395,11 +395,13 @@ function tick()
                                         --surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("-1 "..validFuel[1]), color={r=1,g=1,b=1}}
                                         --globalPrint(validFuel[1].." "..modularArmor.storedFuel[i])
                                     else
-                                        if (game.tick%config.ticksPerSecond == 0) then
-                                            global.surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("No "..(fuelVal.name).." fuel"), color={r=1,g=0.25,b=0.25}}
+                                        if config.LowFuelMessage then
+                                            if (game.tick%config.ticksPerSecond == 0) then
+                                                global.surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("No "..(fuelVal.name).." fuel"), color={r=1,g=0.25,b=0.25}}
 
-                                        else
-                                          
+                                            else
+                                              
+                                            end
                                         end
 
                                         -- Out of fuel
@@ -464,76 +466,79 @@ function tick()
                         --globalPrint("Shield After: "..shieldHealth)
                         --globalPrint("Shield Diff: "..shieldHealth-shieldInitial)
                         --if game.tick==0 then
-                        if shieldCap > 0 then
-                            -- Always slide one tile per tick. Unless taking sudden damage, where you start at 14, occulate within range.
-                            -- Charging. Always show 1-4. When finished, go up through to 20 then stop.
-                            -- Taking Damage. 5-95% decending, occulate between 5 and 14. After 2 seconds (120 from last damage) go up to 20.
-                            -- 
+                        if config.ShieldAnimation then
                             
-                            
-                            local currentSFX = 0
-                            if shieldHealth < modularArmor.shieldSFX.previousShield then
-                                -- Took damage last tick.
-                                modularArmor.shieldSFX.lastDamage = 0
-                            else
-                                -- Not taking damage this tick. Might have taken damage previously however.
+                            if shieldCap > 0 then
+                                -- Always slide one tile per tick. Unless taking sudden damage, where you start at 14, occulate within range.
+                                -- Charging. Always show 1-4. When finished, go up through to 20 then stop.
+                                -- Taking Damage. 5-95% decending, occulate between 5 and 14. After 2 seconds (120 from last damage) go up to 20.
+                                -- 
                                 
-                            end
-                            if modularArmor.shieldSFX.lastDamage < 10 then
-                                -- Still showing damage taken
-                                -- Occulate between 5 and 14.
-                                -- Clamp between 5 and 14, and reverse.
-                                if (modularArmor.shieldSFX.lastSFX <= 5) then
-                                    currentSFX = 6
-                                    modularArmor.shieldSFX.direction = 1
+                                
+                                local currentSFX = 0
+                                if shieldHealth < modularArmor.shieldSFX.previousShield then
+                                    -- Took damage last tick.
+                                    modularArmor.shieldSFX.lastDamage = 0
                                 else
-                                    if modularArmor.shieldSFX.lastSFX >= 14 then
-                                        currentSFX = 13
-                                        modularArmor.shieldSFX.direction = -1
-                                    else
-                                        -- Already in range.
-                                        currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
-                                    end
+                                    -- Not taking damage this tick. Might have taken damage previously however.
+                                    
                                 end
-                                
-                            else
-                                -- Damage no longer being taken.
-                                if shieldHealth < shieldCap then
-                                    -- Show 1-4 regen
-                                    -- Clamp between 1 and 4, and reverse.
-                                    -- Instead of 4, use 4 + 1 per 10%. Caps at 14 when it finishes.
-                                    if (modularArmor.shieldSFX.lastSFX <= 1) then
-                                        currentSFX = 2
+                                if modularArmor.shieldSFX.lastDamage < 10 then
+                                    -- Still showing damage taken
+                                    -- Occulate between 5 and 14.
+                                    -- Clamp between 5 and 14, and reverse.
+                                    if (modularArmor.shieldSFX.lastSFX <= 5) then
+                                        currentSFX = 6
                                         modularArmor.shieldSFX.direction = 1
                                     else
-                                        if modularArmor.shieldSFX.lastSFX >= (1+(shieldFraction*5)) then
-                                            --currentSFX = 3
+                                        if modularArmor.shieldSFX.lastSFX >= 14 then
+                                            currentSFX = 13
                                             modularArmor.shieldSFX.direction = -1
                                         else
                                             -- Already in range.
+                                            currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
                                         end
                                     end
-                                    currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
+                                    
                                 else
-                                    if modularArmor.shieldSFX.lastSFX ~= 0 and modularArmor.shieldSFX.lastSFX < 20 then
-                                        currentSFX = modularArmor.shieldSFX.lastSFX + 1
+                                    -- Damage no longer being taken.
+                                    if shieldHealth < shieldCap then
+                                        -- Show 1-4 regen
+                                        -- Clamp between 1 and 4, and reverse.
+                                        -- Instead of 4, use 4 + 1 per 10%. Caps at 14 when it finishes.
+                                        if (modularArmor.shieldSFX.lastSFX <= 1) then
+                                            currentSFX = 2
+                                            modularArmor.shieldSFX.direction = 1
+                                        else
+                                            if modularArmor.shieldSFX.lastSFX >= (1+(shieldFraction*5)) then
+                                                --currentSFX = 3
+                                                modularArmor.shieldSFX.direction = -1
+                                            else
+                                                -- Already in range.
+                                            end
+                                        end
+                                        currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
+                                    else
+                                        if modularArmor.shieldSFX.lastSFX ~= 0 and modularArmor.shieldSFX.lastSFX < 20 then
+                                            currentSFX = modularArmor.shieldSFX.lastSFX + 1
+                                        end
+                                        -- at 100%, go up to 20 and end.
                                     end
-                                    -- at 100%, go up to 20 and end.
                                 end
-                            end
-                            --globalPrint("lastSFX: "..modularArmor.shieldSFX.lastSFX)
-                            --globalPrint("currentSFX: "..currentSFX)
-                            if currentSFX ~= 0 then
+                                --globalPrint("lastSFX: "..modularArmor.shieldSFX.lastSFX)
+                                --globalPrint("currentSFX: "..currentSFX)
+                                if currentSFX ~= 0 then
+                                    
+                                    sfxShield(math.floor(currentSFX),thisPlayer.character.position)
+                                else
+                                    
+                                end
                                 
-                                sfxShield(math.floor(currentSFX),thisPlayer.character.position)
-                            else
-                                
+                                modularArmor.shieldSFX.previousShield = shieldHealth
+                                modularArmor.shieldSFX.lastDamage = modularArmor.shieldSFX.lastDamage+1
+                                --modularArmor.shieldSFX.direction = 0
+                                modularArmor.shieldSFX.lastSFX = currentSFX
                             end
-                            
-                            modularArmor.shieldSFX.previousShield = shieldHealth
-                            modularArmor.shieldSFX.lastDamage = modularArmor.shieldSFX.lastDamage+1
-                            --modularArmor.shieldSFX.direction = 0
-                            modularArmor.shieldSFX.lastSFX = currentSFX
                         end
                         --end
                         

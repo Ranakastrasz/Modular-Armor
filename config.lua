@@ -11,7 +11,8 @@ config.secondsPerTick = config.tickRate/config.ticksPerSecond -- To avoid divisi
 config.accumulatorEnergyCap = 5*1000*1000*1000 --entity_prototypes["laser-turret-dummy"].energy_source.buffer_capacity --5. * 1000 * 1000      -- need a string to proper value converter
 config.ConduitTransferRatePerEquipment = 400. * 1000 * config.secondsPerTick
 --local ShieldDecayPerTick              = (1./100.) * secondsPerTick
-
+config.LowFuelMessage = true
+config.ShieldAnimation = true
 
 config.fuelCoef = 1.0
 config.powerCoef = 50.0
