@@ -1,6 +1,6 @@
 require("prototypes.entities")
 require("prototypes.item")
-require("prototypes.module")
+require("prototypes.equipment")
 require("prototypes.recipe")
-require("prototypes.tech")
+require("prototypes.technology")
 require("prototypes.entity.Shield Sfx")

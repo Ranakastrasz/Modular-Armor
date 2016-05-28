@@ -33,19 +33,17 @@ Commercial usage: Not allowed
 ]]--
 --[[
     Figure out if you can access energy network with the get network command thinggy.
-    Alternately, do aura search, steal power from accumulators and roboports.
+    Alternately, do aura search, steal power from accumulators and roboports. /Done
     
     Add command to disable conduit mechanics.
-    -Shield pulse visial
+    -Shield pulse visial /Done
     -Better Energy Distribution
-    -Sheld autobalance
+    -Sheld autobalance /Done
     -Boost batteries. Add higher tier,larger battery(s) /Done
-    -Finish tech fixing
+    -Finish tech fixing /Done
     -Add GUI display for fuel.
     -Add custom fuel slot.
     -Method to discharge energy into network?
-    -Better energy distribution
-    -Shield autobalance
 ]]--
 
 
@@ -284,6 +282,9 @@ function tick()
                 
                 local armor = thisPlayer.get_inventory(defines.inventory.player_armor)[1] -- Check for armour presence.
                 
+                -- /c ((game.players[1].get_inventory(defines.inventory.player_armor)[1]).grid).put{equipment = "battery-equipment"}
+                -- /c ((game.players[1].get_inventory(defines.inventory.player_armor)[1]).grid).put{equipment = game.players[1].insert{name = "battery-equipment",count=1}}
+                
                 if (armor.valid_for_read) then
                     
                     if (armor.has_grid) then -- Check for grid existence.
@@ -396,7 +397,7 @@ function tick()
                                         --globalPrint(validFuel[1].." "..modularArmor.storedFuel[i])
                                     else
                                         if config.LowFuelMessage then
-                                            if (game.tick%config.ticksPerSecond == 0) then
+                                            if (game.tick%(config.ticksPerSecond*60) == 0) then
                                                 global.surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("No "..(fuelVal.name).." fuel"), color={r=1,g=0.25,b=0.25}}
 
                                             else
