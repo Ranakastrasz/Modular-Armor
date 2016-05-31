@@ -131,40 +131,6 @@ data:extend(
 
   {
     type = "item",
-    name = "combat-robot-dispenser-equipment",
-    icon = "__bobwarfare__/graphics/icons/distractor.png",
-    placed_as_equipment_result = "combat-robot-dispenser-equipment",
-    flags = {"goes-to-main-inventory"},
-    subgroup = "equipment",
-    order = "d[active-defense]-c[combat-robot-dispenser-equipment-2]",
-    stack_size = 20
-  },
-
-
-  {
-    type = "item",
-    name = "night-vision-equipment-2",
-    icon = "__base__/graphics/icons/night-vision-equipment.png",
-    placed_as_equipment_result = "night-vision-equipment-2",
-    flags = {"goes-to-main-inventory"},
-    subgroup = "equipment",
-    order = "f[night-vision]-b[night-vision-equipment-2]",
-    stack_size = 20
-  },
-  {
-    type = "item",
-    name = "night-vision-equipment-3",
-    icon = "__base__/graphics/icons/night-vision-equipment.png",
-    placed_as_equipment_result = "night-vision-equipment-3",
-    flags = {"goes-to-main-inventory"},
-    subgroup = "equipment",
-    order = "f[night-vision]-c[night-vision-equipment-3]",
-    stack_size = 20
-  },
-
-
-  {
-    type = "item",
     name = "solar-panel-equipment-2",
     icon = "__bobwarfare__/graphics/icons/solar-panel-equipment-2.png",
     placed_as_equipment_result = "solar-panel-equipment-2",

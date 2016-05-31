@@ -53,19 +53,42 @@ data:extend(
     },
     energy_per_shield = "3kJ" -- 3kj
   },
-  --[[{
+  {
     type = "solar-panel-equipment",
     name = "solar-panel-equipment-mk2",
     sprite = 
     {
       filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk2-equipment.png",
       width = 160,
-      height = 32,
+      height = 64,
       priority = "medium"
     },
     shape =
     {
       width = 5,
+      height = 2,
+      type = "full"
+    },
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "primary-output"
+    },
+    power = "29.0kW"
+  },
+  {
+    type = "solar-panel-equipment",
+    name = "solar-panel-equipment",
+    sprite = 
+    {
+      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk1-equipment.png",
+      width = 96,
+      height = 32,
+      priority = "medium"
+    },
+    shape =
+    {
+      width = 3,
       height = 1,
       type = "full"
     },
@@ -74,8 +97,8 @@ data:extend(
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "14.5kW"
-  },]]--
+    power = "7.5kW"
+  },
   {
     type = "generator-equipment",
     name = "power-conduit-equipment",
@@ -302,7 +325,7 @@ thisEquipment.energy_source =
 }]]--
 
 thisEquipment = data.raw["solar-panel-equipment"]["solar-panel-equipment"]
-thisEquipment.power = "7.5kW" -- 10 - 15 - 75
+thisEquipment.power = "7.5kW" -- 1.0 - 1.5 - 4.5
 
 thisEquipment = data.raw["generator-equipment"]["fusion-reactor-equipment"]
 thisEquipment.power = "0W" -- 75 
@@ -342,3 +365,5 @@ thisEquipment.attack_parameters.cooldown = 300.-- 150 * 2 = 300 (2.5 sec -> 5 se
 
 
 
+   
+   

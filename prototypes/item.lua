@@ -61,7 +61,7 @@ data:extend(
     },
   
   ----
-    --[[{
+    {
         type = "item",
         name = "solar-panel-equipment-mk2",
         icon = "__Modular-Armor__/graphics/icons/solar-panel-large-equipment.png",
@@ -70,7 +70,7 @@ data:extend(
         subgroup = "equipment",
         order = "a[energy-source]-c[solar-panel]-b[solar-panel-mk2]",
         stack_size = 20
-    },]]--
+    },
     {
         type = "item",
         name = "engine-equipment",

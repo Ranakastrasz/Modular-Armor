@@ -14,13 +14,22 @@ License: Free for personal desktop use only.
 Commercial usage: Not allowed
 ]]--
 
---[[          Gen , Size, Gen/size
-    Conduit :  250kw,  1x1, 150  kw                    400
-    Solar 1 :   75kw,  1x1,  75  kw  *0.7  52.5kw      115
-    Solar 2 : 1000kw,  3x3, 111.1kw *0.7 77.7kw        1350? 
-    Burner  :  500kw,  2x2, 125  kw                     500
-    Fusion  : 5000Mw,  4x4, 312.5kw                    4800
+--[[          Gen         , Size, Gen/size
+    Conduit :  400kw (5  ),  1x1, 400  kw                    400
+    Solar 1 :  325kw (7.5),  3x1, 125  kw  *0.7  87.5kw      87.5
+    Solar 2 : 1450kw (29.),  5x2, ~145kw *0.7 101.5kw        1450 
+    Burner  :  500kw (10),   2x2, 125  kw                     500
+    Fusion  : 5000Mw(100),   4x4, 312.5kw                    5000
     
+    Bob's mod
+    Fusion2  :  7.500Gw(150),  4x4, 468.75kw                    
+    Fusion3  : 12.500Gw(225),  4x4, 781.25kw                    
+    Fusion4  : 20.000Gw(300),  4x4, 1250 kw         
+
+    Solar 1 :  125kw  (2.5 ),  1x1, 125  kw  *0.7  87.5kw      87.5
+    Solar 2 :  200kw  (4.0 ),  1x1, 200  kw  *0.7 140. kw     140
+    Solar 3 :  325kw  (6.5 ),  1x1, 325  kw  *0.7 227.5kw     227.5
+    Solar 4 :  500kw (10   ),  1x1, 500  kw  *0.7 350. kw     350   
     
            Energy , duration
     Wood  :  4 MJ ,  40
@@ -69,7 +78,81 @@ Commercial usage: Not allowed
         --global.modularArmor = {}
     end
 })]]--
+if not data then
+    data = {}
+end
+function loadData()
 
+    if not data.loaded then
+        data.loaded = true
+    else
+        return
+    end
+    
+    if not data.fuelValues then
+        data.fuelValues = {}
+    end
+
+    if not data.conduitRates then
+        data.conduitRates = {}
+    end
+
+    data.ConduitTransferRatePerEquipment = 400. * 1000 * config.secondsPerTick
+
+    if not game.item_prototypes["bob-power-armor-mk5"] then
+        data.fuelValues =
+        {
+            [1] = {
+                type = "engine-equipment",
+                name = "burner",
+                power = 500. * 1000 * config.secondsPerTick,       -- Production per tick at max rate
+                threshhold = 0.99,                      -- Power must be below this value for this type of generator to run
+                {[1] = {"solid-fuel", 25.*1000*1000*config.fuelCoef}}, -- Value of each fuel type.
+                {[2] = {"coal"      ,  8.*1000*1000*config.fuelCoef}}, 
+                {[3] = {"raw-wood"  ,  4.*1000*1000*config.fuelCoef}},
+            },
+            [2] = {
+                type = "fusion-reactor-equipment",
+                name = "fusion",
+                threshhold = 0.98,
+                power = 5000. * 1000 * config.secondsPerTick,
+                {[1] = {"alien-fuel", 100.*1000*1000*config.fuelCoef}},
+            }
+        }
+    else    
+        data.fuelValues =
+        {
+            [1] = {
+                type = "fusion-reactor-equipment",
+                name = "fusion",
+                threshhold = 0.98,
+                power = 5000. * 1000 * config.secondsPerTick,
+                {[1] = {"alien-fuel", 100.*1000*1000*config.fuelCoef}},
+            },
+            [2] = {
+                type = "fusion-reactor-equipment-2",
+                name = "fusion",
+                threshhold = 0.98,
+                power = 7500. * 1000 * config.secondsPerTick,
+                {[1] = {"alien-fuel", 90.*1000*1000*config.fuelCoef}},
+            },
+            [3] = {
+                type = "fusion-reactor-equipment-3",
+                name = "fusion",
+                threshhold = 0.98,
+                power = 12500. * 1000 * config.secondsPerTick,
+                {[1] = {"alien-fuel", 80.*1000*1000*config.fuelCoef}},
+            },
+            [4] = {
+                type = "fusion-reactor-equipment-4",
+                name = "fusion",
+                threshhold = 0.98,
+                power = 20000. * 1000 * config.secondsPerTick,
+                {[1] = {"alien-fuel", 70.*1000*1000*config.fuelCoef}},
+            }
+        }
+    end
+end
 
 function verifySettings()
 	if (config.tickRate < 0) then
@@ -126,10 +209,6 @@ function ticker() -- run once per tickRate number of gameticks.
 		tick()
 	else
 	end
-end
-function sfxShield(id,positionz)
-    global.surface.create_entity{name="shield-effect-"..id, position={positionz.x-0.0, positionz.y+0.3}}
-
 end
 
 function tickDummies(id,positionz)
@@ -192,7 +271,10 @@ function tick()
     local players = game.players
         --globalPrint("tick")
     shouldKeepTicking = true -- Due to lack of any alternate method of detecting player's armor state, we have to always tick.
-
+    
+    if not data.loaded then
+        loadData()
+    end
     for i=1, #players do
         thisPlayer = players[i]
         if (thisPlayer.connected) then
@@ -258,16 +340,9 @@ function tick()
                 end
                 if (not modularArmor.storedFuel) then
                     modularArmor.storedFuel = {}
-                    for i,fuelVal in ipairs(config.fuelValues) do
+                    for i,fuelVal in ipairs(data.fuelValues) do
                         modularArmor.storedFuel[i] = 1
                     end
-                end
-                if (not modularArmor.shieldSFX) then
-                    modularArmor.shieldSFX = {}
-                    modularArmor.shieldSFX.previousShield = 0
-                    modularArmor.shieldSFX.lastDamage = 0
-                    modularArmor.shieldSFX.direction = 0
-                    modularArmor.shieldSFX.lastSFX = 0
                 end
                 
                 -- Removed till I can figure out how to fix the entity.
@@ -325,7 +400,7 @@ function tick()
                             else
                             end
                             
-                            for i,fuelVal in ipairs(config.fuelValues) do
+                            for i,fuelVal in ipairs(data.fuelValues) do
                                 if (equipment.name == fuelVal.type) then
                                 --globalPrint(equipment.name.." ? "..fuelType)
                                     if not fuelRate[i] then
@@ -340,7 +415,7 @@ function tick()
                             
                                 
                             if (equipment.name == "power-conduit-equipment") then -- Also count each conduit module.
-                                transferRate = transferRate + config.ConduitTransferRatePerEquipment
+                                transferRate = transferRate + data.ConduitTransferRatePerEquipment
                             end
                         end
                         
@@ -358,7 +433,7 @@ function tick()
                         accumulatorEnergy = accumulatorEnergy - energyToAdd -- Remove 
                         --globalPrint("Accumulator -- "..accumulatorEnergy)
 
-                        for i,fuelVal in ipairs(config.fuelValues) do -- Currently, Fusion power is being used when steam is supposed to be.
+                        for i,fuelVal in ipairs(data.fuelValues) do -- Currently, Fusion power is being used when steam is supposed to be.
                            --globalPrint("detected Generator "..(fuelRate.fuelType)..(fuelType))
                             if fuelRate[i] and fuelRate[i] > 0.0 then
                                 --globalPrint("detected Generator "..fuelRate.fuelType..fuelType)
@@ -397,7 +472,7 @@ function tick()
                                         --globalPrint(validFuel[1].." "..modularArmor.storedFuel[i])
                                     else
                                         if config.LowFuelMessage then
-                                            if (game.tick%(config.ticksPerSecond*60) == 0) then
+                                            if (game.tick%config.ticksPerSecond == 0) then
                                                 global.surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("No "..(fuelVal.name).." fuel"), color={r=1,g=0.25,b=0.25}}
 
                                             else
@@ -466,82 +541,6 @@ function tick()
                         --globalPrint("Shield Initial: "..shieldInitial)
                         --globalPrint("Shield After: "..shieldHealth)
                         --globalPrint("Shield Diff: "..shieldHealth-shieldInitial)
-                        --if game.tick==0 then
-                        if config.ShieldAnimation then
-                            
-                            if shieldCap > 0 then
-                                -- Always slide one tile per tick. Unless taking sudden damage, where you start at 14, occulate within range.
-                                -- Charging. Always show 1-4. When finished, go up through to 20 then stop.
-                                -- Taking Damage. 5-95% decending, occulate between 5 and 14. After 2 seconds (120 from last damage) go up to 20.
-                                -- 
-                                
-                                
-                                local currentSFX = 0
-                                if shieldHealth < modularArmor.shieldSFX.previousShield then
-                                    -- Took damage last tick.
-                                    modularArmor.shieldSFX.lastDamage = 0
-                                else
-                                    -- Not taking damage this tick. Might have taken damage previously however.
-                                    
-                                end
-                                if modularArmor.shieldSFX.lastDamage < 10 then
-                                    -- Still showing damage taken
-                                    -- Occulate between 5 and 14.
-                                    -- Clamp between 5 and 14, and reverse.
-                                    if (modularArmor.shieldSFX.lastSFX <= 5) then
-                                        currentSFX = 6
-                                        modularArmor.shieldSFX.direction = 1
-                                    else
-                                        if modularArmor.shieldSFX.lastSFX >= 14 then
-                                            currentSFX = 13
-                                            modularArmor.shieldSFX.direction = -1
-                                        else
-                                            -- Already in range.
-                                            currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
-                                        end
-                                    end
-                                    
-                                else
-                                    -- Damage no longer being taken.
-                                    if shieldHealth < shieldCap then
-                                        -- Show 1-4 regen
-                                        -- Clamp between 1 and 4, and reverse.
-                                        -- Instead of 4, use 4 + 1 per 10%. Caps at 14 when it finishes.
-                                        if (modularArmor.shieldSFX.lastSFX <= 1) then
-                                            currentSFX = 2
-                                            modularArmor.shieldSFX.direction = 1
-                                        else
-                                            if modularArmor.shieldSFX.lastSFX >= (1+(shieldFraction*5)) then
-                                                --currentSFX = 3
-                                                modularArmor.shieldSFX.direction = -1
-                                            else
-                                                -- Already in range.
-                                            end
-                                        end
-                                        currentSFX = modularArmor.shieldSFX.lastSFX + modularArmor.shieldSFX.direction
-                                    else
-                                        if modularArmor.shieldSFX.lastSFX ~= 0 and modularArmor.shieldSFX.lastSFX < 20 then
-                                            currentSFX = modularArmor.shieldSFX.lastSFX + 1
-                                        end
-                                        -- at 100%, go up to 20 and end.
-                                    end
-                                end
-                                --globalPrint("lastSFX: "..modularArmor.shieldSFX.lastSFX)
-                                --globalPrint("currentSFX: "..currentSFX)
-                                if currentSFX ~= 0 then
-                                    
-                                    sfxShield(math.floor(currentSFX),thisPlayer.character.position)
-                                else
-                                    
-                                end
-                                
-                                modularArmor.shieldSFX.previousShield = shieldHealth
-                                modularArmor.shieldSFX.lastDamage = modularArmor.shieldSFX.lastDamage+1
-                                --modularArmor.shieldSFX.direction = 0
-                                modularArmor.shieldSFX.lastSFX = currentSFX
-                            end
-                        end
-                        --end
                         
                                
                         --globalPrint("accumulatorEnergy "..accumulatorEnergy)
