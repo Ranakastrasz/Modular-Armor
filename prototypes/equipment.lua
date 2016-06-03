@@ -55,29 +55,6 @@ data:extend(
   },
   {
     type = "solar-panel-equipment",
-    name = "solar-panel-equipment-mk2",
-    sprite = 
-    {
-      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk2-equipment.png",
-      width = 160,
-      height = 64,
-      priority = "medium"
-    },
-    shape =
-    {
-      width = 5,
-      height = 2,
-      type = "full"
-    },
-    energy_source =
-    {
-      type = "electric",
-      usage_priority = "primary-output"
-    },
-    power = "29.0kW"
-  },
-  {
-    type = "solar-panel-equipment",
     name = "solar-panel-equipment",
     sprite = 
     {
@@ -98,6 +75,29 @@ data:extend(
       usage_priority = "primary-output"
     },
     power = "7.5kW"
+  },
+  {
+    type = "solar-panel-equipment",
+    name = "solar-panel-equipment-mk2",
+    sprite = 
+    {
+      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk2-equipment.png",
+      width = 160,
+      height = 64,
+      priority = "medium"
+    },
+    shape =
+    {
+      width = 5,
+      height = 2,
+      type = "full"
+    },
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "primary-output"
+    },
+    power = "30.0kW"
   },
   {
     type = "generator-equipment",

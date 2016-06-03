@@ -99,59 +99,25 @@ function loadData()
 
     data.ConduitTransferRatePerEquipment = 400. * 1000 * config.secondsPerTick
 
-    if not game.item_prototypes["bob-power-armor-mk5"] then
-        data.fuelValues =
-        {
-            [1] = {
-                type = "engine-equipment",
-                name = "burner",
-                power = 500. * 1000 * config.secondsPerTick,       -- Production per tick at max rate
-                threshhold = 0.99,                      -- Power must be below this value for this type of generator to run
-                {[1] = {"solid-fuel", 25.*1000*1000*config.fuelCoef}}, -- Value of each fuel type.
-                {[2] = {"coal"      ,  8.*1000*1000*config.fuelCoef}}, 
-                {[3] = {"raw-wood"  ,  4.*1000*1000*config.fuelCoef}},
-            },
-            [2] = {
-                type = "fusion-reactor-equipment",
-                name = "fusion",
-                threshhold = 0.98,
-                power = 5000. * 1000 * config.secondsPerTick,
-                {[1] = {"alien-fuel", 100.*1000*1000*config.fuelCoef}},
-            }
+    data.fuelValues =
+    {
+        [1] = {
+            type = "engine-equipment",
+            name = "burner",
+            power = 500. * 1000 * config.secondsPerTick,       -- Production per tick at max rate
+            threshhold = 0.99,                      -- Power must be below this value for this type of generator to run
+            {[1] = {"solid-fuel", 25.*1000*1000*config.fuelCoef}}, -- Value of each fuel type.
+            {[2] = {"coal"      ,  8.*1000*1000*config.fuelCoef}}, 
+            {[3] = {"raw-wood"  ,  4.*1000*1000*config.fuelCoef}},
+        },
+        [2] = {
+            type = "fusion-reactor-equipment",
+            name = "fusion",
+            threshhold = 0.98,
+            power = 5000. * 1000 * config.secondsPerTick,
+            {[1] = {"alien-fuel", 100.*1000*1000*config.fuelCoef}},
         }
-    else    
-        data.fuelValues =
-        {
-            [1] = {
-                type = "fusion-reactor-equipment",
-                name = "fusion",
-                threshhold = 0.98,
-                power = 5000. * 1000 * config.secondsPerTick,
-                {[1] = {"alien-fuel", 100.*1000*1000*config.fuelCoef}},
-            },
-            [2] = {
-                type = "fusion-reactor-equipment-2",
-                name = "fusion",
-                threshhold = 0.98,
-                power = 7500. * 1000 * config.secondsPerTick,
-                {[1] = {"alien-fuel", 90.*1000*1000*config.fuelCoef}},
-            },
-            [3] = {
-                type = "fusion-reactor-equipment-3",
-                name = "fusion",
-                threshhold = 0.98,
-                power = 12500. * 1000 * config.secondsPerTick,
-                {[1] = {"alien-fuel", 80.*1000*1000*config.fuelCoef}},
-            },
-            [4] = {
-                type = "fusion-reactor-equipment-4",
-                name = "fusion",
-                threshhold = 0.98,
-                power = 20000. * 1000 * config.secondsPerTick,
-                {[1] = {"alien-fuel", 70.*1000*1000*config.fuelCoef}},
-            }
-        }
-    end
+    }
 end
 
 function verifySettings()
