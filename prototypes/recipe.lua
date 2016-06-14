@@ -236,7 +236,7 @@ data.raw["recipe"]["energy-shield-mk2-equipment"].ingredients =
 }
 data.raw["recipe"]["fusion-reactor-equipment"].ingredients = 
 {
-      {"energy-shield-equipment",20},
+      {"energy-shield-equipment",10},
       {"processing-unit", 100},
       {"alien-cable", 200},
       {"steel-plate"  ,200}

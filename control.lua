@@ -117,6 +117,7 @@ function loadData()
             threshhold = 0.98,
             power = 5000. * 1000 * RanaMods.ModularArmor.config.secondsPerTick,
             {[1] = {"alien-fuel", 100.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
+            {[2] = {"rocket-fuel", 10.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
         }
     }
 end

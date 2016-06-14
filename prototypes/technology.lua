@@ -306,7 +306,7 @@ data:extend(
                 recipe = "power-armor-mk3"
             }
         },
-        prerequisites = {"power-armor-2","speed-module-3","effectivity-module-3"},
+        prerequisites = {"power-armor-2","speed-module-3","effectivity-module-3","productivity-module-3"},
         unit =
         {
             count = 500,
@@ -327,7 +327,7 @@ data:extend(
                 recipe = "power-armor-mk4"
             }
         },
-        prerequisites = {"power-armor-3","productivity-module-3"},
+        prerequisites = {"power-armor-3"},
         unit =
         {
             count = 1000,
@@ -366,13 +366,15 @@ data.raw["technology"]["battery-mk2-equipment"].icon = "__Modular-Armor__/graphi
 data.raw["technology"]["battery-mk2-equipment"].icon_size = 128
 data.raw["technology"]["battery-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}}
 
+
+
 -- Solar panel Mk1
 data.raw["technology"]["solar-panel-equipment"].prerequisites = {"armor-making-3","solar-energy"}
 --data.raw["technology"]["solar-panel-equipment"].order = "g-k-3-1"
 --data.raw["technology"]["solar-panel-equipment"].enabled = false
 --- Fusion Reactor
 data.raw["technology"]["fusion-reactor-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}} -- Additionally requires alien science.
-data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"power-armor"}
+data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"power-armor","energy-shield-equipment"}
 data.raw["technology"]["fusion-reactor-equipment"].order = "g-k-4-1"
 
 table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
