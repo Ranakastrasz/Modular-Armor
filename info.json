@@ -7,5 +7,5 @@
   "contact": "~",
   "homepage": "",
   "description": "Alters Modular Armor and adds new Modules",
-  "dependencies": ["base","? bobwarfare"]
+  "dependencies": ["base"]
 }

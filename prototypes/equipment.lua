@@ -340,6 +340,8 @@ thisEquipment = data.raw["active-defense-equipment"]["basic-laser-defense-equipm
 --thisEquipment.attack_parameters.ammo_type.energy_consumption = "500kJ" -- 10 -> 100 -> 500
 thisEquipment.attack_parameters.damage_modifier = 4.-- 5 * 4 = 20
 thisEquipment.attack_parameters.cooldown = 20.-- 20
+thisEquipment.attack_parameters.ammo_type.category = "laser-turret"
+
 
 
 thisEquipment = data.raw["active-defense-equipment"]["basic-electric-discharge-defense-equipment"]
@@ -347,6 +349,7 @@ thisEquipment = data.raw["active-defense-equipment"]["basic-electric-discharge-d
 --thisEquipment.attack_parameters.ammo_type.energy_consumption = "10000kJ" -- 200 - 2000 - 10000
 thisEquipment.attack_parameters.damage_modifier = 24.-- 3 * 10, 30 base. * 4 = 120. *2 = 240. mult = 24
 thisEquipment.attack_parameters.cooldown = 300.-- 150 * 2 = 300 (2.5 sec -> 5 sec)
+thisEquipment.attack_parameters.ammo_type.category = "laser-turret"
 
 --thisEquipment = data.raw["movement-bonus-equipment"]["basic-exoskeleton-equipment"]
 --thisEquipment.energy_consumption = "1000kW" -- 20 - 200 - 1000

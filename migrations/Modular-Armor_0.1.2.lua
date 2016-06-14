@@ -7,4 +7,6 @@ for i, player in ipairs(game.players) do
     if player.force.technologies["fusion-reactor-equipment"].researched then
         player.force.recipes["alien-fuel"].enabled = true
     end
+    player.force.technologies["solar-panel-equipment"].enabled = true
+
 end

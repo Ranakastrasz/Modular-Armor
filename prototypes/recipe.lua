@@ -20,7 +20,7 @@ data:extend(
         ingredients =
         {
             {"advanced-circuit", 2},
-            {"electric-engine-unit", 3},
+            {"engine-unit", 3},
             {"steel-plate", 5}
         },
         result = "basic-actuator-equipment"
@@ -183,6 +183,7 @@ data:extend(
 data.raw["recipe"]["basic-exoskeleton-equipment"].ingredients =
 {
     {"basic-actuator-equipment", 10},
+    {"electric-engine-unit", 30},
     {"processing-unit", 10}
 }
 
@@ -264,6 +265,7 @@ data.raw["recipe"]["power-armor"].ingredients =
     {"basic-modular-armor", 2},
     {"processing-unit", 100},
     {"electric-engine-unit", 30},
+    {"speed-module", 10},
     {"alien-cable", 100}
     -- 100 steel
     -- 10 artifact
@@ -274,8 +276,8 @@ data.raw["recipe"]["power-armor"].ingredients =
 data.raw["recipe"]["power-armor-mk2"].ingredients =
 {
     {"power-armor", 1},
-    {"effectivity-module-3", 5},
-    {"speed-module-3", 5},
+    {"effectivity-module-2", 10},
+    {"speed-module-2", 10},
     {"processing-unit", 100},
     {"electric-engine-unit", 50},
     {"alien-cable", 400}

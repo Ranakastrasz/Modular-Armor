@@ -8,7 +8,7 @@ function modValue(str) -- Multiply power values by powerCoef
     subSuf = string.sub(str,(pos)-string.len(str))
     --io.write(string.len(str).."\n")
     val = tonumber(subPre)
-    val = val*config.powerCoef
+    val = val*RanaMods.ModularArmor.config.powerCoef
     subPre = tostring(val)
     str = subPre..subSuf
     --io.write(subPre.."\n")

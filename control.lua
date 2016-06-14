@@ -1,5 +1,6 @@
 require "defines"
 require "config"
+require 'libs/EvoGUI'
 
 --[[
     This module handles the gameloop alteration, allowing conduit modules in power armor grid to tranfer energy between your power grid and your armor.
@@ -97,32 +98,32 @@ function loadData()
         data.conduitRates = {}
     end
 
-    data.ConduitTransferRatePerEquipment = 400. * 1000 * config.secondsPerTick
+    data.ConduitTransferRatePerEquipment = 400. * 1000 * RanaMods.ModularArmor.config.secondsPerTick
 
     data.fuelValues =
     {
         [1] = {
             type = "engine-equipment",
             name = "burner",
-            power = 500. * 1000 * config.secondsPerTick,       -- Production per tick at max rate
+            power = 500. * 1000 * RanaMods.ModularArmor.config.secondsPerTick,       -- Production per tick at max rate
             threshhold = 0.99,                      -- Power must be below this value for this type of generator to run
-            {[1] = {"solid-fuel", 25.*1000*1000*config.fuelCoef}}, -- Value of each fuel type.
-            {[2] = {"coal"      ,  8.*1000*1000*config.fuelCoef}}, 
-            {[3] = {"raw-wood"  ,  4.*1000*1000*config.fuelCoef}},
+            {[1] = {"solid-fuel", 25.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}}, -- Value of each fuel type.
+            {[2] = {"coal"      ,  8.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}}, 
+            {[3] = {"raw-wood"  ,  4.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
         },
         [2] = {
             type = "fusion-reactor-equipment",
             name = "fusion",
             threshhold = 0.98,
-            power = 5000. * 1000 * config.secondsPerTick,
-            {[1] = {"alien-fuel", 100.*1000*1000*config.fuelCoef}},
+            power = 5000. * 1000 * RanaMods.ModularArmor.config.secondsPerTick,
+            {[1] = {"alien-fuel", 100.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
         }
     }
 end
 
 function verifySettings()
-	if (config.tickRate < 0) then
-		config.tickRate = 1
+	if (RanaMods.ModularArmor.config.tickRate < 0) then
+		RanaMods.ModularArmor.config.tickRate = 1
 		throwError("Tick rate must be >= 0.")
 	end
 end
@@ -144,6 +145,11 @@ function onload()  -- this function
     if (global.ticking == nil) then
         global.ticking = 0
     end
+	--if not evo_gui then
+		--evo_gui = EvoGUI.new(Natural_Evolution_state)
+		--evo_gui = EvoGUI.new(Expansion_State)
+		
+	--end	
     script.on_event(defines.events.on_tick, ticker)
 end
 
@@ -153,7 +159,7 @@ script.on_load(onload)
 
 function globalPrint(msg)
   local players = game.players
-  if config.Debug then
+  if RanaMods.ModularArmor.config.Debug then
       for i=1, #players do
         players[i].print(msg)
       end
@@ -171,7 +177,7 @@ function tableIsEmpty(t)
 end
 
 function ticker() -- run once per tickRate number of gameticks.
-    if (game.tick % config.tickRate) == 0 then
+    if (game.tick % RanaMods.ModularArmor.config.tickRate) == 0 then
 		tick()
 	else
 	end
@@ -186,7 +192,7 @@ function tickDummies(id,positionz)
     end
     if not id.units.accumulator then
         id.units.accumulator = global.surface.create_entity{name = "laser-turret-dummy", position = positionz, force=game.forces.player}
-        id.units.accumulator.energy = config.accumulatorEnergyCap -- initialize energy levels
+        id.units.accumulator.energy = RanaMods.ModularArmor.config.accumulatorEnergyCap -- initialize energy levels
         id.previousEnergy = id.units.accumulator.energy -- and previous energy level from last tick
         id.units.accumulator.destructible = false -- Make dummy invulnerable.
     else
@@ -258,7 +264,7 @@ function tick()
                     --modularArmor.storedFuel = {["steam"] = 0, ["fusion"] = 0}
                     global.modularArmor[i] = modularArmor
                     
-                    --[[if (config.Debug == true) then
+                    --[[if (RanaMods.ModularArmor.config.Debug == true) then
                 
                         game.always_day=true -- test mode stuff
                         thisPlayer.insert{name="basic-grenade",count=50}
@@ -437,8 +443,8 @@ function tick()
                                         --surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("-1 "..validFuel[1]), color={r=1,g=1,b=1}}
                                         --globalPrint(validFuel[1].." "..modularArmor.storedFuel[i])
                                     else
-                                        if config.LowFuelMessage then
-                                            if (game.tick%config.ticksPerSecond == 0) then
+                                        if RanaMods.ModularArmor.config.LowFuelMessage then
+                                            if (game.tick%RanaMods.ModularArmor.config.ticksPerSecond == 0) then
                                                 global.surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("No "..(fuelVal.name).." fuel"), color={r=1,g=0.25,b=0.25}}
 
                                             else
@@ -461,7 +467,7 @@ function tick()
                                     
                                 energyToAdd = energyToAdd + energyToGenerate
                                 
-                                --global.surface.pollute(thisPlayer.character.position, energyToGenerate*config.pollutionCoef)
+                                --global.surface.pollute(thisPlayer.character.position, energyToGenerate*RanaMods.ModularArmor.config.pollutionCoef)
                                 
                               
                                     
@@ -513,7 +519,7 @@ function tick()
                         --globalPrint("transferRate "..transferRate)
                         --globalPrint("accumulatorEnergyCap "..accumulatorEnergyCap)
                         
-                        modularArmor.units.accumulator.energy = config.accumulatorEnergyCap - transferRate--*conversionRatio
+                        modularArmor.units.accumulator.energy = RanaMods.ModularArmor.config.accumulatorEnergyCap - transferRate--*conversionRatio
                         modularArmor.previousEnergy = modularArmor.units.accumulator.energy --*conversionRatio -- The additional accumulated energy over
                         
                         

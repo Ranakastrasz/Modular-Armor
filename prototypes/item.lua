@@ -64,7 +64,7 @@ data:extend(
     {
         type = "item",
         name = "solar-panel-equipment-mk2",
-        icon = "__Modular-Armor__/graphics/icons/solar-panel-large-equipment.png",
+        icon = "__Modular-Armor__/graphics/icons/solar-panel-mk2-equipment.png",
         placed_as_equipment_result = "solar-panel-equipment-mk2",
         flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
