@@ -21,4 +21,4 @@ RanaMods.ModularArmor.config.accumulatorEnergyCap = 5*1000*1000*1000 --entity_pr
 RanaMods.ModularArmor.config.LowFuelMessage = true
 
 RanaMods.ModularArmor.config.fuelCoef = 1.0
-RanaMods.ModularArmor.config.powerCoef = 50.0
+RanaMods.ModularArmor.config.powerCoef = 100.0
