@@ -98,14 +98,14 @@ function loadData()
         data.conduitRates = {}
     end
 
-    data.ConduitTransferRatePerEquipment = 400. * 1000 * RanaMods.ModularArmor.config.secondsPerTick
+    data.ConduitTransferRatePerEquipment = 8. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
 
     data.fuelValues =
     {
         [1] = {
             type = "engine-equipment",
             name = "burner",
-            power = 500. * 1000 * RanaMods.ModularArmor.config.secondsPerTick,       -- Production per tick at max rate
+            power = 10. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,       -- Production per tick at max rate
             threshhold = 0.99,                      -- Power must be below this value for this type of generator to run
             {[1] = {"solid-fuel", 25.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}}, -- Value of each fuel type.
             {[2] = {"coal"      ,  8.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}}, 
@@ -115,7 +115,7 @@ function loadData()
             type = "fusion-reactor-equipment",
             name = "fusion",
             threshhold = 0.98,
-            power = 5000. * 1000 * RanaMods.ModularArmor.config.secondsPerTick,
+            power = 100. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,
             {[1] = {"rocket-fuel", 10.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
             {[2] = {"alien-fuel", 200.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
         }
