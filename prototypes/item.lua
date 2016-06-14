@@ -164,7 +164,7 @@ data:extend(
         fuel_value = "200MJ",
         subgroup = "raw-resource",
         order = "c[alien-fuel]",
-        stack_size = 50
+        stack_size = 200
     },
     {
         type = "item",
@@ -173,7 +173,7 @@ data:extend(
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
         order = "c[alien-cable]",
-        stack_size = 200
+        stack_size = 500
     },
 }
 

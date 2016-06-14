@@ -66,6 +66,19 @@ data:extend(
     },
     {
         type = "recipe",
+        name = "alien-rocket-fuel",
+        enabled = "false",
+        energy_required = 120,
+        ingredients =
+        {
+            {"alien-artifact", 1},
+            {"rocket-fuel", 10},
+        },
+        result = "alien-fuel",
+        result_count = 10
+    },
+    {
+        type = "recipe",
         name = "alien-cable",
         enabled = "false",
         energy_required = 20,

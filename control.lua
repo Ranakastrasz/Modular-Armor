@@ -116,8 +116,7 @@ function loadData()
             name = "fusion",
             threshhold = 0.98,
             power = 100. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,
-            {[1] = {"rocket-fuel", 10.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
-            {[2] = {"alien-fuel", 200.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
+            {[1] = {"alien-fuel", 200.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
         }
     }
 end

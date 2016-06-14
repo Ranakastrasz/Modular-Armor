@@ -383,6 +383,12 @@ table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
         recipe = "alien-fuel"
     } -- Add alien fuel to Fusion reactor tech
 )
+table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
+    {
+        type = "unlock-recipe",
+        recipe = "alien-rocket-fuel"
+    } -- And rocket Fuel varient
+)
 
 data.raw["technology"]["armor-making-3"].prerequisites = {"armor-making-2","advanced-electronics"}
 
