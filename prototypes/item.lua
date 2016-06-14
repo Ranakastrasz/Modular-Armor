@@ -161,7 +161,7 @@ data:extend(
         name = "alien-fuel",
         icon = "__Modular-Armor__/graphics/icons/alien-fuel.png",
         flags = {"goes-to-main-inventory"},
-        fuel_value = "100MJ",
+        fuel_value = "200MJ",
         subgroup = "raw-resource",
         order = "c[alien-fuel]",
         stack_size = 50
