@@ -98,7 +98,7 @@ function loadData()
         data.conduitRates = {}
     end
 
-    data.ConduitTransferRatePerEquipment = 8. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
+    data.ConduitTransferRatePerEquipment = 4. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
 
     data.fuelValues =
     {
@@ -115,7 +115,7 @@ function loadData()
             type = "fusion-reactor-equipment",
             name = "fusion",
             threshhold = 0.98,
-            power = 100. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,
+            power = 96. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,
             {[1] = {"alien-fuel", 200.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
         }
     }

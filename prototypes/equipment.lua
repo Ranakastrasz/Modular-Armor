@@ -58,7 +58,7 @@ data:extend(
     name = "solar-panel-equipment",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk1-equipment.png",
+      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk1-equipment-3x1.png",
       width = 96,
       height = 32,
       priority = "medium"
@@ -81,7 +81,7 @@ data:extend(
     name = "solar-panel-equipment-mk2",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk2-equipment.png",
+      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk2-equipment-2x5.png",
       width = 160,
       height = 64,
       priority = "medium"
