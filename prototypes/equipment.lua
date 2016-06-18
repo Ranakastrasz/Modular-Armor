@@ -104,15 +104,15 @@ data:extend(
     name = "power-conduit-equipment",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment.png",
+      filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-1x3.png",
       width = 32,
-      height = 32,
+      height = 96,
       priority = "medium"
     },
     shape =
     {
       width = 1,
-      height = 1,
+      height = 3,
       type = "full"
     },
     energy_source =

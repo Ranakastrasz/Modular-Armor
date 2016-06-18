@@ -16,11 +16,11 @@ Commercial usage: Not allowed
 ]]--
 
 --[[          Gen         , Size, Gen/size
-    Conduit :  400kw (5  ),  1x1, 400  kw                    400
-    Solar 1 :  325kw (7.5),  3x1, 125  kw  *0.7  87.5kw      87.5
-    Solar 2 : 1450kw (29.),  5x2, ~145kw *0.7 101.5kw        1450 
-    Burner  :  500kw (10),   2x2, 125  kw                     500
-    Fusion  : 5000Mw(100),   4x4, 312.5kw                    5000
+    Conduit : 1200kW    ,  1x3, 400  kw                    
+    Solar 1 :  750kW    ,  3x1, 250  kw  *0.7 175 kW       
+    Solar 2 : 3000kW    ,  5x2, 300  kw  *0.7 210 kW       
+    Burner  : 1000kW    ,  2x2, 250  kw                    
+    Fusion  : 9600MW    ,  4x4, 600  kw                    
     
     Bob's mod
     Fusion2  :  7.500Gw(150),  4x4, 468.75kw                    
@@ -33,11 +33,11 @@ Commercial usage: Not allowed
     Solar 4 :  500kw (10   ),  1x1, 500  kw  *0.7 350. kw     350   
     
            Energy , duration
-    Wood  :  4 MJ ,  40
-    Coal  :  8 MJ ,  80
-    Fuel  : 25 MJ , 250
+    Wood  :  4 MJ ,  4
+    Coal  :  8 MJ ,  8
+    Fuel  : 25 MJ , 25
 
-    Fusion: 112.5 MJ, 120
+    Fusion: 200 MJ, 20.83
     
     Set Burner to Blue tier??
 ]]--
@@ -98,7 +98,7 @@ function loadData()
         data.conduitRates = {}
     end
 
-    data.ConduitTransferRatePerEquipment = 4. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
+    data.ConduitTransferRatePerEquipment = 12. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
 
     data.fuelValues =
     {
@@ -106,6 +106,7 @@ function loadData()
             type = "engine-equipment",
             name = "burner",
             power = 10. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,       -- Production per tick at max rate
+            pollution = 10 * RanaMods.ModularArmor.config.secondsPerTick , -- Produces this much pollution per tick at full power.
             threshhold = 0.99,                      -- Power must be below this value for this type of generator to run
             {[1] = {"solid-fuel", 25.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}}, -- Value of each fuel type.
             {[2] = {"coal"      ,  8.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}}, 
@@ -463,6 +464,7 @@ function tick()
                                 energyToGenerate = math.min(modularArmor.storedFuel[i],energyWanted)
                                 
                                 modularArmor.storedFuel[i] = modularArmor.storedFuel[i] - energyToGenerate
+                                
                                 
                                     
                                 energyToAdd = energyToAdd + energyToGenerate

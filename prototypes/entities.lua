@@ -46,7 +46,17 @@ return
 }
 end
 
+--[[
 
+        filename = "__base__/graphics/entity/sparks/sparks-01.png",
+        width = 39,
+        height = 34,
+        frame_count = 19,
+        line_length = 19,
+        shift = {-0.109375, 0.3125},
+        tint = { r = 1.0, g = 0.9, b = 0.0, a = 1.0 },
+        animation_speed = 0.3,
+]]--
 
 data:extend(
 {

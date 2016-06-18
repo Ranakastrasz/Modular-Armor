@@ -33,8 +33,8 @@ data:extend(
         ingredients =
         {
             --{"power-conduit-equipment", 1},
-            {"medium-electric-pole", 10},
-            {"advanced-circuit", 5}
+            {"medium-electric-pole", 30},
+            {"advanced-circuit", 10}
         },
         result = "power-conduit-equipment"
     },
