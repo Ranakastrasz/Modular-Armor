@@ -101,18 +101,18 @@ data:extend(
   },
   {
     type = "generator-equipment",
-    name = "power-conduit-equipment",
+name = "power-conduit-equipment",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-1x3.png",
+      filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-1x1.png",
       width = 32,
-      height = 96,
+      height = 32,
       priority = "medium"
     },
     shape =
     {
       width = 1,
-      height = 3,
+      height = 1,
       type = "full"
     },
     energy_source =

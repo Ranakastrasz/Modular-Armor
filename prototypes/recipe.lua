@@ -32,9 +32,8 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            --{"power-conduit-equipment", 1},
-            {"medium-electric-pole", 30},
-            {"advanced-circuit", 10}
+            {"medium-electric-pole", 10},
+            {"advanced-circuit", 5}
         },
         result = "power-conduit-equipment"
     },
