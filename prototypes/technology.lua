@@ -5,6 +5,7 @@ data:extend(
     type = "technology",
     name = "power-conduit-equipment",
     icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
+    icon_size = 128,
     prerequisites = {"armor-making-3","electric-energy-distribution-1"},
     effects =
     {
@@ -26,7 +27,7 @@ data:extend(
     name = "engine-equipment",
     icon = "__Modular-Armor__/graphics/technology/burner-generator-equipment.png",
     icon_size = 128,
-    prerequisites = {"armor-making-3","engine"},
+    prerequisites = {"armor-making-3","engine","productivity-module",},
     effects =
     {
       {
@@ -47,7 +48,7 @@ data:extend(
     name = "solar-panel-equipment-mk2",
     icon = "__Modular-Armor__/graphics/technology/solar-panel-mk2-equipment.png",
     icon_size = 128,
-    prerequisites = {"solar-panel-equipment"},
+    prerequisites = {"solar-panel-equipment","productivity-module"},
     effects =
     {
       {
@@ -212,7 +213,7 @@ data:extend(
     name = "battery-mk3-equipment",
     icon = "__Modular-Armor__/graphics/technology/battery-mk3-equipment.png",
     icon_size = 128,
-    prerequisites = {"battery-mk2-equipment"},
+    prerequisites = {"battery-mk2-equipment","effectivity-module-2"},
     effects =
     {
       {
@@ -340,18 +341,18 @@ data:extend(
 )
 
 -- Mk1 Shield
-data.raw["technology"]["energy-shield-equipment"].prerequisites = {"energy-shield-basic-equipment"}
+data.raw["technology"]["energy-shield-equipment"].prerequisites = {"energy-shield-basic-equipment","speed-module"}
 data.raw["technology"]["energy-shield-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}}
 data.raw["technology"]["energy-shield-equipment"].order = "g-e-b"
 
 -- Mk2 Shield
-data.raw["technology"]["energy-shield-mk2-equipment"].prerequisites = {"energy-shield-equipment"}
+data.raw["technology"]["energy-shield-mk2-equipment"].prerequisites = {"energy-shield-equipment","speed-module-3"}
 data.raw["technology"]["energy-shield-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}}
 data.raw["technology"]["energy-shield-mk2-equipment"].order = "g-e-c"
 
 
 -- Old Actuator
-data.raw["technology"]["basic-exoskeleton-equipment"].prerequisites = {"basic-actuator-equipment","electric-engine"}
+data.raw["technology"]["basic-exoskeleton-equipment"].prerequisites = {"basic-actuator-equipment","electric-engine","speed-module"}
 data.raw["technology"]["basic-exoskeleton-equipment"].order = "g-h-b"
 data.raw["technology"]["basic-exoskeleton-equipment"].icon = "__Modular-Armor__/graphics/technology/advanced-actuator-equipment.png"
 data.raw["technology"]["basic-exoskeleton-equipment"].icon_size = 128
@@ -361,7 +362,7 @@ data.raw["technology"]["basic-exoskeleton-equipment"].icon_size = 128
 data.raw["technology"]["battery-equipment"].icon = "__Modular-Armor__/graphics/technology/battery-mk1-equipment.png"
 data.raw["technology"]["battery-equipment"].icon_size = 128
     -- New Battery Icon
-        
+data.raw["technology"]["battery-mk2-equipment"].prerequisites = {"battery-equipment","effectivity-module"}
 data.raw["technology"]["battery-mk2-equipment"].icon = "__Modular-Armor__/graphics/technology/battery-mk2-equipment.png" -- Icon
 data.raw["technology"]["battery-mk2-equipment"].icon_size = 128
 data.raw["technology"]["battery-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}}
@@ -374,7 +375,7 @@ data.raw["technology"]["solar-panel-equipment"].prerequisites = {"armor-making-3
 --data.raw["technology"]["solar-panel-equipment"].enabled = false
 --- Fusion Reactor
 data.raw["technology"]["fusion-reactor-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}} -- Additionally requires alien science.
-data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"power-armor","energy-shield-equipment"}
+data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"power-armor","energy-shield-equipment","productivity-module-2"}
 data.raw["technology"]["fusion-reactor-equipment"].order = "g-k-4-1"
 
 table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
@@ -399,11 +400,4 @@ data.raw["technology"]["power-armor-2"].prerequisites = {"power-armor", "speed-m
 
 data.raw["technology"]["personal-roboport-equipment"].prerequisites = {"construction-robotics","armor-making-3"} -- Solar panel is no longer a prerequisite as there are many other power sources.
 
--- Alien Tech
-table.insert (data.raw["technology"]["alien-technology"].effects,
-    {
-        type = "unlock-recipe",
-        recipe = "alien-cable"
-    } -- Add alien cable to Alien tech.
-)
 

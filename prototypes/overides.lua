@@ -64,7 +64,6 @@ modEquipment("active-defense-equipment")
 end]]--
 for km, vm in pairs(data.raw.module) do
     if vm.name:find("productivity%-module") and vm.limitation then
-        table.insert(vm.limitation, "alien-cable")
         table.insert(vm.limitation, "alien-fuel")
     end
 end

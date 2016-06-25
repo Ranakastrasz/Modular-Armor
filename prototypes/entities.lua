@@ -46,20 +46,52 @@ return
 }
 end
 
---[[
-
-        filename = "__base__/graphics/entity/sparks/sparks-01.png",
-        width = 39,
-        height = 34,
-        frame_count = 19,
-        line_length = 19,
-        shift = {-0.109375, 0.3125},
-        tint = { r = 1.0, g = 0.9, b = 0.0, a = 1.0 },
-        animation_speed = 0.3,
-]]--
-
 data:extend(
 {
+    {
+        type = "explosion",
+        name = "conduit-sparks",
+        flags = {"placeable-off-grid","not-on-map"},
+        animation_speed = 1,
+        animations =
+        {
+          {
+            filename = "__base__/graphics/entity/sparks/sparks-01.png",
+            width = 39,
+            height = 34,
+            frame_count = 19,
+            line_length = 19,
+            shift = {-0.109375, 0.3125},
+            tint = { r = 1.0, g = 0.9, b = 0.0, a = 1.0 },
+            animation_speed = 0.3,
+            scale = 0.2,
+          }
+        },
+        light = {intensity = 1, size = 10},
+        --smoke = "smoke-fast",
+        --smoke_count = 2,
+        --smoke_slow_down_factor = 1
+        sound =
+        {
+          aggregation =
+          {
+            max_count = 1,
+            remove = true
+          },
+          variations =
+          {
+            {
+              filename = "__base__/sound/accumulator-working.ogg",
+              volume = 0.75
+            },
+            --{
+            --  filename = "__base__/sound/fight/small-explosion-2.ogg",
+            --  volume = 0.75
+            --}
+          }
+        }
+    },
+
   {
     type = "electric-turret",
     name = "laser-turret-dummy",

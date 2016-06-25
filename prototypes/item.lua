@@ -3,7 +3,7 @@ data:extend(
     {
         type = "armor",
         name = "power-armor-mk3",
-        icon = "__base__/graphics/icons/power-armor-mk2.png",
+        icon = "__Modular-Armor__/graphics/icons/power-armor-mk3.png",
         flags = {"goes-to-main-inventory"},
         resistances =
         {
@@ -33,7 +33,7 @@ data:extend(
     {
         type = "armor",
         name = "power-armor-mk4",
-        icon = "__base__/graphics/icons/power-armor-mk2.png",
+        icon = "__Modular-Armor__/graphics/icons/power-armor-mk4.png",
         flags = {"goes-to-main-inventory"},
         resistances =
         {
@@ -165,15 +165,6 @@ data:extend(
         subgroup = "raw-resource",
         order = "c[alien-fuel]",
         stack_size = 200
-    },
-    {
-        type = "item",
-        name = "alien-cable",
-        icon = "__Modular-Armor__/graphics/icons/alien-cable.png",
-        flags = {"goes-to-main-inventory"},
-        subgroup = "intermediate-product",
-        order = "c[alien-cable]",
-        stack_size = 500
     },
 }
 

@@ -98,7 +98,7 @@ function loadData()
         data.conduitRates = {}
     end
 
-    data.ConduitTransferRatePerEquipment = 4. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
+    data.ConduitTransferRatePerEquipment = 6. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
 
     data.fuelValues =
     {
@@ -404,8 +404,13 @@ function tick()
                         local storageRatio = newEnergy/energyCap
                         
                         accumulatorEnergy = accumulatorEnergy - energyToAdd -- Remove 
+                        -- SFX
+                        -- if energyToAdd >= 10000 and game.tick%60 == 0 then
+                        --    global.surface.create_entity{name = "conduit-sparks", position = thisPlayer.character.position, force=game.forces.neutral}
+                        --end
                         --globalPrint("Accumulator -- "..accumulatorEnergy)
-
+                        --global.surface.create_entity{name = "smoke-fast", position = thisPlayer.character.position, force=game.forces.neutral} 
+                        
                         for i,fuelVal in ipairs(data.fuelValues) do -- Currently, Fusion power is being used when steam is supposed to be.
                            --globalPrint("detected Generator "..(fuelRate.fuelType)..(fuelType))
                             if fuelRate[i] and fuelRate[i] > 0.0 then
