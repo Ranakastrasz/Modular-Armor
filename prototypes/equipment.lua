@@ -1,11 +1,14 @@
+
+data.raw["generator-equipment"]["fusion-reactor-equipment"] = nil
+
 data:extend(
 {
   {
     type = "energy-shield-equipment",
-    name = "energy-shield-basic-equipment",
+    name = "electrostatic-shield-equipment",
     sprite =
     {
-      filename = "__Modular-Armor__/graphics/equipment/energy-shield-equipment-basic.png",
+      filename = "__Modular-Armor__/graphics/equipment/electrostatic-shield-equipment.png",
       width = 32,
       height = 32,
       priority = "medium"
@@ -20,11 +23,11 @@ data:extend(
     energy_source =
     {
       type = "electric",
-      buffer_capacity =  "1000J",
-      input_flow_limit = "1500W",
+      buffer_capacity =  "10.kJ",
+      input_flow_limit = "15.kW",
       usage_priority = "primary-input"
     },
-    energy_per_shield = "1kJ"
+    energy_per_shield = "10kJ"
   },
 
   {
@@ -47,11 +50,11 @@ data:extend(
     energy_source =
     {
       type = "electric",
-      buffer_capacity = "40kJ", -- 18kj * 2.25
-      input_flow_limit = "80kW", -- 36kw * 2.25
+      buffer_capacity = "400kJ", -- 180kj * 2.25
+      input_flow_limit = "800kW", -- 360kw * 2.25
       usage_priority = "primary-input"
     },
-    energy_per_shield = "3kJ" -- 3kj
+    energy_per_shield = "30kJ" -- 30kj
   },
   {
     type = "solar-panel-equipment",
@@ -74,7 +77,7 @@ data:extend(
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "7.5kW"
+    power = "75kW"
   },
   {
     type = "solar-panel-equipment",
@@ -97,11 +100,11 @@ data:extend(
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "30.0kW"
+    power = "300kW"
   },
   {
-    type = "generator-equipment",
-name = "power-conduit-equipment",
+    type = "battery-equipment",
+    name = "power-conduit-equipment",
     sprite = 
     {
       filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-1x1.png",
@@ -118,12 +121,15 @@ name = "power-conduit-equipment",
     energy_source =
     {
       type = "electric",
-      usage_priority = "primary-output"
+      usage_priority = "primary-output",
+      buffer_capacity = "60kJ",
+      input_flow_limit = "60kW",
+      output_flow_limit = "60kW",
     },
-    power = "0W"
+    --power = "0W"
   },
   {
-    type = "generator-equipment",
+    type = "battery-equipment",
     name = "engine-equipment",
     sprite = 
     {
@@ -141,16 +147,19 @@ name = "power-conduit-equipment",
     energy_source =
     {
       type = "electric",
-      usage_priority = "primary-output"
+      usage_priority = "primary-output",
+      buffer_capacity = "100kJ",
+      input_flow_limit = "100kW",
+      output_flow_limit = "100kW",
     },
-    power = "0W"
+    --power = "0W"
   },
   {
     type = "movement-bonus-equipment",
-    name = "basic-actuator-equipment",
+    name = "actuator-equipment",
     sprite = 
     {            
-      filename = "__Modular-Armor__/graphics/equipment/basic-actuator-equipment.png",
+      filename = "__Modular-Armor__/graphics/equipment/actuator-equipment.png",
       width = 32,
       height = 64,
       priority = "medium"
@@ -166,8 +175,34 @@ name = "power-conduit-equipment",
       type = "electric",
       usage_priority = "secondary-input"
     },
-    energy_consumption = "2.5kW",
+    energy_consumption = "25kW",
     movement_bonus = 0.05
+  },
+  {
+    type = "generator-equipment",
+    name = "fusion-reactor-equipment",
+    sprite =
+    {
+      filename = "__base__/graphics/equipment/fusion-reactor-equipment.png",
+      width = 128,
+      height = 128,
+      priority = "medium"
+    },
+    shape =
+    {
+      width = 4,
+      height = 4,
+      type = "full"
+    },
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "primary-output",
+      buffer_capacity = "960kJ",
+      input_flow_limit = "960kW",
+      output_flow_limit = "960kW",
+    },
+    power = "9.6W"
   },
   {
     type = "battery-equipment",
@@ -188,9 +223,9 @@ name = "power-conduit-equipment",
     energy_source =
     {
       type = "electric",
-      buffer_capacity = ".2MJ",
-      input_flow_limit = "2MW",
-      output_flow_limit = "2MW",
+      buffer_capacity = "10MJ",
+      input_flow_limit = "100MW",
+      output_flow_limit = "100MW",
       usage_priority = "terciary"
     }
   },
@@ -213,9 +248,9 @@ name = "power-conduit-equipment",
     energy_source =
     {
       type = "electric",
-      buffer_capacity = ".5MJ",
-      input_flow_limit = "5MW",
-      output_flow_limit = "5MW",
+      buffer_capacity = "25MJ",
+      input_flow_limit = "250MW",
+      output_flow_limit = "250MW",
       usage_priority = "terciary"
     }
   },
@@ -238,9 +273,9 @@ name = "power-conduit-equipment",
     energy_source =
     {
       type = "electric",
-      buffer_capacity = "1.2MJ",
-      input_flow_limit = "12MW",
-      output_flow_limit = "12MW",
+      buffer_capacity = "60MJ",
+      input_flow_limit = "600MW",
+      output_flow_limit = "600MW",
       usage_priority = "terciary"
     }
   },
@@ -263,9 +298,9 @@ name = "power-conduit-equipment",
     energy_source =
     {
       type = "electric",
-      buffer_capacity = "3MJ",
-      input_flow_limit = "30MW",
-      output_flow_limit = "30MW",
+      buffer_capacity = "150MJ",
+      input_flow_limit = "1500MW",
+      output_flow_limit = "1500MW",
       usage_priority = "terciary"
     }
   }
@@ -324,18 +359,18 @@ thisEquipment.energy_source =
     usage_priority = "terciary"
 }]]--
 
-thisEquipment = data.raw["solar-panel-equipment"]["solar-panel-equipment"]
-thisEquipment.power = "7.5kW" -- 1.0 - 1.5 - 4.5
+--thisEquipment = data.raw["solar-panel-equipment"]["solar-panel-equipment"]
+--thisEquipment.power = "7.5kW" -- 1.0 - 1.5 - 4.5
 
-thisEquipment = data.raw["generator-equipment"]["fusion-reactor-equipment"]
-thisEquipment.power = "0W" -- 75 
+--thisEquipment = data.raw["generator-equipment"]["fusion-reactor-equipment"]
+--thisEquipment.power = "0W" -- 75 
 
 -- 2400kw, 2400kj -> 20 dmg/800kj on normal turret, 3/sec
 -- 500kw, 550kj -> 20 dmg/500kj, 3/sec. Cheaper per damage as is.
 -- 200kw, 12000kj, 20 dmg/800kj, 10/sec.
 
 -- 4x damage per shot is 20
-thisEquipment = data.raw["active-defense-equipment"]["basic-laser-defense-equipment"]
+thisEquipment = data.raw["active-defense-equipment"]["personal-laser-defense-equipment"]
 --thisEquipment.energy_source.buffer_capacity = "550kJ" -- 11 -> 110 -> 550
 --thisEquipment.attack_parameters.ammo_type.energy_consumption = "500kJ" -- 10 -> 100 -> 500
 thisEquipment.attack_parameters.damage_modifier = 4.-- 5 * 4 = 20
@@ -344,7 +379,7 @@ thisEquipment.attack_parameters.ammo_type.category = "laser-turret"
 
 
 
-thisEquipment = data.raw["active-defense-equipment"]["basic-electric-discharge-defense-equipment"]
+thisEquipment = data.raw["active-defense-equipment"]["discharge-defense-equipment"]
 --thisEquipment.energy_source.buffer_capacity = "20200kJ" -- 404 -> 4040 -> 20200
 --thisEquipment.attack_parameters.ammo_type.energy_consumption = "10000kJ" -- 200 - 2000 - 10000
 thisEquipment.attack_parameters.damage_modifier = 24.-- 3 * 10, 30 base. * 4 = 120. *2 = 240. mult = 24

@@ -1,4 +1,4 @@
-require "defines"
+--require "defines"
 require "config"
 require 'libs/EvoGUI'
 
@@ -98,14 +98,14 @@ function loadData()
         data.conduitRates = {}
     end
 
-    data.ConduitTransferRatePerEquipment = 6. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
+    data.ConduitTransferRatePerEquipment = 60. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
 
     data.fuelValues =
     {
         [1] = {
             type = "engine-equipment",
             name = "burner",
-            power = 10. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,       -- Production per tick at max rate
+            power = 100. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,       -- Production per tick at max rate
             pollution = 10 * RanaMods.ModularArmor.config.secondsPerTick , -- Produces this much pollution per tick at full power.
             threshhold = 0.99,                      -- Power must be below this value for this type of generator to run
             {[1] = {"solid-fuel", 25.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}}, -- Value of each fuel type.
@@ -116,7 +116,7 @@ function loadData()
             type = "fusion-reactor-equipment",
             name = "fusion",
             threshhold = 0.98,
-            power = 96. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,
+            power = 960. * 1000 * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick,
             {[1] = {"alien-fuel", 200.*1000*1000*RanaMods.ModularArmor.config.fuelCoef}},
         }
     }

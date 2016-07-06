@@ -1,0 +1,22 @@
+{
+  "technology":
+  [
+    ["energy-shield-basic-equipment", "electrostatic-shield-equipment"],
+    ["basic-actuator-equipment", "actuator-equipment"]
+  ],
+  "recipe":
+  [
+    ["energy-shield-basic-equipment", "electrostatic-shield-equipment"],
+    ["basic-actuator-equipment", "actuator-equipment"]
+  ],
+  "item":
+  [
+    ["energy-shield-basic-equipment", "electrostatic-shield-equipment"],
+    ["basic-actuator-equipment", "actuator-equipment"]
+  ],
+  "equipment":
+  [
+    ["energy-shield-basic-equipment", "electrostatic-shield-equipment"],
+    ["basic-actuator-equipment", "actuator-equipment"]
+  ]
+}

@@ -238,7 +238,8 @@ data:extend(
         }
       },
       sound = make_laser_sounds()
-    }
+    },
+    call_for_help_radius = 40
   },
 
 

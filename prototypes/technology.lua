@@ -66,15 +66,15 @@ data:extend(
   },
   {
     type = "technology",
-    name = "basic-actuator-equipment",
-    icon = "__Modular-Armor__/graphics/technology/basic-actuator-equipment.png",
+    name = "actuator-equipment",
+    icon = "__Modular-Armor__/graphics/technology/actuator-equipment.png",
     icon_size = 128,
     prerequisites = {"armor-making-3", "engine"},
     effects =
     {
       {
         type = "unlock-recipe",
-        recipe = "basic-actuator-equipment"
+        recipe = "actuator-equipment"
       }
     },
     unit =
@@ -108,15 +108,15 @@ data:extend(
   ----
   {
     type = "technology",
-    name = "energy-shield-basic-equipment",
-    icon = "__Modular-Armor__/graphics/technology/energy-shield-basic-equipment.png",
+    name = "electrostatic-shield-equipment",
+    icon = "__Modular-Armor__/graphics/technology/electrostatic-shield-equipment.png",
     icon_size = 128,
     prerequisites = {"armor-making-3"},
     effects =
     {
       {
         type = "unlock-recipe",
-        recipe = "energy-shield-basic-equipment"
+        recipe = "electrostatic-shield-equipment"
       }
     },
     unit =
@@ -341,7 +341,7 @@ data:extend(
 )
 
 -- Mk1 Shield
-data.raw["technology"]["energy-shield-equipment"].prerequisites = {"energy-shield-basic-equipment","speed-module"}
+data.raw["technology"]["energy-shield-equipment"].prerequisites = {"electrostatic-shield-equipment","speed-module"}
 data.raw["technology"]["energy-shield-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}}
 data.raw["technology"]["energy-shield-equipment"].order = "g-e-b"
 
@@ -352,10 +352,10 @@ data.raw["technology"]["energy-shield-mk2-equipment"].order = "g-e-c"
 
 
 -- Old Actuator
-data.raw["technology"]["basic-exoskeleton-equipment"].prerequisites = {"basic-actuator-equipment","electric-engine","speed-module"}
-data.raw["technology"]["basic-exoskeleton-equipment"].order = "g-h-b"
-data.raw["technology"]["basic-exoskeleton-equipment"].icon = "__Modular-Armor__/graphics/technology/advanced-actuator-equipment.png"
-data.raw["technology"]["basic-exoskeleton-equipment"].icon_size = 128
+data.raw["technology"]["exoskeleton-equipment"].prerequisites = {"actuator-equipment","electric-engine","speed-module"}
+data.raw["technology"]["exoskeleton-equipment"].order = "g-h-b"
+data.raw["technology"]["exoskeleton-equipment"].icon = "__Modular-Armor__/graphics/technology/exoskeleton-equipment.png"
+data.raw["technology"]["exoskeleton-equipment"].icon_size = 128
 
 ---Old Batteries
 

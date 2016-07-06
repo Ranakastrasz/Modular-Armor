@@ -15,7 +15,7 @@ data:extend(
     },
     {
         type = "recipe",
-        name = "basic-actuator-equipment",
+        name = "actuator-equipment",
         enabled = "false",
         energy_required = 10,
         ingredients =
@@ -24,7 +24,7 @@ data:extend(
             {"engine-unit", 5},
             {"steel-plate", 5},
         },
-        result = "basic-actuator-equipment"
+        result = "actuator-equipment"
     },
     {
         type = "recipe",
@@ -81,7 +81,7 @@ data:extend(
   
     {
         type = "recipe",
-        name = "energy-shield-basic-equipment",
+        name = "electrostatic-shield-equipment",
         enabled = false,
         energy_required = 10,
         ingredients =
@@ -90,7 +90,7 @@ data:extend(
             {"steel-plate", 2},
             {"copper-cable", 10},
         },
-        result = "energy-shield-basic-equipment"
+        result = "electrostatic-shield-equipment"
     },
     {
         type = "recipe",
@@ -182,9 +182,9 @@ data:extend(
     },
 })
 
-data.raw["recipe"]["basic-exoskeleton-equipment"].ingredients =
+data.raw["recipe"]["exoskeleton-equipment"].ingredients =
 {
-    {"basic-actuator-equipment", 10},
+    {"actuator-equipment", 10},
     {"electric-engine-unit", 30},
     {"processing-unit", 10},
     {"alien-artifact", 2},
@@ -227,7 +227,7 @@ data.raw["recipe"]["solar-panel-equipment"].ingredients =
 ]]--
 data.raw["recipe"]["energy-shield-equipment"].ingredients = 
 {
-      {"energy-shield-basic-equipment", 4},
+      {"electrostatic-shield-equipment", 4},
       {"advanced-circuit" , 5},
       {"steel-plate"      ,10},
       {"alien-artifact"     ,1},
@@ -252,12 +252,12 @@ data.raw["recipe"]["fusion-reactor-equipment"].ingredients =
 ----
 data.raw["recipe"]["heavy-armor"].ingredients =
 {
-    {"basic-armor",1},
+    {"light-armor",1},
     {"copper-plate", 100},
     {"steel-plate", 40}, -- 50
 }
 
-data.raw["recipe"]["basic-modular-armor"].ingredients =
+data.raw["recipe"]["modular-armor"].ingredients =
 {
     { "heavy-armor", 1},
     { "advanced-circuit", 40},
@@ -269,7 +269,7 @@ data.raw["recipe"]["basic-modular-armor"].ingredients =
 
 data.raw["recipe"]["power-armor"].ingredients =
 {
-    {"basic-modular-armor", 2},
+    {"modular-armor", 2},
     {"processing-unit", 100},
     {"electric-engine-unit", 30},
     {"speed-module", 10},

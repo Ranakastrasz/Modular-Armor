@@ -18,6 +18,10 @@ data:extend(
                 percent = 45
             },
             {
+                type = "fire",
+                percent = 85
+            },
+            {
                 type = "explosion",
                 decrease = 25,
                 percent = 55
@@ -46,6 +50,10 @@ data:extend(
                 type = "acid",
                 decrease = 15,
                 percent = 50
+            },
+            {
+                type = "fire",
+                percent = 90
             },
             {
                 type = "explosion",
@@ -93,9 +101,9 @@ data:extend(
     },
     {
         type = "item",
-        name = "energy-shield-basic-equipment",
-        icon = "__Modular-Armor__/graphics/icons/energy-shield-basic-equipment.png",
-        placed_as_equipment_result = "energy-shield-basic-equipment",
+        name = "electrostatic-shield-equipment",
+        icon = "__Modular-Armor__/graphics/icons/electrostatic-shield-equipment.png",
+        placed_as_equipment_result = "electrostatic-shield-equipment",
         flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "b[shield]-a[energy-shield-equipment]",
@@ -104,12 +112,12 @@ data:extend(
     },
     {
         type = "item",
-        name = "basic-actuator-equipment",
-        icon = "__Modular-Armor__/graphics/icons/basic-actuator-equipment.png",
-        placed_as_equipment_result = "basic-actuator-equipment",
+        name = "actuator-equipment",
+        icon = "__Modular-Armor__/graphics/icons/actuator-equipment.png",
+        placed_as_equipment_result = "actuator-equipment",
         flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
-        order = "e[exoskeleton]-b[basic-exoskeleton-equipment]",
+        order = "e[exoskeleton]-a[exoskeleton-equipment]",
         stack_size = 20
     },
     --[[{
@@ -177,8 +185,8 @@ data.raw["item"]["battery-mk2-equipment"].icon = "__Modular-Armor__/graphics/ico
 data.raw["item"]["energy-shield-equipment"].order = "b[shield]-b[energy-shield-equipment]" -- Insert basic shield at front of this list
 data.raw["item"]["energy-shield-mk2-equipment"].order = "b[shield]-c[energy-shield-equipment]"
 
-data.raw["item"]["basic-exoskeleton-equipment"].icon = "__Modular-Armor__/graphics/icons/advanced-actuator-equipment.png"
-data.raw["item"]["basic-exoskeleton-equipment"].order = "e[exoskeleton]-b[basic-exoskeleton-equipment]"
+data.raw["item"]["exoskeleton-equipment"].icon = "__Modular-Armor__/graphics/icons/exoskeleton-equipment.png"
+data.raw["item"]["exoskeleton-equipment"].order = "e[exoskeleton]-b[exoskeleton-equipment]"
 
 
 --data.raw["item"]["solar-panel-equipment"].order = "a[energy-source]-c[solar-panel]-a[solar-panel]"
