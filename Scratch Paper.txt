@@ -1,0 +1,99 @@
+All values 10x values in code, due to mult.
+
+
+             Gen         , Size, Gen/size
+    Conduit :  600kW    ,  1x1, 600  kw                    
+    Solar 1 :  750kW    ,  1x3, 250  kw  *0.7 175 kW       
+    Solar 2 : 3000kW    ,  2x5, 300  kw  *0.7 210 kW       
+    Burner  : 1000kW    ,  2x2, 250  kw                    
+    Fusion  : 9600MW    ,  4x4, 600  kw                    
+    
+    
+             :Capacity Hp, Eff GJ     , Rate GW , Charge , Size  , SCap , sRate GW, sCharge, Color(s)
+    Shield 0 :       5   , .100       ,   0.15  ,    1.5 , 1x1   ,    5 ,  0.15   ,   1.5  , Purple-Green
+    Shield 1 :      50   , .200       ,   2.4   ,   12   , 2x2   ,   20 ,  0.6    ,    3   , Red-Blue
+    Shield 2 :     350   , .300       ,   8.0   ,   26.6 , 3x3   ,   40 ,  0.89   ,    2.96, Blue-Red
+    
+              : Capacity MJ, Size, Rating, Color
+    Battery 1 :    100     , 1x1 ,  100  , Green
+    Battery 2 :    250     , 2x1 ,  125  , Green
+    Battery 3 :    600     , 2x2 ,  150  , Green
+    Battery 4 :   1500     , 4x2 ,  187.5, Green
+    
+    
+           Energy , duration
+    Wood  :  4 MJ ,  4
+    Coal  :  8 MJ ,  8
+    Fuel  : 25 MJ , 25
+    
+    Fusion: 200 MJ, 20.83
+    
+    
+    Bobs Mod
+    T1: 100%
+    T2: 150%
+    T3: 250%
+    T4: 400%
+    
+    Bob's mod : KW Power , Size,Rating, Solar Averages, Color
+
+    Solar 1   :     900  ,  1x3,   300, 210 ,   630   , Cyan
+    Solar 2   :   2,250  ,  1x5,   450, 315 , 1,575   , Blue
+    Solar 3   :   7,500  ,  2x5,   750, 525 , 5,250   , Yellow
+    Solar 4   :  16,800  ,  2x7, 1,200, 840 ,11,760   , Red
+    
+    Conduit 1 :     400  ,  1x1,   400                ,
+    Conduit 2 :   1,200  ,  2x1,   600                , 
+    Conduit 3 :   3,000  ,  3x1, 1,000                , 
+    Conduit 4 :   6,400  ,  4x1, 1,600                , 
+    
+    Burner 1  :   1,000  ,  2x2,   250, 95%           , 
+    Burner 2  :   1,500  ,  3x3,   375, 90%           , 
+    Burner 3  :   2,500  ,  3x3,   625, 85%           , 
+    Burner 4  :   4,000  ,  4x4, 1,000, 80%           , 
+    
+    Fusion1   :   9,600  ,  4x4,   600, 95%           , Cyan
+    Fusion2   :  22,500  ,  5x5,   900, 90%           , Blue    
+    Fusion3   :  54,000  ,  6x6, 1,500, 85%           , Yellow  
+    Fusion4   : 117,600  ,  7x7, 2,400, 80%           , Red
+    -------------
+              : Capacity MJ, Size, Rating, Color
+    Battery 1 :      100    , 1x1 ,   100 , Green
+    Battery 2 :      400    , 2x1 ,   200 , Green
+    Battery 3 :     1200    , 2x1 ,   600 , Blue
+    Battery 4 :     6400    , 2x2 , 1,600 , Blue
+    Battery 5 :    16000    , 2x2 , 4,000 , Red
+    Battery 6 :    76800    , 4x2 , 9,600 , Red
+    
+              : Capacity MJ, Size, Rating, Color Current
+    Battery 1 :      20    , 2x1 ,    10 , Green
+    Battery 2 :      50    , 2x1 ,    25 , Green
+    Battery 3 :     120    , 2x1 ,    60 , Blue
+    Battery 4 :     300    , 2x1 ,   150 , Blue
+    Battery 5 :     750    , 2x1 ,   375 , Red
+    Battery 6 :    1800    , 2x1 ,   900 , Red
+    
+    -------------
+             :Capacity Hp, Eff GJ     , Rate GW , Charge , Size  , SCap , sRate GW, sCharge, Color(s)
+    Shield 0 :      10   , .500       ,   0.5   ,      1 , 1x1   ,   10 ,  0.5    ,   1    , Purple-Green
+    Shield 1 :      80   , .200       ,   3.2   ,     16 , 2x2   ,   20 ,  0.8    ,   4    , Red-Blue
+    Shield 2 :     160   , .250       ,   6.0   ,     24 , 2x2   ,   40 ,  1.5    ,   6    , Blue-Red
+    Shield 3 :     720   , .300       ,  18.9   ,     63 , 3x3   ,   80 ,  2.1    ,   7    , Purple Green
+    Shield 4 :    1440   , .350       ,  25.2   ,     72 , 3x3   ,  160 ,  2.8    ,   8    , Purple Red
+    Shield 5 :    5120   , .400       ,  57.6   ,    144 , 4x4   ,  320 ,  3.6    ,   9    , Orange Green
+    Shield 6 :   10240   , .450       ,  72.0   ,    160 , 4x4   ,  640 ,  4.5    ,  10    , Cyan Red
+    
+    
+    Solar Angle
+    
+    1x3: 1x2,
+        0,-90,45
+        -15
+        115%
+    
+    1x5: 2x6
+    0,-90,55
+    -10
+    135
+    
+    

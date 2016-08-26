@@ -3,15 +3,15 @@ data:extend(
 
   {
     type = "technology",
-    name = "power-conduit-equipment",
-    icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
+    name = "semi-conductor-conduit-equipment",
+    icon = "__Modular-Armor__/graphics/technology/semi-conductor-conduit-equipment.png",
     icon_size = 128,
     prerequisites = {"armor-making-3","electric-energy-distribution-1"},
     effects =
     {
       {
         type = "unlock-recipe",
-        recipe = "power-conduit-equipment"
+        recipe = "semi-conductor-conduit-equipment"
       }
     },
     unit =
@@ -21,6 +21,27 @@ data:extend(
       time = 15
     },
     order = "g-k-1-1"
+  },
+  {
+    type = "technology",
+    name = "power-conduit-equipment",
+    icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
+    icon_size = 128,
+    prerequisites = {"semi-conductor-conduit-equipment","electric-energy-distribution-2","effectivity-module-2"},
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "power-conduit-equipment"
+      }
+    },
+    unit =
+    {
+      count = 200,
+      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}},
+      time = 45
+    },
+    order = "g-k-1-2"
   },
   {
     type = "technology",
@@ -45,15 +66,15 @@ data:extend(
   },
   {
     type = "technology",
-    name = "solar-panel-equipment-mk2",
-    icon = "__Modular-Armor__/graphics/technology/solar-panel-mk2-equipment.png",
+    name = "solar-panel-equipment-2",
+    icon = "__Modular-Armor__/graphics/technology/solar-panel-equipment-2.png",
     icon_size = 128,
     prerequisites = {"solar-panel-equipment","productivity-module"},
     effects =
     {
       {
         type = "unlock-recipe",
-        recipe = "solar-panel-equipment-mk2"
+        recipe = "solar-panel-equipment-2"
       }
     },
     unit =

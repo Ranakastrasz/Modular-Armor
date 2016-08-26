@@ -6,20 +6,8 @@ data:extend(
   {
     type = "energy-shield-equipment",
     name = "electrostatic-shield-equipment",
-    sprite =
-    {
-      filename = "__Modular-Armor__/graphics/equipment/electrostatic-shield-equipment.png",
-      width = 32,
-      height = 32,
-      priority = "medium"
-    },
-    shape =
-    {
-      width = 1,
-      height = 1,
-      type = "full"
-    },
     max_shield_value = 5,
+    energy_per_shield = "10kJ",
     energy_source =
     {
       type = "electric",
@@ -27,26 +15,26 @@ data:extend(
       input_flow_limit = "15.kW",
       usage_priority = "primary-input"
     },
-    energy_per_shield = "10kJ"
+    shape =
+    {
+      width = 1,
+      height = 1,
+      type = "full"
+    },
+    sprite =
+    {
+      filename = "__Modular-Armor__/graphics/equipment/electrostatic-shield-equipment.png",
+      width = 32,
+      height = 32,
+      priority = "medium"
+    },
   },
 
   {
     type = "energy-shield-equipment",
     name = "energy-shield-mk2-equipment",
-    sprite =
-    {
-      filename = "__Modular-Armor__/graphics/equipment/energy-shield-mk2-equipment-3x3.png",
-      width = 96,
-      height = 96,
-      priority = "medium"
-    },
-    shape =
-    {
-      width = 3,
-      height = 3,
-      type = "full"
-    },
     max_shield_value = 350, -- 150
+    energy_per_shield = "30kJ", -- 30kj
     energy_source =
     {
       type = "electric",
@@ -54,14 +42,26 @@ data:extend(
       input_flow_limit = "800kW", -- 360kw * 2.25
       usage_priority = "primary-input"
     },
-    energy_per_shield = "30kJ" -- 30kj
+    shape =
+    {
+      width = 3,
+      height = 3,
+      type = "full"
+    },
+    sprite =
+    {
+      filename = "__Modular-Armor__/graphics/equipment/energy-shield-mk2-equipment-3x3.png",
+      width = 96,
+      height = 96,
+      priority = "medium"
+    },
   },
   {
     type = "solar-panel-equipment",
     name = "solar-panel-equipment",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk1-equipment-3x1.png",
+      filename = "__Modular-Armor__/graphics/equipment/solar-panel-equipment-3x1.png",
       width = 96,
       height = 32,
       priority = "medium"
@@ -81,10 +81,10 @@ data:extend(
   },
   {
     type = "solar-panel-equipment",
-    name = "solar-panel-equipment-mk2",
+    name = "solar-panel-equipment-2",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/solar-panel-mk2-equipment-2x5.png",
+      filename = "__Modular-Armor__/graphics/equipment/solar-panel-equipment-2-2x5.png",
       width = 160,
       height = 64,
       priority = "medium"
@@ -100,14 +100,14 @@ data:extend(
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "300kW"
+    power = "325kW"
   },
   {
     type = "battery-equipment",
-    name = "power-conduit-equipment",
+    name = "semi-conductor-conduit-equipment",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-1x1.png",
+      filename = "__Modular-Armor__/graphics/equipment/semi-conductor-conduit-equipment-1x1.png",
       width = 32,
       height = 32,
       priority = "medium"
@@ -122,11 +122,47 @@ data:extend(
     {
       type = "electric",
       usage_priority = "primary-output",
-      buffer_capacity = "60kJ",
-      input_flow_limit = "60kW",
-      output_flow_limit = "60kW",
+      buffer_capacity = "40kJ",
+      input_flow_limit = "40kW",
+      output_flow_limit = "40kW",
     },
-    --power = "0W"
+    --power = "0W",
+    --[[rana_mod = {
+        powerGroup = "conduit",
+        powerType = "conduit",
+        fuelPower = "40kW",
+    },]]--
+  },
+  {
+    type = "battery-equipment",
+    name = "power-conduit-equipment",
+    sprite = 
+    {
+      filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-3x3.png",
+      width = 96,
+      height = 96,
+      priority = "medium"
+    },
+    shape =
+    {
+      width = 3,
+      height = 3,
+      type = "full"
+    },
+    energy_source =
+    {
+      type = "electric",
+      usage_priority = "primary-output",
+      buffer_capacity = "720kJ",
+      input_flow_limit = "720kW",
+      output_flow_limit = "720kW",
+    },
+    --power = "0W",
+    --[[rana_mod = {
+        powerGroup = "conduit",
+        powerType = "conduit",
+        fuelPower = "720kW",
+    },]]--
   },
   {
     type = "battery-equipment",
@@ -152,7 +188,12 @@ data:extend(
       input_flow_limit = "100kW",
       output_flow_limit = "100kW",
     },
-    --power = "0W"
+    --[[rana_mod = {
+        powerGroup = "burner",
+        powerType = "fuelled",
+        fuelPower = "100kW",
+    },]]--
+    --power = "0W",
   },
   {
     type = "movement-bonus-equipment",
@@ -202,8 +243,44 @@ data:extend(
       input_flow_limit = "960kW",
       output_flow_limit = "960kW",
     },
-    power = "9.6W"
+    power = "9.6W",
+    --[[rana_mod = {
+        powerGroup = "fusion",
+        powerType = "fuelled",
+        fuelPower = "9600kW",
+    },]]--
   },
+  --{
+  --  type = "battery-equipment",
+  --  name = "modular-fusion-reactor-equipment",
+  --  sprite =
+  --  {
+  --    filename = "__base__/graphics/equipment/fusion-reactor-equipment.png",
+  --    width = 128,
+  --    height = 128,
+  --    priority = "medium"
+  --  },
+  --  shape =
+  --  {
+  --    width = 4,
+  --    height = 4,
+  --    type = "full"
+  --  },
+  --  energy_source =
+  --  {
+  --    type = "electric",
+  --    usage_priority = "primary-output",
+  --    buffer_capacity = "960kJ",
+  --    input_flow_limit = "960kW",
+  --    output_flow_limit = "960kW",
+  --  },
+  --  --power = "9.6W",
+  --  --[[rana_mod = {
+  --      powerGroup = "fusion",
+  --      powerType = "fuelled",
+  --      fuelPower = "9600kW",
+  --  },]]--
+  --},
   {
     type = "battery-equipment",
     name = "battery-equipment",

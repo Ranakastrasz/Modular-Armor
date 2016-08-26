@@ -113,7 +113,9 @@ data:extend(
       buffer_capacity = "5000MJ",
       input_flow_limit = "5000MW",
       drain = "0kW",
-      usage_priority = "primary-input"
+      usage_priority = "primary-input",
+      render_no_network_icon = false,
+      render_no_power_icon = false
     },
     folded_animation =
     {
@@ -390,3 +392,5 @@ data:extend(
     production = "0kW"
   }
 })
+
+

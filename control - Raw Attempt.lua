@@ -67,12 +67,7 @@ end
 )
 
 script.on_configuration_changed(function(data)
-    -- If anything changes, at all, refresh everything. 
-    -- All mods altering this stuff must do so as well.
-    if data.mod_charges ~= nil then
-        refresh_equipment()
-    end
-    --[[if data.mod_changes ~= nil and data.mod_changes["Modular-Armor"] ~= nil then
+    if data.mod_changes ~= nil and data.mod_changes["Modular-Armor"] ~= nil then
         if data.mod_changes["Modular-Armor"].old_version == nil then
             -- "My Mod" was added to an existing game
             refresh_equipment()
@@ -80,7 +75,7 @@ script.on_configuration_changed(function(data)
             refresh_equipment()
 
         end
-    end]]--
+    end
 end)
 
 function globalPrint(msg)
@@ -112,9 +107,10 @@ function registerEquipmentGroup(iGroup)
 
     end
     if iGroup and iGroup.name and iGroup.type then
+        globalPrint(iGroup.name.." "..iGroup.type)
         
         for _, v in pairs(RanaMods.ModularArmor.equipmentData) do
-            if v.name == iGroup.name then
+            if v.name == iName then
                 return
             end
         end
@@ -132,12 +128,12 @@ function registerPrototype (iGroup,iPrototype,iType)
     end
     if iGroup and iGroup.name and iGroup.type then
         if iPrototype and iPrototype.name and iPrototype.power then
-            iPrototype.power = iPrototype.power * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
+
             for _, v in pairs(RanaMods.ModularArmor.equipmentData) do
                 if v.name == iGroup.name then
 
                     thisTable = nil
-                    --[[if iType == "equipment" then
+                    if iType == "equipment" then
                         if not v.equipment then
                             v.equipment = {}
                         end
@@ -150,19 +146,16 @@ function registerPrototype (iGroup,iPrototype,iType)
                     else
                         globalPrint("Invalid Type "..iType)
                         return "Invalid Type"
-                    end]]--
-                    if not v[iType] then
-                        v[iType] = {}
                     end
                     
-                    for _, data in pairs(v[iType]) do
+                    
+                    for _, data in pairs(thisTable) do
                         if data.name == iPrototype.name then
-                            -- if it already exists, overwrite it.
                             data = iPrototype
                             return
                         end
                     end
-                    table.insert(v[iType], iPrototype)
+                    table.insert(thisTable, iPrototype)
                     
                     break
                 end
@@ -177,11 +170,12 @@ end
 
 
 function reset_equipment()
+    globalPrint("reset_equipment")
     RanaMods.ModularArmor.equipmentData = {}
 end
 
 function refresh_equipment()
-    --[[luadata = {raw = loadstring(game.entity_prototypes["DATA_RAW"].order)()}
+    luadata = {raw = loadstring(game.entity_prototypes["DATA_RAW"].order)()}
     reset_equipment()
     for i, equipment in pairs (luadata.raw["battery-equipment"]) do
         if equipment.rana_mod then
@@ -203,22 +197,23 @@ function refresh_equipment()
                 registerPrototype({name = fuel.rana_mod.powerGroup,type = fuel.rana_mod.powerType},{name = fuel.name     ,power =  fuel.rana_mod.fuelPower},"fuel")
             end
         end
-    end]]--
+    end
     
     
-    registerEquipmentGroup({name = "conduit",type = "conduit"})
+    --[[registerEquipmentGroup({name = "conduit",type = "conduit"})
     registerEquipmentGroup({name = "burner" ,type = "fuelled"})
     registerEquipmentGroup({name = "fusion" ,type = "fuelled"})
 
-    registerPrototype({name = "conduit",type = "conduit"},{name = "semi-conductor-conduit-equipment"   ,power =  40 * 1000},"equipment")
-    registerPrototype({name = "conduit",type = "conduit"},{name = "power-conduit-equipment"            ,power = 720 * 1000},"equipment")
-    registerPrototype({name = "burner" ,type = "fuelled"},{name = "engine-equipment"                   ,power = 100 * 1000},"equipment")
-    registerPrototype({name = "fusion" ,type = "fuelled"},{name = "fusion-reactor-equipment"           ,power = 960 * 1000},"equipment")
-                    
-    registerPrototype({name = "burner" ,type = "fuelled"},{name = "solid-fuel"  ,power = 25     * 1000 * 1000},"fuel")
-    registerPrototype({name = "burner" ,type = "fuelled"},{name = "coal"        ,power = 8.     * 1000 * 1000},"fuel")
-    registerPrototype({name = "burner" ,type = "fuelled"},{name = "raw-wood"    ,power = 4.     * 1000 * 1000},"fuel")
-    registerPrototype({name = "fusion" ,type = "fuelled"},{name = "alien-fuel"  ,power = 200.   * 1000 * 1000},"fuel")
+    registerPrototype({name = "conduit",type = "conduit"},{name = "semi-conduit-conduit-equipment"     ,power =  40 * 1000},"equipment","Modular-Armor")
+    registerPrototype({name = "conduit",type = "conduit"},{name = "power-conduit-equipment"            ,power = 720 * 1000},"equipment","Modular-Armor")
+    registerPrototype({name = "burner" ,type = "fuelled"},{name = "engine-equipment"                   ,power = 100 * 1000},"equipment","Modular-Armor")
+    registerPrototype({name = "fusion" ,type = "fuelled"},{name = "fusion-reactor-equipment"           ,power = 960 * 1000},"equipment","Modular-Armor")
+                    ]]--   
+    --[[registerPrototype({name = "burner" ,type = "fuelled"},{name = "solid-fuel"  ,power = 25     * 1000 * 1000},"fuel","Modular-Armor")
+    registerPrototype({name = "burner" ,type = "fuelled"},{name = "coal"        ,power = 8.     * 1000 * 1000},"fuel","Modular-Armor")
+    registerPrototype({name = "burner" ,type = "fuelled"},{name = "raw-wood"    ,power = 4.     * 1000 * 1000},"fuel","Modular-Armor")
+    registerPrototype({name = "fusion" ,type = "fuelled"},{name = "alien-fuel"  ,power = 200.   * 1000 * 1000},"fuel","Modular-Armor")
+]]--
 
 end
 

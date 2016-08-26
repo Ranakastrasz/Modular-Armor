@@ -7,6 +7,7 @@ end
 if not RanaMods.ModularArmor.config then
      RanaMods.ModularArmor.config = {}
 end
+
 --RanaMods.ModularArmor.config.Debug = true
 RanaMods.ModularArmor.config.tickRate = 1-- Logic runs each time this many ticks pass
 RanaMods.ModularArmor.config.ticksPerSecond = 60

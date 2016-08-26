@@ -10,10 +10,10 @@ All power production and consumption values increased 10x. This is mainly to ens
 A lot of the more advanced equipment requires Alien artefacts to research and fabricate. some of it uses alien instead of blue science.
 Alien artefacts are generally used in the form of Superconducting Coils. 
 Generators
--Solar
+-Solar Panel
     Basic solar panel. Far cheaper, using a single solar panel, a few steel, and a few advanced circuits. Produces 15 kW.
     Cheaper and more powerful than before.
--Solar 2
+-Solar Panel Mk2
     Advanced Solar panel. Takes 20 Basic Solar Panels and 10 processing units. Produces 200 kW and takes up 3x3 space.
     More efficient, but somewhat harder to fit.
 -Burner
@@ -50,7 +50,7 @@ Shield
     Uses 10 basic shields, red circuits, steel, and some superconducting coil to produce.
 -Shield Generator Mk2
     Similar to old one, but 3x3 in size, and ~ 2.25x as strong.
-    
+    s
 Weapon
 -Laser Turret
     Damage increased from 5/shot to 20/shot, Energy consumption remains unchanged.

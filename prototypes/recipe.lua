@@ -2,7 +2,7 @@ data:extend(
 {
     {
         type = "recipe",
-        name = "solar-panel-equipment-mk2",
+        name = "solar-panel-equipment-2",
         enabled = "false",
         energy_required = 10,
         ingredients =
@@ -11,7 +11,7 @@ data:extend(
             {"processing-unit", 5},
             {"productivity-module", 1},
         },
-        result = "solar-panel-equipment-mk2"
+        result = "solar-panel-equipment-2"
     },
     {
         type = "recipe",
@@ -20,11 +20,23 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"advanced-circuit", 2},
+            {"advanced-circuit", 5},
             {"engine-unit", 5},
             {"steel-plate", 5},
         },
         result = "actuator-equipment"
+    },
+    {
+        type = "recipe",
+        name = "semi-conductor-conduit-equipment",
+        enabled = "false",
+        energy_required = 10,
+        ingredients =
+        {
+            {"medium-electric-pole", 10},
+            {"advanced-circuit", 5},
+        },
+        result = "semi-conductor-conduit-equipment"
     },
     {
         type = "recipe",
@@ -33,8 +45,11 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"medium-electric-pole", 10},
-            {"advanced-circuit", 5},
+            {"semi-conductor-conduit-equipment", 10},
+            {"substation", 10},
+            {"processing-unit", 10},
+            {"alien-artifact", 4},
+            {"effectivity-module-2", 1},
         },
         result = "power-conduit-equipment"
     },
@@ -86,8 +101,8 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"electronic-circuit", 1},
-            {"steel-plate", 2},
+            {"electronic-circuit", 10},
+            {"steel-plate", 4},
             {"copper-cable", 10},
         },
         result = "electrostatic-shield-equipment"
@@ -151,13 +166,12 @@ data:extend(
         energy_required = 30,
         ingredients =
         {
-            {"power-armor-mk2", 2},
-            {"effectivity-module-3", 10},
-            {"speed-module-3", 10},
-            {"productivity-module-3", 10},
-            {"processing-unit", 200},
-            {"electric-engine-unit", 100},
-            {"alien-artifact", 100},
+            {"power-armor-mk2", 1},
+            {"effectivity-module-3", 20},
+            {"speed-module-3", 20},
+            {"productivity-module-3", 20},
+            {"electric-engine-unit", 200},
+            {"alien-artifact", 200},
             
         },
         result = "power-armor-mk3"
@@ -169,13 +183,12 @@ data:extend(
         energy_required = 35,
         ingredients =
         {
-            {"power-armor-mk3", 2},
-            {"effectivity-module-3",50},
-            {"speed-module-3", 50},
-            {"productivity-module-3", 50},
-            {"processing-unit", 1000},
-            {"electric-engine-unit", 400},
-            {"alien-artifact", 500},
+            {"power-armor-mk3", 1},
+            {"effectivity-module-3",100},
+            {"speed-module-3", 100},
+            {"productivity-module-3",100},
+            {"electric-engine-unit", 500},
+            {"alien-artifact", 1000},
             
         },
         result = "power-armor-mk4"
@@ -269,7 +282,7 @@ data.raw["recipe"]["modular-armor"].ingredients =
 
 data.raw["recipe"]["power-armor"].ingredients =
 {
-    {"modular-armor", 2},
+    {"modular-armor", 1},
     {"processing-unit", 100},
     {"electric-engine-unit", 30},
     {"speed-module", 10},
