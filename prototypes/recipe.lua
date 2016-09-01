@@ -28,7 +28,7 @@ data:extend(
     },
     {
         type = "recipe",
-        name = "semi-conductor-conduit-equipment",
+        name = "semiconductor-conduit-equipment",
         enabled = "false",
         energy_required = 10,
         ingredients =
@@ -36,22 +36,22 @@ data:extend(
             {"medium-electric-pole", 10},
             {"advanced-circuit", 5},
         },
-        result = "semi-conductor-conduit-equipment"
+        result = "semiconductor-conduit-equipment"
     },
     {
         type = "recipe",
-        name = "power-conduit-equipment",
+        name = "superconductor-conduit-equipment",
         enabled = "false",
         energy_required = 10,
         ingredients =
         {
-            {"semi-conductor-conduit-equipment", 10},
+            {"semiconductor-conduit-equipment", 10},
             {"substation", 10},
             {"processing-unit", 10},
             {"alien-artifact", 4},
             {"effectivity-module-2", 1},
         },
-        result = "power-conduit-equipment"
+        result = "superconductor-conduit-equipment"
     },
     {
         type = "recipe",

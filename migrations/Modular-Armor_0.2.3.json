@@ -1,0 +1,26 @@
+{
+  "technology":
+  [
+    ["semi-conductor-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["power-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["superconducting-conduit-equipment", "superconductor-conduit-equipment"]
+  ],                            
+  "recipe":                     
+  [                             
+    ["semi-conductor-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["power-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["superconducting-conduit-equipment", "superconductor-conduit-equipment"]
+  ],                             
+  "item":                        
+  [                              
+    ["semi-conductor-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["power-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["superconducting-conduit-equipment", "superconductor-conduit-equipment"]
+  ],                             
+  "equipment":                   
+  [                              
+    ["semi-conductor-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["power-conduit-equipment", "semiconductor-conduit-equipment"],
+    ["superconducting-conduit-equipment", "superconductor-conduit-equipment"]
+  ]
+}

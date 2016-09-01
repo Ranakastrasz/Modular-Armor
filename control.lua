@@ -210,8 +210,8 @@ function refresh_equipment()
     registerEquipmentGroup({name = "burner" ,type = "fuelled"})
     registerEquipmentGroup({name = "fusion" ,type = "fuelled"})
 
-    registerPrototype({name = "conduit",type = "conduit"},{name = "semi-conductor-conduit-equipment"   ,power =  40 * 1000},"equipment")
-    registerPrototype({name = "conduit",type = "conduit"},{name = "power-conduit-equipment"            ,power = 720 * 1000},"equipment")
+    registerPrototype({name = "conduit",type = "conduit"},{name = "semiconductor-conduit-equipment"    ,power =  40 * 1000},"equipment")
+    registerPrototype({name = "conduit",type = "conduit"},{name = "superconducting-conduit-equipment"  ,power = 720 * 1000},"equipment")
     registerPrototype({name = "burner" ,type = "fuelled"},{name = "engine-equipment"                   ,power = 100 * 1000},"equipment")
     registerPrototype({name = "fusion" ,type = "fuelled"},{name = "fusion-reactor-equipment"           ,power = 960 * 1000},"equipment")
                     
@@ -372,6 +372,14 @@ function tick()
                     end
                 end
                 
+                if (not modularArmor.shieldData) then
+                    modularArmor.shieldData = {}
+                    modularArmor.shieldData.previousShield = 0
+                    modularArmor.shieldData.lastDamage = 0
+                    --modularArmor.shieldData.direction = 0
+                    --modularArmor.shieldData.lastSFX = 0
+                end
+                
                 -- Removed till I can figure out how to fix the entity.
                 --[[if modularArmor.units and modularArmor.units.name == "modular-accumulator-dummy" then
                     modularArmor.units.destroy()
@@ -459,8 +467,31 @@ function tick()
                         
                         
                         local shieldFraction = shieldHealth/shieldCap
+                        
+                        if shieldCap > 0 then
+                            
+                            if shieldHealth < modularArmor.shieldData.previousShield then
+                                -- Took damage last tick.
+                                modularArmor.shieldData.lastDamage = 0
+                            else
+                                -- Not taking damage this tick. Might have taken damage previously however.
+                                
+                            end
+                            if modularArmor.shieldData.lastDamage < 120 then
+                                transferRate = 0
+                            else
+                            end
+                            
+                            modularArmor.shieldData.previousShield = shieldHealth
+                            modularArmor.shieldData.lastDamage = modularArmor.shieldData.lastDamage+1
+                        else
+                            
+                        end
+                        
                         local energyWanted = energyCap-energy
+                        
                         local transferRate = math.min(transferRate,energyWanted) -- We cant transfer energy without space to put it into
+                        
                         
                         --local accumulatorEnergy = 0*conversionAntiRatio -- Temporarily removed.
                         local accumulatorEnergy = (modularArmor.units.accumulator.energy - modularArmor.previousEnergy)--*conversionAntiRatio -- How much energy was accumulated since last tick
@@ -567,7 +598,7 @@ function tick()
                         --globalPrint("energyToAdd"..energyToAdd)
                         
                         --globalPrint("energySpent"..energySpent)
-                        shieldHealth = 0
+                        --shieldHealth = 0
                         for x,equipment in ipairs(grid.equipment) do -- Basic Setup. Distribute as much to first in line, remainder to next, and next, till you run out.
                             if (equipment.max_energy ~= 0 and energyToAdd > 0) then          -- Poor Distribution method.
                                 local difference = equipment.max_energy - equipment.energy
@@ -583,20 +614,15 @@ function tick()
                             if (equipment.max_shield ~= 0) then
                                 
                                 equipment.shield = equipment.max_shield * shieldFraction -- This part is a quick autobalance. All shields get equal power.
-                                shieldHealth = shieldHealth + equipment.shield
+                                --shieldHealth = shieldHealth + equipment.shield
                                 --equipment.shield = equipment.shield - (equipment.max_shield*ShieldDecayPerTick)
                             else -- Ideally, I want to send power from high efficiency ones to lower efficiency ones. That minimizes power consumption.
                                 
                             end
+                            
                         end
-                        --globalPrint("Shield Initial: "..shieldInitial)
-                        --globalPrint("Shield After: "..shieldHealth)
-                        --globalPrint("Shield Diff: "..shieldHealth-shieldInitial)
                         
-                               
-                        --globalPrint("accumulatorEnergy "..accumulatorEnergy)
-                        --globalPrint("transferRate "..transferRate)
-                        --globalPrint("accumulatorEnergyCap "..accumulatorEnergyCap)
+                        
                         
                         modularArmor.units.accumulator.energy = RanaMods.ModularArmor.config.accumulatorEnergyCap - transferRate--*conversionRatio
                         modularArmor.previousEnergy = modularArmor.units.accumulator.energy --*conversionRatio -- The additional accumulated energy over

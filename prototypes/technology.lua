@@ -3,15 +3,15 @@ data:extend(
 
   {
     type = "technology",
-    name = "semi-conductor-conduit-equipment",
-    icon = "__Modular-Armor__/graphics/technology/semi-conductor-conduit-equipment.png",
+    name = "semiconductor-conduit-equipment",
+    icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
     icon_size = 128,
     prerequisites = {"armor-making-3","electric-energy-distribution-1"},
     effects =
     {
       {
         type = "unlock-recipe",
-        recipe = "semi-conductor-conduit-equipment"
+        recipe = "semiconductor-conduit-equipment"
       }
     },
     unit =
@@ -24,15 +24,15 @@ data:extend(
   },
   {
     type = "technology",
-    name = "power-conduit-equipment",
-    icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
+    name = "superconductor-conduit-equipment",
+    icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment-2.png",
     icon_size = 128,
-    prerequisites = {"semi-conductor-conduit-equipment","electric-energy-distribution-2","effectivity-module-2"},
+    prerequisites = {"semiconductor-conduit-equipment","electric-energy-distribution-2","effectivity-module-2"},
     effects =
     {
       {
         type = "unlock-recipe",
-        recipe = "power-conduit-equipment"
+        recipe = "superconductor-conduit-equipment"
       }
     },
     unit =

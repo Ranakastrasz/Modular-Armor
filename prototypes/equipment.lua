@@ -104,10 +104,10 @@ data:extend(
   },
   {
     type = "battery-equipment",
-    name = "semi-conductor-conduit-equipment",
+    name = "semiconductor-conduit-equipment",
     sprite = 
     {
-      filename = "__Modular-Armor__/graphics/equipment/semi-conductor-conduit-equipment-1x1.png",
+      filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-1x1.png",
       width = 32,
       height = 32,
       priority = "medium"
@@ -135,7 +135,7 @@ data:extend(
   },
   {
     type = "battery-equipment",
-    name = "power-conduit-equipment",
+    name = "superconductor-conduit-equipment",
     sprite = 
     {
       filename = "__Modular-Armor__/graphics/equipment/power-conduit-equipment-3x3.png",
