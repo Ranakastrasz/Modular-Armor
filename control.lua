@@ -1,6 +1,6 @@
 --require "defines"
 require "config"
-require 'libs/EvoGUI'
+--require 'libs/EvoGUI'
 --require "interfaces"
 
 --[[
@@ -62,16 +62,19 @@ script.on_init(function()
 		--evo_gui = EvoGUI.new(Expansion_State)
 		
 	--end	
-    script.on_event(defines.events.on_tick, ticker)
 end
 )
 
-script.on_configuration_changed(function(data)
+
+script.on_load(function(data)
     -- If anything changes, at all, refresh everything. 
     -- All mods altering this stuff must do so as well.
-    if data.mod_charges ~= nil then
+
+    refresh_equipment()
+    --[[if data.mod_charges ~= nil then
         refresh_equipment()
-    end
+    end]]--
+
     --[[if data.mod_changes ~= nil and data.mod_changes["Modular-Armor"] ~= nil then
         if data.mod_changes["Modular-Armor"].old_version == nil then
             -- "My Mod" was added to an existing game
@@ -211,7 +214,7 @@ function refresh_equipment()
     registerEquipmentGroup({name = "fusion" ,type = "fuelled"})
 
     registerPrototype({name = "conduit",type = "conduit"},{name = "semiconductor-conduit-equipment"    ,power =  40 * 1000},"equipment")
-    registerPrototype({name = "conduit",type = "conduit"},{name = "superconducting-conduit-equipment"  ,power = 720 * 1000},"equipment")
+    registerPrototype({name = "conduit",type = "conduit"},{name = "superconductor-conduit-equipment"   ,power = 720 * 1000},"equipment")
     registerPrototype({name = "burner" ,type = "fuelled"},{name = "engine-equipment"                   ,power = 100 * 1000},"equipment")
     registerPrototype({name = "fusion" ,type = "fuelled"},{name = "fusion-reactor-equipment"           ,power = 960 * 1000},"equipment")
                     
@@ -228,15 +231,17 @@ function ticker() -- run once per tickRate number of gameticks.
         
 	else
 	end
-    if (game.tick %  60) == 0 then
+    --[[if (game.tick %  60) == 0 then
         refresh_equipment()
-    end
+    end]]--
 end
+script.on_event(defines.events.on_tick, ticker)
 
 
 
 function tickDummies(id,iSurface,iPosition) -- This and kill dummies need to use a factory. I have no idea what that is. Need research
 
+    --GlobalPrint("2")
     if not id.units then
         id.units = {}
     else
@@ -266,6 +271,7 @@ function tickDummies(id,iSurface,iPosition) -- This and kill dummies need to use
     end]]--
 end
 function killDummies(id)
+    --GlobalPrint("1")
     if id.units then
         if id.units.accumulator then
             id.units.accumulator.destroy()
@@ -295,7 +301,7 @@ function tick()
     local thisPlayer = nil
     local players = game.players
     --globalPrint("tick")
-    shouldKeepTicking = true -- Due to lack of any alternate method of detecting player's armor state, we have to always tick.
+    --shouldKeepTicking = true -- Due to lack of any alternate method of detecting player's armor state, we have to always tick.
 
     
     for x=1, #players do
@@ -477,8 +483,8 @@ function tick()
                                 -- Not taking damage this tick. Might have taken damage previously however.
                                 
                             end
-                            if modularArmor.shieldData.lastDamage < 120 then
-                                transferRate = 0
+                            if modularArmor.shieldData.lastDamage < 300 then
+                                transferRate = transferRate * 0.1
                             else
                             end
                             
@@ -643,8 +649,8 @@ function tick()
             
     end
     
-	if (not shouldKeepTicking) then
+	--[[if (not shouldKeepTicking) then
 		global.ticking = nil
 		script.onevent(defines.events.ontick, nil)
-	end
+	end]]--
 end
