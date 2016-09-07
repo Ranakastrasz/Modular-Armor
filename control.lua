@@ -135,7 +135,9 @@ function registerPrototype (iGroup,iPrototype,iType)
     end
     if iGroup and iGroup.name and iGroup.type then
         if iPrototype and iPrototype.name and iPrototype.power then
-            iPrototype.power = iPrototype.power * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
+            if iType == "equipment" then
+                iPrototype.power = iPrototype.power * RanaMods.ModularArmor.config.powerCoef *RanaMods.ModularArmor.config.secondsPerTick
+            end
             for _, v in pairs(RanaMods.ModularArmor.equipmentData) do
                 if v.name == iGroup.name then
 

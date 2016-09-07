@@ -7,8 +7,8 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"solar-panel-equipment", 4},
-            {"processing-unit", 5},
+            {"solar-panel-equipment", 10},
+            {"processing-unit", 10},
             {"productivity-module", 1},
         },
         result = "solar-panel-equipment-2"
@@ -114,7 +114,7 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"battery", 4},
+            {"battery", 10},
             {"electronic-circuit", 10},
             {"steel-plate", 5},
         },
@@ -127,7 +127,7 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"battery-equipment", 4},
+            {"battery-equipment", 10},
             {"advanced-circuit", 10},
             {"effectivity-module", 1},
         },
@@ -140,7 +140,7 @@ data:extend(
         energy_required = 10,
         ingredients =
         {
-            {"battery-mk2-equipment", 4},
+            {"battery-mk2-equipment", 10},
             {"processing-unit", 10},
             {"effectivity-module-2", 1},
             {"alien-artifact", 1},
@@ -240,7 +240,7 @@ data.raw["recipe"]["solar-panel-equipment"].ingredients =
 ]]--
 data.raw["recipe"]["energy-shield-equipment"].ingredients = 
 {
-      {"electrostatic-shield-equipment", 4},
+      {"electrostatic-shield-equipment", 10},
       {"advanced-circuit" , 5},
       {"steel-plate"      ,10},
       {"alien-artifact"     ,1},
@@ -248,7 +248,7 @@ data.raw["recipe"]["energy-shield-equipment"].ingredients =
 }
 data.raw["recipe"]["energy-shield-mk2-equipment"].ingredients = 
 {
-      {"energy-shield-equipment", 4},
+      {"energy-shield-equipment", 10},
       {"processing-unit", 10},
       {"alien-artifact"     ,5},
       {"speed-module-3"  , 1},
