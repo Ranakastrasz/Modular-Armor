@@ -211,9 +211,9 @@ function refresh_equipment()
     end]]--
     
     
-    registerEquipmentGroup({name = "conduit",type = "conduit"})
-    registerEquipmentGroup({name = "burner" ,type = "fuelled"})
-    registerEquipmentGroup({name = "fusion" ,type = "fuelled"})
+    registerEquipmentGroup({name = "conduit",type = "conduit",threshhold = 1.0})
+    registerEquipmentGroup({name = "burner" ,type = "fuelled",threshhold = 0.75})
+    registerEquipmentGroup({name = "fusion" ,type = "fuelled",threshhold = 0.5})
 
     registerPrototype({name = "conduit",type = "conduit"},{name = "semiconductor-conduit-equipment"    ,power =  40 * 1000},"equipment")
     registerPrototype({name = "conduit",type = "conduit"},{name = "superconductor-conduit-equipment"   ,power = 720 * 1000},"equipment")
@@ -524,10 +524,8 @@ function tick()
                                     --globalPrint("detected Generator "..fuelRates.fuelType..fuelType)
                                     -- This type exists
                                     local threshhold = energyCap -- How much power this generator is allowed to bring you up to.
-                                    -- Currently leaving it at 100% for now, till I have a better idea how I want to do this.
-                                    --if hasBattery then
-                                        --threshhold = threshhold * fuelVal.threshhold -- Without a battery, you cannot regulate energy production.
-                                    --else
+
+                                    threshhold = threshhold * equipment.threshhold -- Without a battery, you cannot regulate energy production.
                                         
                                     --end
                                     local energyWanted = threshhold - newEnergy -- How much power we want to generate
