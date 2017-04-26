@@ -6,7 +6,7 @@ data:extend(
     name = "semiconductor-conduit-equipment",
     icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
     icon_size = 128,
-    prerequisites = {"armor-making-3","electric-energy-distribution-1"},
+    prerequisites = {"modular-armor","electric-energy-distribution-1"},
     effects =
     {
       {
@@ -38,7 +38,7 @@ data:extend(
     unit =
     {
       count = 200,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}},
+      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}},
       time = 45
     },
     order = "g-k-1-2"
@@ -48,7 +48,7 @@ data:extend(
     name = "engine-equipment",
     icon = "__Modular-Armor__/graphics/technology/burner-generator-equipment.png",
     icon_size = 128,
-    prerequisites = {"armor-making-3","engine","productivity-module",},
+    prerequisites = {"modular-armor","engine","productivity-module",},
     effects =
     {
       {
@@ -90,7 +90,7 @@ data:extend(
     name = "actuator-equipment",
     icon = "__Modular-Armor__/graphics/technology/actuator-equipment.png",
     icon_size = 128,
-    prerequisites = {"armor-making-3", "engine"},
+    prerequisites = {"modular-armor", "engine"},
     effects =
     {
       {
@@ -132,7 +132,7 @@ data:extend(
     name = "electrostatic-shield-equipment",
     icon = "__Modular-Armor__/graphics/technology/electrostatic-shield-equipment.png",
     icon_size = 128,
-    prerequisites = {"armor-making-3"},
+    prerequisites = {"modular-armor"},
     effects =
     {
       {
@@ -163,7 +163,7 @@ data:extend(
     unit =
     {
       count = 75,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}},
+      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}},
       time = 15
     },
     order = "g-e-b"
@@ -183,7 +183,7 @@ data:extend(
     unit =
     {
       count = 100,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}},
+      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}},
       time = 30
     },
     order = "g-e-c"
@@ -193,7 +193,7 @@ data:extend(
     type = "technology",
     name = "battery-equipment",
     icon = "__Modular-Armor__/graphics/technology/battery-mk1-equipment.png",
-    prerequisites = {"armor-making-3", "battery"},
+    prerequisites = {"modular-armor", "battery"},
     effects =
     {
       {
@@ -224,7 +224,7 @@ data:extend(
     unit =
     {
       count = 100,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}},
+      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}},
       time = 30
     },
     order = "g-i-b"
@@ -245,7 +245,7 @@ data:extend(
     unit =
     {
       count = 200,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack",1}},
+      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack",1}},
       time = 45
     },
     order = "g-i-c"
@@ -266,7 +266,7 @@ data:extend(
     unit =
     {
       count = 500,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack",1}},
+      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack",1}},
       time = 60
     },
     order = "g-i-d"
@@ -276,7 +276,7 @@ data:extend(
         type = "technology",
         name = "fusion-reactor-equipment",
         icon = "__base__/graphics/technology/fusion-reactor-equipment.png",
-        prerequisites = {"armor-making-3"},
+        prerequisites = {"modular-armor"},
         effects =
         {
             {
@@ -291,7 +291,7 @@ data:extend(
         unit =
         {
             count = 200,
-            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}},
+            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}},
             time = 30
         },
         order = "g-l"
@@ -307,11 +307,11 @@ data:extend(
                 recipe = "power-armor"
             }
         },
-        prerequisites = {"armor-making-3", "electric-engine"},
+        prerequisites = {"modular-armor", "electric-engine"},
         unit =
         {
             count = 100,
-            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}},
+            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}},
             time = 30
         },
         order = "g-c-a"
@@ -332,7 +332,7 @@ data:extend(
         unit =
         {
             count = 500,
-            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 2}, {"alien-science-pack", 5}},
+            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 2}, {"military-science-pack", 5}},
             time = 35
         },
         order = "g-c-c"
@@ -353,7 +353,7 @@ data:extend(
         unit =
         {
             count = 1000,
-            ingredients = {{"science-pack-1", 2}, {"science-pack-2", 3}, {"science-pack-3", 5}, {"alien-science-pack", 5}},
+            ingredients = {{"science-pack-1", 2}, {"science-pack-2", 3}, {"science-pack-3", 5}, {"military-science-pack", 5}},
             time = 60
         },
         order = "g-c-d"
@@ -363,12 +363,12 @@ data:extend(
 
 -- Mk1 Shield
 data.raw["technology"]["energy-shield-equipment"].prerequisites = {"electrostatic-shield-equipment","speed-module"}
-data.raw["technology"]["energy-shield-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}}
+data.raw["technology"]["energy-shield-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}}
 data.raw["technology"]["energy-shield-equipment"].order = "g-e-b"
 
 -- Mk2 Shield
 data.raw["technology"]["energy-shield-mk2-equipment"].prerequisites = {"energy-shield-equipment","speed-module-3"}
-data.raw["technology"]["energy-shield-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}}
+data.raw["technology"]["energy-shield-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}}
 data.raw["technology"]["energy-shield-mk2-equipment"].order = "g-e-c"
 
 
@@ -386,20 +386,20 @@ data.raw["technology"]["battery-equipment"].icon_size = 128
 data.raw["technology"]["battery-mk2-equipment"].prerequisites = {"battery-equipment","effectivity-module"}
 data.raw["technology"]["battery-mk2-equipment"].icon = "__Modular-Armor__/graphics/technology/battery-mk2-equipment.png" -- Icon
 data.raw["technology"]["battery-mk2-equipment"].icon_size = 128
-data.raw["technology"]["battery-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}}
+data.raw["technology"]["battery-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}}
 
 
 
 -- Solar panel Mk1
-data.raw["technology"]["solar-panel-equipment"].prerequisites = {"armor-making-3","solar-energy"}
+data.raw["technology"]["solar-panel-equipment"].prerequisites = {"modular-armor","solar-energy"}
 --data.raw["technology"]["solar-panel-equipment"].order = "g-k-3-1"
 --data.raw["technology"]["solar-panel-equipment"].enabled = false
 --- Fusion Reactor
-data.raw["technology"]["fusion-reactor-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"alien-science-pack", 1}} -- Additionally requires alien science.
+data.raw["technology"]["fusion-reactor-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}} -- Additionally requires alien science.
 data.raw["technology"]["fusion-reactor-equipment"].prerequisites = {"power-armor","energy-shield-equipment","productivity-module-2"}
 data.raw["technology"]["fusion-reactor-equipment"].order = "g-k-4-1"
 
-table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
+--[[table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
     {
         type = "unlock-recipe",
         recipe = "alien-fuel"
@@ -410,15 +410,15 @@ table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
         type = "unlock-recipe",
         recipe = "alien-rocket-fuel"
     } -- And rocket Fuel varient
-)
+)]]--
 
-data.raw["technology"]["armor-making-3"].prerequisites = {"armor-making-2","advanced-electronics"}
+data.raw["technology"]["modular-armor"].prerequisites = {"heavy-armor","advanced-electronics"}
 
-data.raw["technology"]["power-armor"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"alien-science-pack", 1}} -- This might have compatibility issues if anything else changes recipes. Would prefer to simply change the blue pack to alien pack, but unsure of syntax.
-data.raw["technology"]["power-armor"].prerequisites = {"armor-making-3","electric-engine","speed-module"}
+data.raw["technology"]["power-armor"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}} -- This might have compatibility issues if anything else changes recipes. Would prefer to simply change the blue pack to alien pack, but unsure of syntax.
+data.raw["technology"]["power-armor"].prerequisites = {"modular-armor","electric-engine","speed-module"}
 
 data.raw["technology"]["power-armor-2"].prerequisites = {"power-armor", "speed-module-2", "effectivity-module-2"}
 
-data.raw["technology"]["personal-roboport-equipment"].prerequisites = {"construction-robotics","armor-making-3"} -- Solar panel is no longer a prerequisite as there are many other power sources.
+data.raw["technology"]["personal-roboport-equipment"].prerequisites = {"construction-robotics","modular-armor"} -- Solar panel is no longer a prerequisite as there are many other power sources.
 
 

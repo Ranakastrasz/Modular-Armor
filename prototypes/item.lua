@@ -1,5 +1,19 @@
 data:extend(
 {
+	{
+		type = "equipment-grid",
+		name = "rana-equipment-grid-3",
+		width = 12,
+		height = 12,
+		equipment_categories = {"armor"}
+	},
+	{
+		type = "equipment-grid",
+		name = "rana-equipment-grid-4",
+		width = 15,
+		height = 15,
+		equipment_categories = {"armor"}
+	},
     {
         type = "armor",
         name = "power-armor-mk3",
@@ -31,7 +45,7 @@ data:extend(
         subgroup = "armor",
         order = "f[power-armor-mk3]",
         stack_size = 1,
-        equipment_grid = {width = 12, height = 12},
+        equipment_grid = "rana-equipment-grid-3",
         inventory_size_bonus = 40
     },
 
@@ -66,7 +80,7 @@ data:extend(
         subgroup = "armor",
         order = "g[power-armor-mk4]",
         stack_size = 1,
-        equipment_grid = {width = 15, height = 15},
+        equipment_grid = "rana-equipment-grid-4",
         inventory_size_bonus = 50
     },
   
@@ -174,9 +188,9 @@ data:extend(
         subgroup = "equipment",
         order = "c[battery]-d[battery-equipment-mk4]",
         stack_size = 50,
-        default_requiest_amount = 10
+        default_requiest_amount = 10,
     },
-    {
+    --[[{
         type = "item",
         name = "alien-fuel",
         icon = "__Modular-Armor__/graphics/icons/alien-fuel.png",
@@ -185,15 +199,8 @@ data:extend(
         subgroup = "raw-resource",
         order = "c[alien-fuel]",
         stack_size = 200,
-        --[[rana_mod = {
-            powerGroup = "fusion",
-            powerType = "fuelled",
-            fuelPower = "200MJ",
-        },]]--
-    },
-}
-
-)
+    },]]--
+})
 
 data.raw["item"]["battery-equipment"].icon = "__Modular-Armor__/graphics/icons/battery-mk1-equipment.png" -- Icon
 data.raw["item"]["battery-mk2-equipment"].icon = "__Modular-Armor__/graphics/icons/battery-mk2-equipment.png"
@@ -210,23 +217,3 @@ data.raw["item"]["exoskeleton-equipment"].order = "e[exoskeleton]-b[exoskeleton-
 
 data.raw["item"]["fusion-reactor-equipment"].order = "a[energy-source]-d[fusion-reactor-equipment]-a[fusion-reactor-equipment]"
 --data.raw["item"]["fusion-reactor-equipment"].placed_as_equipment_result = "modular-fusion-reactor-equipment"
-
---[[data.raw["item"]["solid-fuel"].rana_mod = {
-            powerGroup = "burner",
-            powerType = "fuelled",
-            fuelPower = "25MJ",
-            priority = 1,
-        }
-data.raw["item"]["coal"].rana_mod = {
-            powerGroup = "burner",
-            powerType = "fuelled",
-            fuelPower = "8MJ",
-            priority = 2,
-        }
-
-data.raw["item"]["raw-wood"].rana_mod = {
-            powerGroup = "burner",
-            powerType = "fuelled",
-            fuelPower = "4MJ",
-            priority = 3,
-        }]]--

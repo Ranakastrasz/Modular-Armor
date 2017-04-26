@@ -23,7 +23,6 @@ require "config"
     -Method to discharge energy into network?
 ]]--
 
-luadata = nil
 
 
 
@@ -46,7 +45,7 @@ script.on_init(function()
         
 		verifySettings()
 	end
-    refresh_equipment()
+    --refresh_equipment()
     
     --[[if (not global.surface) then
         global.surface = game.surfaces['nauvis']
@@ -70,7 +69,7 @@ script.on_load(function(data)
     -- If anything changes, at all, refresh everything. 
     -- All mods altering this stuff must do so as well.
 
-    refresh_equipment()
+    --refresh_equipment()
     --[[if data.mod_charges ~= nil then
         refresh_equipment()
     end]]--
@@ -96,18 +95,8 @@ function globalPrint(msg)
 end
 
 
-function tableIsEmpty(t)
-	if (t) then
-		for k in pairs(t) do
-			return false
-		end
-	end
-	return true
-end
 
-
-
-function registerEquipmentGroup(iGroup)
+--[[function registerEquipmentGroup(iGroup)
 
     --iGroup.mod = iMod
     if not RanaMods.ModularArmor.equipmentData then
@@ -142,7 +131,7 @@ function registerPrototype (iGroup,iPrototype,iType)
                 if v.name == iGroup.name then
 
                     thisTable = nil
-                    --[[if iType == "equipment" then
+                    if iType == "equipment" then
                         if not v.equipment then
                             v.equipment = {}
                         end
@@ -155,7 +144,7 @@ function registerPrototype (iGroup,iPrototype,iType)
                     else
                         globalPrint("Invalid Type "..iType)
                         return "Invalid Type"
-                    end]]--
+                    end
                     if not v[iType] then
                         v[iType] = {}
                     end
@@ -178,14 +167,14 @@ function registerPrototype (iGroup,iPrototype,iType)
     else
         return "Invalid iGroup"
     end
-end
+end]]--
 
 
-function reset_equipment()
+--[[function reset_equipment()
     RanaMods.ModularArmor.equipmentData = {}
-end
+end]]--
 
-function refresh_equipment()
+--function refresh_equipment()
     --[[luadata = {raw = loadstring(game.entity_prototypes["DATA_RAW"].order)()}
     reset_equipment()
     for i, equipment in pairs (luadata.raw["battery-equipment"]) do
@@ -211,7 +200,7 @@ function refresh_equipment()
     end]]--
     
     
-    registerEquipmentGroup({name = "conduit",type = "conduit",threshhold = 1.0})
+--[[    registerEquipmentGroup({name = "conduit",type = "conduit",threshhold = 1.0})
     registerEquipmentGroup({name = "burner" ,type = "fuelled",threshhold = 0.75})
     registerEquipmentGroup({name = "fusion" ,type = "fuelled",threshhold = 0.5})
 
@@ -225,11 +214,11 @@ function refresh_equipment()
     registerPrototype({name = "burner" ,type = "fuelled"},{name = "raw-wood"    ,power = 4.     * 1000 * 1000},"fuel")
     registerPrototype({name = "fusion" ,type = "fuelled"},{name = "alien-fuel"  ,power = 200.   * 1000 * 1000},"fuel")
 
-end
+end]]--
 
 function ticker() -- run once per tickRate number of gameticks.
     if (game.tick % RanaMods.ModularArmor.config.tickRate) == 0 then
-		tick()
+		--tick()
         
 	else
 	end
@@ -323,61 +312,7 @@ function tick()
                     --modularArmor.storedFuel = {["steam"] = 0, ["fusion"] = 0}
                     global.modularArmor[x] = modularArmor
                     
-                    --[[if (RanaMods.ModularArmor.config.Debug == true) then
-                
-                        game.always_day=true -- test mode stuff
-                        thisPlayer.insert{name="basic-grenade",count=50}
-                        thisPlayer.insert{name="energy-shield-basic-equipment",count=20}
-                        thisPlayer.insert{name="energy-shield-equipment",count=20}
-                        thisPlayer.insert{name="energy-shield-mk2-equipment",count=10}
-                        --thisPlayer.insert{name="energy-shield-module-equipment",count=10}
-                        --thisPlayer.insert{name="energy-shield-core-equipment",count=5}
-                        
-                        thisPlayer.insert{name="power-conduit-equipment",count=40}
-                        thisPlayer.insert{name="engine-equipment",count=10}
-                        thisPlayer.insert{name="fusion-reactor-equipment",count=10}
-                        --thisPlayer.insert{name="power-conduit-core-equipment",count=5}
-                        
-                        thisPlayer.insert{name="coal",count=50}
-                        thisPlayer.insert{name="solid-fuel",count=50}
-                        thisPlayer.insert{name="alien-fuel",count=50}
-
-                        --thisPlayer.insert{name="solar-panel-equipment-node",count=20}
-                        thisPlayer.insert{name="solar-panel-equipment",count=20}
-                        thisPlayer.insert{name="solar-panel-equipment-mk2",count=10}
-                        thisPlayer.insert{name="basic-actuator-equipment",count=20}
-                        thisPlayer.insert{name="basic-exoskeleton-equipment",count=20}
-
-                        thisPlayer.insert{name="battery-equipment",count=5}
-                        thisPlayer.insert{name="battery-mk2-equipment",count=5}
-                        thisPlayer.insert{name="battery-mk3-equipment",count=5}
-                        thisPlayer.insert{name="battery-mk4-equipment",count=5}
-                        thisPlayer.insert{name="power-armor-mk2",count=1}
-                        thisPlayer.insert{name="power-armor",count=1}
-                        thisPlayer.insert{name="basic-modular-armor",count=1}
-                        
-                        
-                        thisPlayer.insert{name="basic-laser-defense-equipment",count=5}
-                        thisPlayer.insert{name="basic-electric-discharge-defense-equipment",count=5}
-                        thisPlayer.insert{name="basic-electric-discharge-defense-remote",count=1}
-                        
-                        
-                        thisPlayer.insert{name="small-electric-pole",count=50}
-                        thisPlayer.insert{name="solar-panel",count=50}
-                        thisPlayer.insert{name="basic-accumulator",count=50}
-                        thisPlayer.insert{name="basic-mining-drill",count=50}
-                    end]]--
                     
-                end
-                if (not modularArmor.storedFuel) then
-                    modularArmor.storedFuel = {}
-                end
-                for x,equipmentData in ipairs(RanaMods.ModularArmor.equipmentData) do
-                    if equipmentData.type == "fuelled" then
-                        if not modularArmor.storedFuel[x] then
-                            modularArmor.storedFuel[x] = 1
-                        end
-                    end
                 end
                 
                 if (not modularArmor.shieldData) then
@@ -388,43 +323,30 @@ function tick()
                     --modularArmor.shieldData.lastSFX = 0
                 end
                 
-                -- Removed till I can figure out how to fix the entity.
-                --[[if modularArmor.units and modularArmor.units.name == "modular-accumulator-dummy" then
-                    modularArmor.units.destroy()
-                end
-                if modularArmor.units == nil then
-                    modularArmor.units = {}
-                end]]--
-                -- Ensure dummies exist.
-                --[[]]--
                 
                 local armor = thisPlayer.get_inventory(defines.inventory.player_armor)[1] -- Check for armour presence.
-                
-                -- /c ((game.players[1].get_inventory(defines.inventory.player_armor)[1]).grid).put{equipment = "battery-equipment"}
-                -- /c ((game.players[1].get_inventory(defines.inventory.player_armor)[1]).grid).put{equipment = game.players[1].insert{name = "battery-equipment",count=1}}
                 
                 if (armor.valid_for_read) then
                     
                     if (armor.has_grid) then -- Check for grid existence.
                         local grid = armor.grid
                         
-                        tickDummies(modularArmor,thisPlayer.character.surface,thisPlayer.character.position)-- validate, create, and move dummy units.
+                        --tickDummies(modularArmor,thisPlayer.character.surface,thisPlayer.character.position)-- validate, create, and move dummy units.
                         
                         
                         
-                        local transferRate = 0 -- Rate of transfer from external network to armor.
+                        --local transferRate = 0 -- Rate of transfer from external network to armor.
                     
                         --transferRate = transferRate + ArmorTransferRatePerGridSize*grid.width*grid.height
                         
-                        local fuelRates = {}
-                    
-                        local energy = 0 -- Total energy and energy capacity
-                        local energyCap = 0 -- need smallest fraction count as well. Essentially, if any of them have less than 50% or 90%, activate fusion and steam respectively.
+               
+                        --local energy = 0 -- Total energy and energy capacity
+                        --local energyCap = 0 -- need smallest fraction count as well. Essentially, if any of them have less than 50% or 90%, activate fusion and steam respectively.
                         --local hasBattery = false -- Due to lack of a good energy distrubution system, I only limit production so long as you have a battery. Otherwise, things near the end of the list don't get any energy.
                         -- Disabled, since power distribution percentages of 98 and 99% don't really have problems anymore. You would need 50 mini-shields, which wont happen
-                        local shieldHealth = 0 -- Total shield and shield capacity for auto-balancing.
-                        local shieldCap = 0
-                        for x,equipment in ipairs(grid.equipment) do -- Loop through all equipment.
+                        --local shieldHealth = 0 -- Total shield and shield capacity for auto-balancing.
+                        --local shieldCap = 0
+                        --[[for x,equipment in ipairs(grid.equipment) do -- Loop through all equipment.
                             if (equipment.max_energy ~= 0) then
                                 energy = energy + equipment.energy -- If it has energy, add values to total value.
                                 energyCap = energyCap + equipment.max_energy
@@ -441,40 +363,21 @@ function tick()
                                 shieldHealth = shieldHealth + equipment.shield -- Same with shield.
                                 shieldCap = shieldCap + equipment.max_shield
                             else
+							
                             end
                             
-                            for x,equipmentData in ipairs(RanaMods.ModularArmor.equipmentData) do -- Count all scripted equipment
-                                    --globalPrint(x)
-                                for y,equipmentType in ipairs (equipmentData.equipment) do
-                                    --globalPrint(y)
-                                    --globalPrint(equipmentType.name)
-                                    if (equipment.name == equipmentType.name) then
-                                    --globalPrint(equipment.name.." ? "..fuelType)
-                                         if equipmentData.type == "fuelled" then -- Get total production rate for each type.
-
-                                            if not fuelRates[x] then
-                                                fuelRates[x] = equipmentType.power
-                                            else
-                                                fuelRates[x] = fuelRates[x] + equipmentType.power
-                                            end
-                                        elseif equipmentData.type == "conduit" then -- And network transfer rate.
-                                            transferRate = transferRate + equipmentType.power
-                                        end
-                                    else
-                                        
-                                    end
-                                end
-                            end
-                            
-                                
-                            --[[if (equipment.name == "power-conduit-equipment") then -- Also count each conduit module.
-                                transferRate = transferRate + data.ConduitTransferRatePerEquipment
-                            end]]--
-                        end
+							local prototype = equipment.prototype
+							gloablPrint(prototype.energy_source.type)
+							if (prototype.energy_source.type == "rana-conduit")
+							
+								--transferRate = transferRate + (prototype.energy_production-equipment.)
+							end
+							
+                        end]]--
                         
                         
                         
-                        local shieldFraction = shieldHealth/shieldCap
+                        --[[local shieldFraction = grid.shield / grid.max_shield
                         
                         if shieldCap > 0 then
                             
@@ -494,9 +397,9 @@ function tick()
                             modularArmor.shieldData.lastDamage = modularArmor.shieldData.lastDamage+1
                         else
                             
-                        end
+                        end]]--
                         
-                        local energyWanted = energyCap-energy
+                        --[[local energyWanted = energyCap-energy
                         
                         local transferRate = math.min(transferRate,energyWanted) -- We cant transfer energy without space to put it into
                         
@@ -508,7 +411,7 @@ function tick()
                         local newEnergy = energy+energyToAdd
                         local storageRatio = newEnergy/energyCap
                         
-                        accumulatorEnergy = accumulatorEnergy - energyToAdd -- Remove 
+                        accumulatorEnergy = accumulatorEnergy - energyToAdd -- Remove ]]--
                         -- SFX
                         -- if energyToAdd >= 10000 and game.tick%60 == 0 then
                         --    global.surface.create_entity{name = "conduit-sparks", position = thisPlayer.character.position, force=game.forces.neutral}
@@ -516,82 +419,7 @@ function tick()
                         --globalPrint("Accumulator -- "..accumulatorEnergy)
                         --global.surface.create_entity{name = "smoke-fast", position = thisPlayer.character.position, force=game.forces.neutral} 
                         
-                        for x,equipment in ipairs(RanaMods.ModularArmor.equipmentData) do
-                            if equipment.type == "fuelled" then
-                                
-                               --globalPrint("detected Generator "..(fuelRates.fuelType)..(fuelType))
-                                if (fuelRates[x] and (fuelRates[x] > 0.0)) then -- Make sure it exists, and that is is above zero.
-                                    --globalPrint("detected Generator "..fuelRates.fuelType..fuelType)
-                                    -- This type exists
-                                    local threshhold = energyCap -- How much power this generator is allowed to bring you up to.
-
-                                    threshhold = threshhold * equipment.threshhold -- Without a battery, you cannot regulate energy production.
-                                        
-                                    --end
-                                    local energyWanted = threshhold - newEnergy -- How much power we want to generate
-                                    energyWanted = math.max(energyWanted,0) -- Can't request negative power
-                                    energyWanted = math.min(energyWanted,fuelRates[x]) -- Can't make more power than the engines can support
-                                    local energyToGenerate = 0
-                                    
-                                    --globalPrint("Stored "..modularArmor.storedFuel[x]..fuelType)
-                                    --globalPrint("Wanted "..energyWanted)
-                                    if (modularArmor.storedFuel[x] < energyWanted) then
-                                        -- Check for fuel. If available, consume. If not, spend what you have
-                                        local mainInventory = thisPlayer.get_inventory(defines.inventory.player_main)
-                                        local validFuel = nil
-                                        for y,fuel in ipairs(equipment.fuel) do
-                                            if (mainInventory.get_item_count(fuel.name) > 0) then
-                                                -- Got some
-                                                validFuel = fuel
-                                                break
-                                            else
-                                                -- No luck, skip it
-                                            end
-                                            --globalPrint(fuel[x][1].." "..mainInventory.get_item_count(fuel[x][1]))
-                                        end
-                                        if (validFuel) then
-                                            mainInventory.remove{name = validFuel.name, count = 1}
-                                            modularArmor.storedFuel[x] = modularArmor.storedFuel[x] + validFuel.power
-                                            --surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("-1 "..validFuel[1]), color={r=1,g=1,b=1}}
-                                            --globalPrint(validFuel[1].." "..modularArmor.storedFuel[x])
-                                        else
-                                            if RanaMods.ModularArmor.config.LowFuelMessage then
-                                                if (game.tick%RanaMods.ModularArmor.config.ticksPerSecond == 0) then
-                                                    thisPlayer.character.surface.create_entity{name="flying-text", position=thisPlayer.character.position, text=("No "..(equipment.name).." fuel"), color={r=1,g=0.25,b=0.25}}
-                                                -- Needs a better feedback method.
-                                                else
-                                                  
-                                                end
-                                            end
-
-                                            -- Out of fuel
-                                            --globalPrint("No fuel")
-                                        end
-                                        
-                                        
-                                    else
-                                        -- Have enough fuel already.
-                                    end
-                                    energyToGenerate = math.min(modularArmor.storedFuel[x],energyWanted)
-                                    
-                                    modularArmor.storedFuel[x] = modularArmor.storedFuel[x] - energyToGenerate
-                                    
-                                    
-                                        
-                                    energyToAdd = energyToAdd + energyToGenerate
-                                    
-                                    --global.surface.pollute(thisPlayer.character.position, energyToGenerate*RanaMods.ModularArmor.config.pollutionCoef)
-                                    
-                                  
-                                        
-                                    --end
-                                else
-                                    -- No such generator.
-                                end
-                            else
-                                -- Its a conduit.
-                            end
-                        end
+                       
                         
                         -- I have energy to add, Energy Cap, and current energy.
                         -- I want to give amount proportional to amount missing to each elements. Ones with less get a higher fraction.
@@ -605,7 +433,7 @@ function tick()
                         
                         --globalPrint("energySpent"..energySpent)
                         --shieldHealth = 0
-                        for x,equipment in ipairs(grid.equipment) do -- Basic Setup. Distribute as much to first in line, remainder to next, and next, till you run out.
+                        --[[for x,equipment in ipairs(grid.equipment) do -- Basic Setup. Distribute as much to first in line, remainder to next, and next, till you run out.
                             if (equipment.max_energy ~= 0 and energyToAdd > 0) then          -- Poor Distribution method.
                                 local difference = equipment.max_energy - equipment.energy
                                 if (energyToAdd > difference) then
@@ -632,7 +460,7 @@ function tick()
                         
                         modularArmor.units.accumulator.energy = RanaMods.ModularArmor.config.accumulatorEnergyCap - transferRate--*conversionRatio
                         modularArmor.previousEnergy = modularArmor.units.accumulator.energy --*conversionRatio -- The additional accumulated energy over
-                        
+                        ]]--
                         
                         
                     else
