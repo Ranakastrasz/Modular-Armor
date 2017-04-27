@@ -171,7 +171,8 @@ data:extend(
             {"speed-module-3", 20},
             {"productivity-module-3", 20},
             {"electric-engine-unit", 200},
-            --{"alien-artifact", 200},
+            {"low-density-structure", 200},
+			{"processing-unit", 200},
             
         },
         result = "power-armor-mk3"
@@ -188,7 +189,8 @@ data:extend(
             {"speed-module-3", 100},
             {"productivity-module-3",100},
             {"electric-engine-unit", 500},
-            --{"alien-artifact", 1000},
+            {"low-density-structure", 1000},
+			{"processing-unit", 1000},
             
         },
         result = "power-armor-mk4"
@@ -273,18 +275,18 @@ data.raw["recipe"]["heavy-armor"].ingredients =
 data.raw["recipe"]["modular-armor"].ingredients =
 {
     { "heavy-armor", 1},
-    { "advanced-circuit", 40},
+    { "advanced-circuit", 30},
     
     -- 50 Steel
     -- 30 Red Circuit
-    -- 5 Blue Circuit
 }
 
 data.raw["recipe"]["power-armor"].ingredients =
 {
+
     {"modular-armor", 1},
-    {"processing-unit", 100},
-    {"electric-engine-unit", 30},
+    {"processing-unit", 40},
+    {"electric-engine-unit", 20},
     {"speed-module", 10},
     --{"alien-artifact", 10},
     -- 100 steel

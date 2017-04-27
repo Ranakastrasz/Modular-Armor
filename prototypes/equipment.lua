@@ -7,6 +7,7 @@ data:extend(
     type = "fuel-category",
     name = "rana-conduit"
   },
+  
   {
     type = "energy-shield-equipment",
     name = "electrostatic-shield-equipment",
@@ -107,7 +108,7 @@ data:extend(
       type = "electric",
       usage_priority = "primary-output"
     },
-    power = "325kW",
+    power = "300kW",
     categories = {"armor"},
   },
   {
@@ -196,7 +197,7 @@ data:extend(
 	burner =
 	{
 	  fuel_category = "chemical",
-	  effectivity = 1,
+	  effectivity = 0.2,
 	  fuel_inventory_size = 3,
 	  burnt_inventory_size = 1
 	},
@@ -247,7 +248,7 @@ data:extend(
 	burner =
 	{
 	  fuel_category = "nuclear",
-	  effectivity = 1,
+	  effectivity = 0.05,
 	  fuel_inventory_size = 1,
 	  burnt_inventory_size = 1
 	},
