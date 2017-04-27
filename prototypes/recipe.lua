@@ -242,7 +242,7 @@ data.raw["recipe"]["energy-shield-equipment"].ingredients =
       {"electrostatic-shield-equipment", 10},
       {"advanced-circuit" , 5},
       {"steel-plate"      ,10},
-      {"Processing-unit"     ,1},
+      {"processing-unit"     ,1},
       {"speed-module"   , 1},
 }
 data.raw["recipe"]["energy-shield-mk2-equipment"].ingredients = 
