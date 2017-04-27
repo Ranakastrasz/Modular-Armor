@@ -197,7 +197,7 @@ data:extend(
 	burner =
 	{
 	  fuel_category = "chemical",
-	  effectivity = 0.2,
+	  effectivity = 0.1,
 	  fuel_inventory_size = 3,
 	  burnt_inventory_size = 1
 	},

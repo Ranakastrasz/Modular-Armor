@@ -47,8 +47,7 @@ data:extend(
         {
             {"semiconductor-conduit-equipment", 10},
             {"substation", 10},
-            {"processing-unit", 10},
-            --{"alien-artifact", 4},
+            {"processing-unit", 15},
             {"effectivity-module-2", 1},
         },
         result = "superconductor-conduit-equipment"
@@ -143,7 +142,6 @@ data:extend(
             {"battery-mk2-equipment", 10},
             {"processing-unit", 10},
             {"effectivity-module-2", 1},
-            --{"alien-artifact", 1},
         },
         result = "battery-mk3-equipment"
     },
@@ -202,7 +200,6 @@ data.raw["recipe"]["exoskeleton-equipment"].ingredients =
     {"actuator-equipment", 10},
     {"electric-engine-unit", 30},
     {"processing-unit", 10},
-    --{"alien-artifact", 2},
     {"speed-module"   , 1},
 }
 
@@ -245,21 +242,19 @@ data.raw["recipe"]["energy-shield-equipment"].ingredients =
       {"electrostatic-shield-equipment", 10},
       {"advanced-circuit" , 5},
       {"steel-plate"      ,10},
-      --{"alien-artifact"     ,1},
+      {"Processing-unit"     ,1},
       {"speed-module"   , 1},
 }
 data.raw["recipe"]["energy-shield-mk2-equipment"].ingredients = 
 {
       {"energy-shield-equipment", 10},
-      {"processing-unit", 10},
-      --{"alien-artifact"     ,5},
+      {"processing-unit", 15},
       {"speed-module-3"  , 1},
 }
 data.raw["recipe"]["fusion-reactor-equipment"].ingredients = 
 {
       {"energy-shield-equipment",10},
-      {"processing-unit", 100},
-      --{"alien-artifact", 100},
+      {"processing-unit", 200},
       {"steel-plate"  ,200},
       {"productivity-module-2"  , 2},
 }
@@ -285,10 +280,9 @@ data.raw["recipe"]["power-armor"].ingredients =
 {
 
     {"modular-armor", 1},
-    {"processing-unit", 40},
+    {"processing-unit", 50},
     {"electric-engine-unit", 20},
     {"speed-module", 10},
-    --{"alien-artifact", 10},
     -- 100 steel
     -- 10 artifact
     -- 30 Engine
@@ -300,9 +294,8 @@ data.raw["recipe"]["power-armor-mk2"].ingredients =
     {"power-armor", 1},
     {"effectivity-module-2", 10},
     {"speed-module-2", 10},
-    {"processing-unit", 100},
+    {"processing-unit", 150},
     {"electric-engine-unit", 50},
-    --{"alien-artifact", 40},
     
     -- 5 T3 Speed module
     -- 5 T3 Efficiency Module
