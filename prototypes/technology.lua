@@ -6,7 +6,7 @@ data:extend(
     name = "semiconductor-conduit-equipment",
     icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
     icon_size = 128,
-	enabled = false,
+	enabled = true,
     prerequisites = {"modular-armor","electric-energy-distribution-1"},
     effects =
     {
@@ -28,7 +28,7 @@ data:extend(
     name = "superconductor-conduit-equipment",
     icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment-2.png",
     icon_size = 128,
-	enabled = false,
+	enabled = true,
     prerequisites = {"semiconductor-conduit-equipment","electric-energy-distribution-2","effectivity-module-2"},
     effects =
     {

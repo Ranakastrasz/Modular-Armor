@@ -92,7 +92,7 @@ data:extend(
         placed_as_equipment_result = "solar-panel-equipment-2",
         flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
-        order = "a[energy-source]-c[solar-panel]-b[solar-panel-2]",
+        order = "a[energy-source]-b[solar-panel]-b[solar-panel-2]",
         stack_size = 20
     },
     {
@@ -102,7 +102,7 @@ data:extend(
         placed_as_equipment_result = "engine-equipment",
         flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
-        order = "a[energy-source]-b[engine-equipment]-a[engine-equipment]",
+        order = "a[energy-source]-c[engine-equipment]-a[engine-equipment]",
         stack_size = 20
     },
     {

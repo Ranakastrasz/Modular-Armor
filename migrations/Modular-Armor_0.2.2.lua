@@ -5,8 +5,8 @@ end
 
 
 for index, force in pairs(game.forces) do
-    if force.technologies["fusion-reactor-equipment"].researched then
+    --[[if force.technologies["fusion-reactor-equipment"].researched then
         force.recipes["alien-fuel"].enabled = true
         force.recipes["alien-rocket-fuel"].enabled = true
-    end
+    end]]--
 end
