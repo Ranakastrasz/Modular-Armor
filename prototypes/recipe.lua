@@ -169,7 +169,6 @@ data:extend(
             {"speed-module-3", 20},
             {"productivity-module-3", 20},
             {"electric-engine-unit", 200},
-            {"low-density-structure", 200},
 			{"processing-unit", 200},
             
         },
@@ -187,7 +186,6 @@ data:extend(
             {"speed-module-3", 100},
             {"productivity-module-3",100},
             {"electric-engine-unit", 500},
-            {"low-density-structure", 1000},
 			{"processing-unit", 1000},
             
         },
