@@ -96,9 +96,9 @@ data:extend(
     type = "electric-turret",
     name = "laser-turret-dummy",
     icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
+    icon_size = 32,
     flags = {"placeable-off-grid", "not-on-map"},
     --minable = { mining_time = 0.5, result = "laser-turret" },
-    max_health = 0,
     --corpse = "medium-remnants",
     collision_box = {{0, 0}, {0, 0}},
     selection_box = {{0, 0}, {0, 0}},--{{ -1, -1}, {1, 1}},
@@ -139,39 +139,39 @@ data:extend(
     {
       layers =
       {
-        --[[{
-          filename = "__Modular-Armor__/graphics/null.png",
-          line_length = 1,
-          width = 0,
-          height = 0,
-          frame_count = 1,
-          axially_symmetrical = false,
-          direction_count = 1,
-          shift = {0.0625, -1}
-
-        },
-        {
-          filename = "__Modular-Armor__/graphics/null.png",
-          line_length = 1,
-          width = 0,
-          height = 0,
-          frame_count = 1,
-          axially_symmetrical = false,
-          apply_runtime_tint = false,
-          direction_count = 1,
-          shift = {0.0625, -1.3125},
-        },
-        {
-          filename = "__Modular-Armor__/graphics/null.png",
-          line_length = 1,
-          width = 0,
-          height = 0,
-          frame_count = 1,
-          axially_symmetrical = false,
-          direction_count = 1,
-          draw_as_shadow = false,
-          shift = {1.59375, 0}
-        }]]--
+        --{
+        --  filename = "__Modular-Armor__/graphics/null.png",
+        --  line_length = 1,
+        --  width = 0,
+        --  height = 0,
+        --  frame_count = 1,
+        --  axially_symmetrical = false,
+        --  direction_count = 1,
+        --  shift = {0.0625, -1}
+        --
+        --},
+        --{
+        --  filename = "__Modular-Armor__/graphics/null.png",
+        --  line_length = 1,
+        --  width = 0,
+        --  height = 0,
+        --  frame_count = 1,
+        --  axially_symmetrical = false,
+        --  apply_runtime_tint = false,
+        --  direction_count = 1,
+        --  shift = {0.0625, -1.3125},
+        --},
+        --{
+        --  filename = "__Modular-Armor__/graphics/null.png",
+        --  line_length = 1,
+        --  width = 0,
+        --  height = 0,
+        --  frame_count = 1,
+        --  axially_symmetrical = false,
+        --  direction_count = 1,
+        --  draw_as_shadow = false,
+        --  shift = {1.59375, 0}
+        --}
       }
     },
     folding_animation = 
@@ -187,26 +187,26 @@ data:extend(
     {
       layers =
       {
-        --[[{
-          filename = "__Modular-Armor__/graphics/null.png",
-          priority = "high",
-          width = 1,
-          height = 1,
-          axially_symmetrical = false,
-          direction_count = 1,
-          shift = { 0.109375, 0.03125 }
-        },
-        {
-          filename = "__Modular-Armor__/graphics/null.png",
-          line_length = 1,
-          width = 1,
-          height = 1,
-          frame_count = 1,
-          axially_symmetrical = false,
-          apply_runtime_tint = false,
-          direction_count = 1,
-          shift = {0.046875, -0.109375},
-        },]]--
+        --{
+        --  filename = "__Modular-Armor__/graphics/null.png",
+        --  priority = "high",
+        --  width = 1,
+        --  height = 1,
+        --  axially_symmetrical = false,
+        --  direction_count = 1,
+        --  shift = { 0.109375, 0.03125 }
+        --},
+        --{
+        --  filename = "__Modular-Armor__/graphics/null.png",
+        --  line_length = 1,
+        --  width = 1,
+        --  height = 1,
+        --  frame_count = 1,
+        --  axially_symmetrical = false,
+        --  apply_runtime_tint = false,
+        --  direction_count = 1,
+        --  shift = {0.046875, -0.109375},
+        --},
       }
     },
     --vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -245,152 +245,201 @@ data:extend(
   },
 
 
-    {
-        type = "accumulator",
-        name = "modular-accumulator-dummy",
-        icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
-        flags = {"placeable-off-grid", "not-on-map"},
-        -- minable = {hardness = 0.2, mining_time = 0.5, result = "basic-accumulator"},
-        max_health = 0,
-        destructible = true,
-        -- corpse = "medium-remnants",`
-        collision_box = {{0, 0}, {0, 0}},
-        selection_box = {{ -1, -1}, {1, 1}},
-        collision_mask = {"ghost-layer"},
-        energy_source =
-        {
-            type = "electric",
-            buffer_capacity = "5MJ",
-            usage_priority = "primary-input",
-            input_flow_limit = "5MW",
-            output_flow_limit = "0kW"
-        },
-        
-        picture =
-        {
-            filename = "__Modular-Armor__/graphics/null.png",
-            priority = "extra-high",
-            width = 0,
-            height = 0,
-            shift = {0, 0}
-        },
-        --[[charge_animation =
-        {
-            filename = "__base__/graphics/entity/basic-accumulator/basic-accumulator-charge-animation.png",
-            width = 138,
-            height = 135,
-            line_length = 8,
-            frame_count = 24,
-            shift = {0.482, -0.638},
-            animation_speed = 0.5
-        },]]--
-        charge_cooldown = 30,
-        --charge_light = {intensity = 0.3, size = 7},
-        --[[discharge_animation =
-        {
-            filename = "__base__/graphics/entity/basic-accumulator/basic-accumulator-discharge-animation.png",
-            width = 147,
-            height = 128,
-            line_length = 8,
-            frame_count = 24,
-            shift = {0.395, -0.525},
-            animation_speed = 0.5
-        },]]--
-        discharge_cooldown = 60,
-        --discharge_light = {intensity = 0.7, size = 7},
-        --working_sound = nil
-        --[[{
-            sound =
-            {
-                filename = "__base__/sound/accumulator-working.ogg",
-                volume = 1
-            },
-            idle_sound =
-            {
-                filename = "__base__/sound/accumulator-idle.ogg",
-                volume = 0.4
-            },
-            max_sounds_per_type = 5
-        },]]--
-    },
+--    {
+--        type = "accumulator",
+--        name = "modular-accumulator-dummy",
+--        icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
+--        flags = {"placeable-off-grid", "not-on-map"},
+--        -- minable = {hardness = 0.2, mining_time = 0.5, result = "basic-accumulator"},
+--        max_health = 0,
+--        destructible = true,
+--        -- corpse = "medium-remnants",`
+--        collision_box = {{0, 0}, {0, 0}},
+--        selection_box = {{ -1, -1}, {1, 1}},
+--        collision_mask = {"ghost-layer"},
+--        energy_source =
+--        {
+--            type = "electric",
+--            buffer_capacity = "5MJ",
+--            usage_priority = "primary-input",
+--            input_flow_limit = "5MW",
+--            output_flow_limit = "0kW"
+--        },
+--        
+--        picture =
+--        {
+--            filename = "__Modular-Armor__/graphics/null.png",
+--            priority = "extra-high",
+--            width = 0,
+--            height = 0,
+--            shift = {0, 0}
+--        },
+--        --charge_animation =
+--        --{
+--        --    filename = "__base__/graphics/entity/basic-accumulator/basic-accumulator-charge-animation.png",
+--        --    width = 138,
+--        --    height = 135,
+--        --    line_length = 8,
+--        --    frame_count = 24,
+--        --    shift = {0.482, -0.638},
+--        --    animation_speed = 0.5
+--        --},
+--        charge_cooldown = 30,
+--        --charge_light = {intensity = 0.3, size = 7},
+--        --discharge_animation =
+--        --{
+--        --    filename = "__base__/graphics/entity/basic-accumulator/basic-accumulator-discharge-animation.png",
+--        --    width = 147,
+--        --    height = 128,
+--        --    line_length = 8,
+--        --    frame_count = 24,
+--        --    shift = {0.395, -0.525},
+--        --    animation_speed = 0.5
+--        --},
+--        discharge_cooldown = 60,
+--        --discharge_light = {intensity = 0.7, size = 7},
+--        --working_sound = nil
+--        --{
+--        --    sound =
+--        --    {
+--        --        filename = "__base__/sound/accumulator-working.ogg",
+--        --        volume = 1
+--        --    },
+--        --    idle_sound =
+--        --    {
+--        --        filename = "__base__/sound/accumulator-idle.ogg",
+--        --        volume = 0.4
+--        --    },
+--        --    max_sounds_per_type = 5
+--        --},
+--    },
 
 
 
-    {
-        type = "electric-pole",
-        name = "electric-pole-dummy",
-        icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
-        flags = {"placeable-off-grid", "not-on-map"},
-        --minable = {hardness = 0.2, mining_time = 0.5, result = "small-electric-pole"},
-        max_health = 0,
-        --corpse = "small-remnants",
-        collision_box = {{0, 0}, {0, 0}},
-        selection_box = {{0, 0}, {0, 0}},--{{ -1, -1}, {1, 1}},
-        collision_mask = {"ghost-layer"},
-        --drawing_box = {{-0.5, -2.3}, {0.5, 0.5}},
-        maximum_wire_distance = 0,--7.5,
-        supply_area_distance = 0.5,--2.5,
-        --vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
-        pictures =
-        {
-            filename = "__Modular-Armor__/graphics/null.png",
-            priority = "extra-high",
-            width = 0,
-            height = 0,
-            direction_count =1,
-            shift = {0, 0}
-        },
-    connection_points =
-        {
-          {
-            shadow =
-            {
-              copper = {2.7, 0},
-              red = {2.3, 0},
-              green = {3.1, 0}
-            },
-            wire =
-            {
-              copper = {0, -2.7},
-              red = {-0.4,-2.7},
-              green = {0.4,-2.7}
-            }
-          }
-        },
-        radius_visualisation_picture =
-        {
-          filename = "__base__/graphics/entity/small-electric-pole/electric-pole-radius-visualization.png",
-          width = 12,
-          height = 12,
-          priority = "extra-high-no-scale"
-        }
-  },
-  {
-    type = "solar-panel",
-    name = "solar-panel-dummy",
-    icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
-    flags = {"placeable-off-grid", "not-on-map"},
-    --minable = {hardness = 0.2, mining_time = 0.5, result = "solar-panel"},
-    max_health = 0,
-    --corpse = "big-remnants",
-    collision_box = {{0, 0}, {0, 0}},
-    selection_box = {{0, 0}, {0, 0}},--{{ -1, -1}, {1, 1}},
-    collision_mask = {"ghost-layer"},
-    energy_source =
-    {
-      type = "electric",
-      usage_priority = "solar"
-    },
-    picture =
-    {
-        filename = "__Modular-Armor__/graphics/null.png",
-        priority = "extra-high",
-        width = 0,
-        height = 0,
-        shift = {0, 0}
-    },
-    production = "0kW"
-  }
+--    {
+--        type = "electric-pole",
+--        name = "electric-pole-dummy",
+--        icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
+--        flags = {"placeable-off-grid", "not-on-map"},
+--        --minable = {hardness = 0.2, mining_time = 0.5, result = "small-electric-pole"},
+--        max_health = 0,
+--        --corpse = "small-remnants",
+--        collision_box = {{0, 0}, {0, 0}},
+--        selection_box = {{0, 0}, {0, 0}},--{{ -1, -1}, {1, 1}},
+--        collision_mask = {"ghost-layer"},
+--        --drawing_box = {{-0.5, -2.3}, {0.5, 0.5}},
+--        maximum_wire_distance = 0,--7.5,
+--        supply_area_distance = 0.5,--2.5,
+--        --vehicle_impact_sound =  { filename = "__base__/sound/car-wood-impact.ogg", volume = 1.0 },
+--        pictures =
+--        {
+--            filename = "__Modular-Armor__/graphics/null.png",
+--            priority = "extra-high",
+--            width = 0,
+--            height = 0,
+--            direction_count =1,
+--            shift = {0, 0}
+--        },
+--    connection_points =
+--        {
+--          {
+--            shadow =
+--            {
+--              copper = {2.7, 0},
+--              red = {2.3, 0},
+--              green = {3.1, 0}
+--            },
+--            wire =
+--            {
+--              copper = {0, -2.7},
+--              red = {-0.4,-2.7},
+--              green = {0.4,-2.7}
+--            }
+--          }
+--        },
+--        radius_visualisation_picture =
+--        {
+--          filename = "__base__/graphics/entity/small-electric-pole/electric-pole-radius-visualization.png",
+--          width = 12,
+--          height = 12,
+--          priority = "extra-high-no-scale"
+--        }
+--  },
+--  {
+--    type = "solar-panel",
+--    name = "solar-panel-dummy",
+--    icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
+--    flags = {"placeable-off-grid", "not-on-map"},
+--    --minable = {hardness = 0.2, mining_time = 0.5, result = "solar-panel"},
+--    max_health = 0,
+--    --corpse = "big-remnants",
+--    collision_box = {{0, 0}, {0, 0}},
+--    selection_box = {{0, 0}, {0, 0}},--{{ -1, -1}, {1, 1}},
+--    collision_mask = {"ghost-layer"},
+--    energy_source =
+--    {
+--      type = "electric",
+--      usage_priority = "solar"
+--    },
+--    picture =
+--    {
+--        filename = "__Modular-Armor__/graphics/null.png",
+--        priority = "extra-high",
+--        width = 0,
+--        height = 0,
+--        shift = {0, 0}
+--    },
+--    production = "0kW"
+--  },
+--   {
+--    type = "electric-energy-interface",
+--    name = "laser-turret-dummy",
+--    icon = "__base__/graphics/icons/accumulator.png",
+--    icon_size = 32,
+--    flags = {"placeable-off-grid", "not-on-map"},
+--    collision_box = {{0, 0}, {0, 0}},
+--    selection_box = {{0, 0}, {0, 0}},--{{ -1, -1}, {1, 1}},
+--    enable_gui = false,
+--    allow_copy_paste = false,
+--    energy_source =
+--    {
+--      type = "electric",
+--      buffer_capacity = "5GJ",
+--      usage_priority = "primary-input",
+--      input_flow_limit = "5GW",
+--      output_flow_limit = "0kW",
+--      render_no_network_icon = false,
+--      render_no_power_icon = false
+--    },
+-- 
+--    energy_production = "0kW",
+--    energy_usage = "0kW",
+--    -- also 'pictures' for 4-way sprite is available, or 'animation' resp. 'animations'
+--    picture =
+--    {
+--      filename = "__base__/graphics/entity/accumulator/accumulator.png",
+--      priority = "extra-high",
+--      width = 124,
+--      height = 103,
+--      shift = {0.6875, -0.203125},
+--      tint = {r=1, g=0.8, b=1, a=1}
+--    },
+--    vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65},
+--    working_sound =
+--    {
+--      sound =
+--      {
+--        filename = "__base__/sound/accumulator-working.ogg",
+--        volume = 1
+--      },
+--      idle_sound =
+--      {
+--        filename = "__base__/sound/accumulator-idle.ogg",
+--        volume = 0.4
+--      },
+--      max_sounds_per_type = 5
+--    }
+--  },
 })
 
 

@@ -213,6 +213,18 @@ data:extend(
         order = "c[alien-fuel]",
         stack_size = 200,
     },]]--
+    {
+        type = "item",
+        name = "conduit-fuel",
+        icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
+        icon_size = 32,
+        flags = {"goes-to-main-inventory"},
+        fuel_category = "rana-conduit",
+        fuel_value = "1MJ",
+        subgroup = "raw-resource",
+        order = "c[conduit-fuel]",
+        stack_size = 200,
+    },
 })
 
 data.raw["item"]["battery-equipment"].icon = "__Modular-Armor__/graphics/icons/battery-mk1-equipment.png" -- Icon

@@ -143,7 +143,7 @@ data:extend(
 	categories = {"armor"}
   },
   {
-    type = "battery-equipment",
+    type = "generator-equipment",
     name = "superconductor-conduit-equipment",
     sprite = 
     {

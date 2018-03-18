@@ -29,7 +29,7 @@ data:extend(
     {
         type = "recipe",
         name = "semiconductor-conduit-equipment",
-        enabled = "false",
+        enabled = "true",
         energy_required = 10,
         ingredients =
         {
@@ -41,7 +41,7 @@ data:extend(
     {
         type = "recipe",
         name = "superconductor-conduit-equipment",
-        enabled = "false",
+        enabled = "true",
         energy_required = 10,
         ingredients =
         {

@@ -13,14 +13,7 @@ require "config"
     Alternately, do aura search, steal power from accumulators and roboports. /Done
     
     Add command to disable conduit mechanics.
-    -Shield pulse visial /Done, Removed to seperate mod
-    -Better Energy Distribution
-    -Sheld autobalance /Done
-    -Boost batteries. Add higher tier,larger battery(s) /Done
-    -Finish tech fixing /Done
-    -Add GUI display for fuel.
-    -Add custom fuel slot.
-    -Method to discharge energy into network?
+    Method to discharge energy into network?
 ]]--
 
 
@@ -31,20 +24,20 @@ require "config"
 
 
 function verifySettings()
-	if (RanaMods.ModularArmor.config.tickRate < 0) then
-		RanaMods.ModularArmor.config.tickRate = 1
-		throwError("Tick rate must be >= 0.")
-	end
+    if (RanaMods.ModularArmor.config.tickRate < 0) then
+        RanaMods.ModularArmor.config.tickRate = 1
+        throwError("Tick rate must be >= 0.")
+    end
 end
 
 script.on_init(function()
        -- globalPrint("onLoad")
-	if (global.loaded == nil) then
-		global.loaded = true
+    if (global.loaded == nil) then
+        global.loaded = true
        -- globalPrint("loaded")
         
-		verifySettings()
-	end
+        verifySettings()
+    end
     --refresh_equipment()
     
     --[[if (not global.surface) then
@@ -56,11 +49,11 @@ script.on_init(function()
     if (global.ticking == nil) then
         global.ticking = 0
     end
-	--if not evo_gui then
-		--evo_gui = EvoGUI.new(Natural_Evolution_state)
-		--evo_gui = EvoGUI.new(Expansion_State)
-		
-	--end	
+    --if not evo_gui then
+        --evo_gui = EvoGUI.new(Natural_Evolution_state)
+        --evo_gui = EvoGUI.new(Expansion_State)
+        
+    --end   
 end
 )
 
@@ -218,10 +211,10 @@ end]]--
 
 function ticker() -- run once per tickRate number of gameticks.
     if (game.tick % RanaMods.ModularArmor.config.tickRate) == 0 then
-		--tick()
+        tick()
         
-	else
-	end
+    else
+    end
     --[[if (game.tick %  60) == 0 then
         refresh_equipment()
     end]]--
@@ -288,7 +281,7 @@ function killDummies(id)
 end
 
 function tick()
-	local shouldKeepTicking
+    local shouldKeepTicking
     local thisPlayer = nil
     local players = game.players
     --globalPrint("tick")
@@ -328,25 +321,25 @@ function tick()
                 
                 if (armor.valid_for_read) then
                     
-                    if (armor.has_grid) then -- Check for grid existence.
+                    --if (armor.has_grid) then -- Check for grid existence.
                         local grid = armor.grid
                         
-                        --tickDummies(modularArmor,thisPlayer.character.surface,thisPlayer.character.position)-- validate, create, and move dummy units.
+                        tickDummies(modularArmor,thisPlayer.character.surface,thisPlayer.character.position)-- validate, create, and move dummy units.
                         
                         
                         
-                        --local transferRate = 0 -- Rate of transfer from external network to armor.
+                        local transferRate = 0 -- Rate of transfer from external network to armor.
                     
                         --transferRate = transferRate + ArmorTransferRatePerGridSize*grid.width*grid.height
                         
                
-                        --local energy = 0 -- Total energy and energy capacity
-                        --local energyCap = 0 -- need smallest fraction count as well. Essentially, if any of them have less than 50% or 90%, activate fusion and steam respectively.
-                        --local hasBattery = false -- Due to lack of a good energy distrubution system, I only limit production so long as you have a battery. Otherwise, things near the end of the list don't get any energy.
+                        local energy = 0 -- Total energy and energy capacity
+                        local energyCap = 0 -- need smallest fraction count as well. Essentially, if any of them have less than 50% or 90%, activate fusion and steam respectively.
+                        local hasBattery = false -- Due to lack of a good energy distrubution system, I only limit production so long as you have a battery. Otherwise, things near the end of the list don't get any energy.
                         -- Disabled, since power distribution percentages of 98 and 99% don't really have problems anymore. You would need 50 mini-shields, which wont happen
-                        --local shieldHealth = 0 -- Total shield and shield capacity for auto-balancing.
-                        --local shieldCap = 0
-                        --[[for x,equipment in ipairs(grid.equipment) do -- Loop through all equipment.
+                        local shieldHealth = 0 -- Total shield and shield capacity for auto-balancing.
+                        local shieldCap = 0
+                        for x,equipment in ipairs(grid.equipment) do -- Loop through all equipment.
                             if (equipment.max_energy ~= 0) then
                                 energy = energy + equipment.energy -- If it has energy, add values to total value.
                                 energyCap = energyCap + equipment.max_energy
@@ -363,21 +356,27 @@ function tick()
                                 shieldHealth = shieldHealth + equipment.shield -- Same with shield.
                                 shieldCap = shieldCap + equipment.max_shield
                             else
-							
+                            
                             end
                             
-							local prototype = equipment.prototype
-							gloablPrint(prototype.energy_source.type)
-							if (prototype.energy_source.type == "rana-conduit")
-							
-								--transferRate = transferRate + (prototype.energy_production-equipment.)
-							end
-							
-                        end]]--
+                            local prototype = equipment.prototype
+                            if (equipment.burner ~= nil) then
+                            
+                                --globalPrint(equipment.burner.fuel_categories["rana-conduit"])
+                                if (equipment.burner.fuel_categories["rana-conduit"]) then
+                                    -- Max power output per second minus remaining fuel.
+                                    local energyWanted = (prototype.energy_production) - equipment.burner.remaining_burning_fuel
+                                    transferRate = transferRate + energyWanted
+                                    --equipment.burner.currently_burning = "conduit-fuel"
+                                    --equipment.burner.remaining_burning_fuel = 100000000000
+                                end
+                            end
+                            
+                        end
                         
                         
                         
-                        --[[local shieldFraction = grid.shield / grid.max_shield
+                        local shieldFraction = grid.shield / grid.max_shield
                         
                         if shieldCap > 0 then
                             
@@ -397,9 +396,9 @@ function tick()
                             modularArmor.shieldData.lastDamage = modularArmor.shieldData.lastDamage+1
                         else
                             
-                        end]]--
+                        end
                         
-                        --[[local energyWanted = energyCap-energy
+                        local energyWanted = energyCap-energy
                         
                         local transferRate = math.min(transferRate,energyWanted) -- We cant transfer energy without space to put it into
                         
@@ -411,12 +410,14 @@ function tick()
                         local newEnergy = energy+energyToAdd
                         local storageRatio = newEnergy/energyCap
                         
-                        accumulatorEnergy = accumulatorEnergy - energyToAdd -- Remove ]]--
+                        accumulatorEnergy = accumulatorEnergy - energyToAdd -- Remove
+                        
+                        --globalPrint("Accumulator "..accumulatorEnergy)
+                        
                         -- SFX
                         -- if energyToAdd >= 10000 and game.tick%60 == 0 then
                         --    global.surface.create_entity{name = "conduit-sparks", position = thisPlayer.character.position, force=game.forces.neutral}
                         --end
-                        --globalPrint("Accumulator -- "..accumulatorEnergy)
                         --global.surface.create_entity{name = "smoke-fast", position = thisPlayer.character.position, force=game.forces.neutral} 
                         
                        
@@ -427,24 +428,27 @@ function tick()
                         -- For each point missing from an element, add energyFraction to it.
                         -- Calc extra as well, and if it is greater than like 10%, feed into accumulator for next tick.
                         
-                        
-                        --globalPrint("energyFraction"..energyFraction)
                         --globalPrint("energyToAdd"..energyToAdd)
                         
                         --globalPrint("energySpent"..energySpent)
                         --shieldHealth = 0
-                        --[[for x,equipment in ipairs(grid.equipment) do -- Basic Setup. Distribute as much to first in line, remainder to next, and next, till you run out.
-                            if (equipment.max_energy ~= 0 and energyToAdd > 0) then          -- Poor Distribution method.
-                                local difference = equipment.max_energy - equipment.energy
-                                if (energyToAdd > difference) then
-                                    energyToAdd = energyToAdd - difference
-                                    equipment.energy = equipment.max_energy
-                                else
-                                    equipment.energy = equipment.energy + energyToAdd
-                                    energyToAdd = 0
-                                    --break -- Removed since it interferes with shield.
+                        for x,equipment in ipairs(grid.equipment) do -- Basic Setup. Distribute as much to first in line, remainder to next, and next, till you run out.
+                             if (equipment.burner ~= nil) then
+                                if (equipment.burner.fuel_categories["rana-conduit"]) then
+                                    local prototype = equipment.prototype
+                                    local energyWanted = (prototype.energy_production) - equipment.burner.remaining_burning_fuel
+                                    --globalPrint("energyWanted "..energyWanted)
+                                    --globalPrint("energyToAdd "..energyToAdd)
+                                    equipment.burner.currently_burning = "conduit-fuel"
+                                    if (energyToAdd > energyWanted) then
+                                        energyToAdd = energyToAdd - energyWanted
+                                        equipment.burner.remaining_burning_fuel = prototype.energy_production
+                                    else
+                                        equipment.burner.remaining_burning_fuel = equipment.burner.remaining_burning_fuel + energyToAdd
+                                        energyToAdd = 0
+                                    end
                                 end
-                            end  
+                            end
                             if (equipment.max_shield ~= 0) then
                                 
                                 equipment.shield = equipment.max_shield * shieldFraction -- This part is a quick autobalance. All shields get equal power.
@@ -460,12 +464,12 @@ function tick()
                         
                         modularArmor.units.accumulator.energy = RanaMods.ModularArmor.config.accumulatorEnergyCap - transferRate--*conversionRatio
                         modularArmor.previousEnergy = modularArmor.units.accumulator.energy --*conversionRatio -- The additional accumulated energy over
-                        ]]--
                         
                         
-                    else
-                        killDummies(modularArmor)
-                    end
+                        
+                    --else
+                    --    killDummies(modularArmor)
+                    --end
                 else
                     killDummies(modularArmor)
                 end
@@ -477,8 +481,8 @@ function tick()
             
     end
     
-	--[[if (not shouldKeepTicking) then
-		global.ticking = nil
-		script.onevent(defines.events.ontick, nil)
-	end]]--
+    --[[if (not shouldKeepTicking) then
+        global.ticking = nil
+        script.onevent(defines.events.ontick, nil)
+    end]]--
 end
