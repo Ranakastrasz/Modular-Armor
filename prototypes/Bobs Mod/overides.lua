@@ -62,10 +62,9 @@ modEquipment("active-defense-equipment")
     equipment.energy_source.input_flow_limit = modValue(equipment.energy_source.input_flow_limit)
     equipment.energy_input = modValue(equipment.energy_input)
 end]]--
--- No longer needed.
---[[for km, vm in pairs(data.raw.module) do
+for km, vm in pairs(data.raw.module) do
     if vm.name:find("productivity%-module") and vm.limitation then
         table.insert(vm.limitation, "alien-fuel")
     end
-end]]--
+end
 

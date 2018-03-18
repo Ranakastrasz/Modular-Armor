@@ -19,4 +19,14 @@ RanaMods.ModularArmor.config.accumulatorEnergyCap = 5*1000*1000*1000 --entity_pr
 RanaMods.ModularArmor.config.LowFuelMessage = true
 
 RanaMods.ModularArmor.config.fuelCoef = 1.0
-RanaMods.ModularArmor.config.powerCoef = 10.0
+RanaMods.ModularArmor.config.powerCoef = 1.0
+
+--[[
+Settings
+Allow power Coef for Burner and Nuclear generations
+Shield Power Share
+Enable Size-shifting
+
+
+
+]]--

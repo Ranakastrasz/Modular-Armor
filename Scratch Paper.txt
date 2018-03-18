@@ -7,10 +7,22 @@
     Fusion  : 960MW    ,  4x4, 60  kw                    
     
     
+	Hp - Shield Hitpoints
+	Eff KJ. KJ Required per shield point.
+	Rate KW. KW consumption at max charge rate
+	Charge: HP increase at max rate
+	Size: Size of module in armor
+	SCap, ?? Energy Storage? 
+	SRate KW, HP Regen rate per Size
+	sCharge Seconds to fully recharge at max rate.
+	
+	
+	
+	
              :Capacity Hp, Eff KJ  , Rate KW , Charge , Size  , SCap , sRate KW, sCharge, Color(s)
-    Shield 0 :       5   , 10      ,    15   ,    1.5 , 1x1   ,    5 ,  15   ,   1.5    , Purple-Green
-    Shield 1 :      50   , 20      ,   240   ,   12   , 2x2   ,   20 ,  60   ,    3     , Red-Blue
-    Shield 2 :     350   , 30      ,   800   ,   26.6 , 3x3   ,   40 ,  89   ,    2.96  , Blue-Red
+    Shield 0 :       5   , 10      ,    15   ,    1.5 , 1x1   ,    5 ,  15     ,   1.5  , Purple-Green
+    Shield 1 :      50   , 20      ,   240   ,   12   , 2x2   ,   20 ,  60     ,    3   , Red-Blue
+    Shield 2 :     350   , 30      ,   800   ,   26.6 , 3x3   ,   40 ,  89     ,    2.96, Blue-Red
     
               : Capacity MJ, Size, Rating, Color
     Battery 1 :     10     , 1x1 ,  10   , Green
@@ -23,6 +35,8 @@
     Battery 2 :    100     , 2x1 ,  50   , Green
     
 
+    Conduit 1 :      40  ,  1x1,  40  ,              , 
+    Conduit 2 :     720  ,  3x3,  80  ,              ,  
 	
     
     Bobs Mod
@@ -34,24 +48,24 @@
     Bob's mod : KW Power , Size,Rating, Solar Averages, Color
 
     Solar 1   :      90  ,  1x3,  30  , 210 ,   630  , Cyan
-    Solar 2   :    2,25  ,  1x5,  45  , 315 , 1,575  , Blue
-    Solar 3   :    7,50  ,  2x5,  75  , 525 , 5,250  , Yellow
-    Solar 4   :   16,80  ,  2x7, 120  , 840 ,11,760  , Red
+    Solar 2   :     225  ,  1x5,  45  , 315 , 1,575  , Blue
+    Solar 3   :     750  ,  2x5,  75  , 525 , 5,250  , Yellow
+    Solar 4   :   1,680  ,  2x7, 120  , 840 ,11,760  , Red
                  
     Conduit 1 :      40  ,  1x1,  40  ,              , Cyan
-    Conduit 2 :    1,20  ,  2x1,  60  ,              , Blue 
-    Conduit 3 :    3,00  ,  3x1, 100  ,              , Yellow 
-    Conduit 4 :    6,40  ,  4x1, 160  ,              , Red 
+    Conduit 2 :     240  ,  2x2,  60  ,              , Blue 
+    Conduit 3 :     900  ,  3x3, 100  ,              , Yellow 
+    Conduit 4 :     640  ,  4x4, 160  ,              , Red 
                  
-    Burner 1  :    1,00  ,  2x2,  25  , 95%          , Cyan
-    Burner 2  :    1,50  ,  3x3,  37.5, 90%          , Blue
-    Burner 3  :    2,50  ,  3x3,  62.5, 85%          , Yellow
-    Burner 4  :    4,00  ,  4x4, 100  , 80%          , Red
+    Burner 1  :     100  ,  2x2,  25  , 95%          , Cyan
+    Burner 2  :     150  ,  3x3,  37.5, 90%          , Blue
+    Burner 3  :     250  ,  3x3,  62.5, 85%          , Yellow
+    Burner 4  :     400  ,  4x4, 100  , 80%          , Red
                  
-    Fusion1   :    9,60  ,  4x4,  60  , 95%          , Cyan
-    Fusion2   :   22,50  ,  5x5,  90  , 90%          , Blue    
-    Fusion3   :   54,00  ,  6x6, 150  , 85%          , Yellow  
-    Fusion4   :  117,60  ,  7x7, 240  , 80%          , Red
+    Fusion1   :     960  ,  4x4,  60  , 95%          , Cyan
+    Fusion2   :   2,250  ,  5x5,  90  , 90%          , Blue    
+    Fusion3   :   5,400  ,  6x6, 150  , 85%          , Yellow  
+    Fusion4   :  11,760  ,  7x7, 240  , 80%          , Red
     -------------
 	
 	
