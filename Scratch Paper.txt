@@ -1,10 +1,11 @@
 
              Gen       , Size, Gen/size
-    Conduit :  60kW    ,  1x1, 60  kw                    
+    Conduit :  40kW    ,  1x1, 40  kw       
+    Conduit : 540kW    ,  3x3, 60  kw                    
     Solar 1 :  75kW    ,  1x3, 25  kw  *0.7 17.5 kW       
     Solar 2 : 300kW    ,  2x5, 30  kw  *0.7 21   kW       
     Burner  : 100kW    ,  2x2, 25  kw                    
-    Fusion  : 960MW    ,  4x4, 60  kw                    
+    Fusion  : 800kW    ,  4x4, 50  kw                    
     
     
 	Hp - Shield Hitpoints

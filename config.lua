@@ -23,10 +23,13 @@ RanaMods.ModularArmor.config.powerCoef = 1.0
 
 --[[
 Settings
-Allow power Coef for Burner and Nuclear generations
-Shield Power Share
+Allow power Coef for Burner and Nuclear generations - change the 10% 5% to whatever%
+Shield Power Share - Lets shields charge faster at all times when taking damage, but costs the power immediately.
 Enable Size-shifting - Boring Vanilla sizes or interesting revamped sizes.
-Shield Decay
-
-
+Mini-equipment - Enables T0 shield and leg pieces
+Shield Decay - Forces shield upkeep
+Fusion Reactor - Fission reactor, uses nuclear fuel, RTG generator, uses nuclear fuel in construction only.
+Conduit Coef.
+Alien Fuel - If alien artifacts added back in by a mod, let use to make alien fuel (maybe merged with nuclear fuel too)
+Roboport Storage -- Cuts roboport storage down to a more reasonable, less power-eating insanity level. 
 ]]--
