@@ -1,11 +1,37 @@
 
-             Gen       , Size, Gen/size
-    Conduit :  40kW    ,  1x1, 40  kw       
-    Conduit : 540kW    ,  3x3, 60  kw                    
-    Solar 1 :  75kW    ,  1x3, 25  kw  *0.7 17.5 kW       
-    Solar 2 : 300kW    ,  2x5, 30  kw  *0.7 21   kW       
-    Burner  : 100kW    ,  2x2, 25  kw                    
-    Fusion  : 800kW    ,  4x4, 50  kw                    
+               Tier ,  Gen    , Size, Gen/size
+    Conduit :  1    , 40kW    ,  1x1, 40  kw  *0.05 = 2 
+    Conduit2:  3    ,720kW    ,  3x3, 80  kw  *0.05 = 4              
+    Solar 1 :  1    , 75kW    ,  1x3, 25  kw  *0.7  = 17.5 kW      
+    Solar 2 :  2    ,300kW    ,  2x5, 30  kw  *0.7  = 21   kW      
+    Burner  :  2    ,100kW    ,  2x2, 25  kw  (10% efficiency) (8 sec/coal, 25 sec/solid)                  
+    Fusion  :  3    ,800kW    ,  4x4, 50  kw  (5% efficiency) (6.7 min/Fuel)  
+                                              
+    
+               Tier ,  Gen     , Size, Gen/size
+    Conduit  : 1    ,  40kW    ,  1x1, 40  kw  *0.25 = 10
+    Conduit 2: 2    , 240kW    ,  4x1, 60  kw  *0.25 = 15
+    Solar 1  : 1    ,  30kW    ,  1x2, 15  kw  *0.7  =10.5 kW      
+    Solar 2  : 2    , 100kW    ,  1x5, 20  kw  *0.7  =14   kW      
+    Burner 1 : 1    , 100kW    ,  2x2, 25  kw  (25% efficiency) (20   sec/coal, 62.5 sec/solid)
+    Burner 2 : 2    , 360kW    ,  3x3, 40  kw  (30% efficiency) ( 6.7 sec/coal, 20.8 sec/solid)
+    Fusion   : 3    ,1000kW    ,  4x4, 62.5kw  (10% efficiency) (13.3 min/Fuel)
+    
+                        Size  ,  Tiles
+    Modular              5x 5 ,  25
+    Powered Armor        7x 7 ,  49
+    Powered Armor II    10x10 ,  100
+    Powered Armor III   12x12 ,  144
+    Powered Armor IV    15x15 ,  225
+    
+                        Size  ,  Tiles
+    Modular              5x 5 ,  25
+    Powered Armor        7x 7 ,  49
+    Powered Armor II     8x 8 ,  64
+    Powered Armor III    9x 9 ,  81
+    Powered Armor IV    10x10 ,  100
+    
+    
     
     
 	Hp - Shield Hitpoints

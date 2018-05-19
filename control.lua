@@ -287,7 +287,7 @@ function tick()
                 end
             else
                 -- No player
-                killDummies(modularArmor)
+                --killDummies(modularArmor)
             end
         end
             
