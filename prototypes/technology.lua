@@ -1,50 +1,50 @@
 data:extend(
 {
 
-  {
-    type = "technology",
-    name = "semiconductor-conduit-equipment",
-    icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
-    icon_size = 128,
-	enabled = false,
-    prerequisites = {"modular-armor","electric-energy-distribution-1"},
-    effects =
-    {
-      {
-        type = "unlock-recipe",
-        recipe = "semiconductor-conduit-equipment"
-      }
-    },
-    unit =
-    {
-      count = 50,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}},
-      time = 15
-    },
-    order = "g-k-1-1"
-  },
-  {
-    type = "technology",
-    name = "superconductor-conduit-equipment",
-    icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment-2.png",
-    icon_size = 128,
-	enabled = false,
-    prerequisites = {"semiconductor-conduit-equipment","electric-energy-distribution-2","effectivity-module-2"},
-    effects =
-    {
-      {
-        type = "unlock-recipe",
-        recipe = "superconductor-conduit-equipment"
-      }
-    },
-    unit =
-    {
-      count = 200,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}},
-      time = 45
-    },
-    order = "g-k-1-2"
-  },
+  --{
+  --  type = "technology",
+  --  name = "semiconductor-conduit-equipment",
+  --  icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment.png",
+  --  icon_size = 128,
+	--enabled = false,
+  --  prerequisites = {"modular-armor","electric-energy-distribution-1"},
+  --  effects =
+  --  {
+  --    {
+  --      type = "unlock-recipe",
+  --      recipe = "semiconductor-conduit-equipment"
+  --    }
+  --  },
+  --  unit =
+  --  {
+  --    count = 50,
+  --    ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
+  --    time = 15
+  --  },
+  --  order = "g-k-1-1"
+  --},
+  --{
+  --  type = "technology",
+  --  name = "superconductor-conduit-equipment",
+  --  icon = "__Modular-Armor__/graphics/technology/power-conduit-equipment-2.png",
+  --  icon_size = 128,
+	--enabled = false,
+  --  prerequisites = {"semiconductor-conduit-equipment","electric-energy-distribution-2","effectivity-module-2"},
+  --  effects =
+  --  {
+  --    {
+  --      type = "unlock-recipe",
+  --      recipe = "superconductor-conduit-equipment"
+  --    }
+  --  },
+  --  unit =
+  --  {
+  --    count = 200,
+  --    ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"military-science-pack", 1}},
+  --    time = 45
+  --  },
+  --  order = "g-k-1-2"
+  --},
   {
     type = "technology",
     name = "engine-equipment",
@@ -61,7 +61,7 @@ data:extend(
     unit =
     {
       count = 100,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}},
       time = 30
     },
     order = "g-k-2-1"
@@ -82,7 +82,7 @@ data:extend(
     unit =
     {
       count = 75,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}},
       time = 15
     },
     order = "g-k-3-2"
@@ -103,7 +103,7 @@ data:extend(
     unit =
     {
       count = 50,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
       time = 30
     },
     order = "g-h-a"
@@ -123,7 +123,7 @@ data:extend(
     unit =
     {
       count = 50,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}},
       time = 30
     },
     order = "g-h-b"
@@ -145,7 +145,7 @@ data:extend(
     unit =
     {
       count = 50,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
       time = 15
     },
     order = "g-e-a"
@@ -165,7 +165,7 @@ data:extend(
     unit =
     {
       count = 75,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"military-science-pack", 1}},
       time = 15
     },
     order = "g-e-b"
@@ -185,7 +185,7 @@ data:extend(
     unit =
     {
       count = 100,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"military-science-pack", 1}},
       time = 30
     },
     order = "g-e-c"
@@ -206,7 +206,7 @@ data:extend(
     unit =
     {
       count = 50,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
       time = 15
     },
     order = "g-i-a"
@@ -226,7 +226,7 @@ data:extend(
     unit =
     {
       count = 100,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"military-science-pack", 1}},
       time = 30
     },
     order = "g-i-b"
@@ -247,7 +247,7 @@ data:extend(
     unit =
     {
       count = 200,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack",1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"military-science-pack",1}},
       time = 45
     },
     order = "g-i-c"
@@ -268,7 +268,7 @@ data:extend(
     unit =
     {
       count = 400,
-      ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack",1}, {"high-tech-science-pack", 1}},
+      ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"military-science-pack",1}, {"utility-science-pack", 1}},
       time = 60
     },
     order = "g-i-d"
@@ -293,7 +293,7 @@ data:extend(
         unit =
         {
             count = 200,
-            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}},
+            ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"military-science-pack", 1}},
             time = 30
         },
         order = "g-l"
@@ -313,14 +313,14 @@ data:extend(
         unit =
         {
             count = 100,
-            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}},
+            ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"military-science-pack", 1}},
             time = 30
         },
         order = "g-c-a"
     }]]--
     {
         type = "technology",
-        name = "power-armor-3",
+        name = "power-armor-mk3",
         icon = "__Modular-Armor__/graphics/technology/power-armor-mk3.png",
         icon_size = 128,
         effects =
@@ -330,20 +330,20 @@ data:extend(
                 recipe = "power-armor-mk3"
             }
         },
-        prerequisites = {"power-armor-2","speed-module-3","effectivity-module-3","productivity-module-3","rocket-silo"},
+        prerequisites = {"power-armor-mk2","speed-module-3","effectivity-module-3","productivity-module-3","rocket-silo"},
         unit =
         {
             count = 500,
-            ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1},
-			{"science-pack-3", 2}, {"military-science-pack", 3},
-			{"high-tech-science-pack", 5}},
+            ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1},
+			{"chemical-science-pack", 2}, {"military-science-pack", 3},
+			{"utility-science-pack", 5}},
             time = 35
         },
         order = "g-c-c"
     },
     {
         type = "technology",
-        name = "power-armor-4",
+        name = "power-armor-mk4",
         icon = "__Modular-Armor__/graphics/technology/power-armor-mk4.png",
         icon_size = 128,
         effects =
@@ -353,13 +353,13 @@ data:extend(
                 recipe = "power-armor-mk4"
             }
         },
-        prerequisites = {"power-armor-3"},
+        prerequisites = {"power-armor-mk3"},
         unit =
         {
             count = 1000,
-            ingredients = {{"science-pack-1", 2}, {"science-pack-2", 3},
-			{"science-pack-3", 5}, {"military-science-pack", 5},
-			{"high-tech-science-pack", 5},{"space-science-pack", 5}},
+            ingredients = {{"automation-science-pack", 2}, {"logistic-science-pack", 3},
+			{"chemical-science-pack", 5}, {"military-science-pack", 5},
+			{"utility-science-pack", 5},{"space-science-pack", 5}},
             time = 60
         },
         order = "g-c-d"
@@ -370,12 +370,12 @@ data:extend(
 
 -- Mk1 Shield
 data.raw["technology"]["energy-shield-equipment"].prerequisites = {"electrostatic-shield-equipment","speed-module"}
---data.raw["technology"]["energy-shield-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}}
+--data.raw["technology"]["energy-shield-equipment"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"military-science-pack", 1}}
 data.raw["technology"]["energy-shield-equipment"].order = "g-e-b"
 
 -- Mk2 Shield
 data.raw["technology"]["energy-shield-mk2-equipment"].prerequisites = {"energy-shield-equipment","speed-module-3"}
---data.raw["technology"]["energy-shield-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}}
+--data.raw["technology"]["energy-shield-mk2-equipment"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"military-science-pack", 1}}
 data.raw["technology"]["energy-shield-mk2-equipment"].order = "g-e-c"
 
 
@@ -393,7 +393,7 @@ data.raw["technology"]["battery-equipment"].icon_size = 128
 data.raw["technology"]["battery-mk2-equipment"].prerequisites = {"battery-equipment","effectivity-module"}
 data.raw["technology"]["battery-mk2-equipment"].icon = "__Modular-Armor__/graphics/technology/battery-mk2-equipment.png" -- Icon
 data.raw["technology"]["battery-mk2-equipment"].icon_size = 128
---data.raw["technology"]["battery-mk2-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}}
+--data.raw["technology"]["battery-mk2-equipment"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"military-science-pack", 1}}
 
 
 
@@ -402,7 +402,7 @@ data.raw["technology"]["solar-panel-equipment"].prerequisites = {"modular-armor"
 --data.raw["technology"]["solar-panel-equipment"].order = "g-k-3-1"
 --data.raw["technology"]["solar-panel-equipment"].enabled = false
 --- Fusion Reactor
---data.raw["technology"]["fusion-reactor-equipment"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"science-pack-3", 1}, {"military-science-pack", 1}}
+--data.raw["technology"]["fusion-reactor-equipment"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"chemical-science-pack", 1}, {"military-science-pack", 1}}
 
 
 
@@ -425,10 +425,10 @@ table.insert (data.raw["technology"]["fusion-reactor-equipment"].effects,
 
 data.raw["technology"]["modular-armor"].prerequisites = {"heavy-armor","advanced-electronics"}
 
---data.raw["technology"]["power-armor"].unit.ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}, {"military-science-pack", 1}} -- This might have compatibility issues if anything else changes recipes. Would prefer to simply change the blue pack to alien pack, but unsure of syntax.
+--data.raw["technology"]["power-armor"].unit.ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}, {"military-science-pack", 1}} -- This might have compatibility issues if anything else changes recipes. Would prefer to simply change the blue pack to alien pack, but unsure of syntax.
 data.raw["technology"]["power-armor"].prerequisites = {"modular-armor","electric-engine","speed-module"}
 
-data.raw["technology"]["power-armor-2"].prerequisites = {"power-armor", "speed-module-2", "effectivity-module-2"}
+data.raw["technology"]["power-armor-mk2"].prerequisites = {"power-armor", "speed-module-2", "effectivity-module-2"}
 
 data.raw["technology"]["personal-roboport-equipment"].prerequisites = {"construction-robotics","modular-armor"} -- Solar panel is no longer a prerequisite as there are many other power sources.
 

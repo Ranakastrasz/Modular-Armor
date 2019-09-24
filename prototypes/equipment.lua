@@ -283,7 +283,7 @@ data:extend(
       buffer_capacity = "10MJ",
       input_flow_limit = "100MW",
       output_flow_limit = "100MW",
-      usage_priority = "terciary"
+      usage_priority = "tertiary"
     },
 	categories = {"armor"},
   },
@@ -309,7 +309,7 @@ data:extend(
       buffer_capacity = "50MJ",
       input_flow_limit = "500MW",
       output_flow_limit = "500MW",
-      usage_priority = "terciary"
+      usage_priority = "tertiary"
     },
 	categories = {"armor"},
   },
@@ -335,7 +335,7 @@ data:extend(
       buffer_capacity = "200MJ",
       input_flow_limit = "2000MW",
       output_flow_limit = "2000MW",
-      usage_priority = "terciary"
+      usage_priority = "tertiary"
     },
 	categories = {"armor"},
   },
@@ -361,7 +361,7 @@ data:extend(
       buffer_capacity = "800MJ",
       input_flow_limit = "8000MW",
       output_flow_limit = "8000MW",
-      usage_priority = "terciary"
+      usage_priority = "tertiary"
     },
 	categories = {"armor"},
   }

@@ -132,10 +132,10 @@ function tick()
                     modularArmor.shieldData.lastDamage = 0
                 end
                 
+                -- DISABLED HERE. No idea why this isn't working anymore, yet. 
+                local armor = nil--thisPlayer.get_inventory(defines.inventory.player_armor)[1] -- Check for armour presence.
                 
-                local armor = thisPlayer.get_inventory(defines.inventory.player_armor)[1] -- Check for armour presence.
-                
-                if (armor.valid_for_read) then
+                if (armor ~= nil and armor.valid_for_read) then
                     
                     if (armor.grid) then -- Check for grid existence.
                         local grid = armor.grid

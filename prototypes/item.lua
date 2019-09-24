@@ -19,7 +19,6 @@ data:extend(
         name = "power-armor-mk3",
         icon = "__Modular-Armor__/graphics/icons/power-armor-mk3.png",
 		icon_size = 32,
-        flags = {"goes-to-main-inventory"},
         resistances =
         {
             {
@@ -55,7 +54,6 @@ data:extend(
         name = "power-armor-mk4",
         icon = "__Modular-Armor__/graphics/icons/power-armor-mk4.png",
 		icon_size = 32,
-        flags = {"goes-to-main-inventory"},
         resistances =
         {
             {
@@ -93,7 +91,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/solar-panel-equipment-2.png",
 		icon_size = 32,
         placed_as_equipment_result = "solar-panel-equipment-2",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "a[energy-source]-b[solar-panel]-b[solar-panel-2]",
         stack_size = 20
@@ -104,7 +101,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/engine-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "engine-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "a[energy-source]-c[engine-equipment]-a[engine-equipment]",
         stack_size = 20
@@ -115,7 +111,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "semiconductor-conduit-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "a[energy-source]-a[power-conduit-equipment]-a[power-conduit-equipment]",
         stack_size = 20
@@ -126,7 +121,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment-2.png",
 		icon_size = 32,
         placed_as_equipment_result = "superconductor-conduit-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "a[energy-source]-a[power-conduit-equipment]-b[power-conduit-equipment]",
         stack_size = 20
@@ -137,7 +131,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/electrostatic-shield-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "electrostatic-shield-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "b[shield]-a[energy-shield-equipment]",
         stack_size = 50,
@@ -149,7 +142,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/actuator-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "actuator-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "e[exoskeleton]-a[exoskeleton-equipment]",
         stack_size = 20
@@ -160,7 +152,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/battery-mk1-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "battery-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "c[battery]-a[battery-equipment]",
         stack_size = 50,
@@ -172,7 +163,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/battery-mk2-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "battery-mk2-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "c[battery]-b[battery-equipment-mk2]",
         stack_size = 50,
@@ -184,7 +174,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/battery-mk3-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "battery-mk3-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "c[battery]-c[battery-equipment-mk3]",
         stack_size = 50,
@@ -196,7 +185,6 @@ data:extend(
         icon = "__Modular-Armor__/graphics/icons/battery-mk4-equipment.png",
 		icon_size = 32,
         placed_as_equipment_result = "battery-mk4-equipment",
-        flags = {"goes-to-main-inventory"},
         subgroup = "equipment",
         order = "c[battery]-d[battery-equipment-mk4]",
         stack_size = 50,
@@ -207,7 +195,6 @@ data:extend(
         name = "alien-fuel",
         icon = "__Modular-Armor__/graphics/icons/alien-fuel.png",
 		icon_size = 32,
-        flags = {"goes-to-main-inventory"},
         fuel_value = "200MJ",
         subgroup = "raw-resource",
         order = "c[alien-fuel]",
@@ -218,7 +205,6 @@ data:extend(
         name = "conduit-fuel",
         icon = "__Modular-Armor__/graphics/icons/power-conduit-equipment.png",
         icon_size = 32,
-        flags = {"goes-to-main-inventory"},
         fuel_category = "rana-conduit",
         fuel_value = "1MJ",
         subgroup = "raw-resource",

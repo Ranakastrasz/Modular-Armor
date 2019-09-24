@@ -3,8 +3,8 @@ return
 {
   filename = "__Modular-Armor__/graphics/null.png",
   priority = "medium",
-  width = 0,
-  height = 0,
+  width = 1,
+  height = 1,
   frame_count = 1,
   line_length = 1,
   run_mode = "forward",
@@ -18,8 +18,8 @@ function laser_turret_extension_shadow_dummy()
 return
 {
   filename = "__Modular-Armor__/graphics/null.png",
-  width = 0,
-  height = 0,
+  width = 1,
+  height = 1,
   frame_count = 1,
   line_length = 1,
   run_mode = "forward",
@@ -34,8 +34,8 @@ function laser_turret_extension_mask_dummy()
 return
 {
   filename = "__Modular-Armor__/graphics/null.png",
-  width = 0,
-  height = 0,
+  width = 1,
+  height = 1,
   frame_count = 1,
   line_length = 1,
   run_mode = "forward",
@@ -139,39 +139,39 @@ data:extend(
     {
       layers =
       {
-        --{
-        --  filename = "__Modular-Armor__/graphics/null.png",
-        --  line_length = 1,
-        --  width = 0,
-        --  height = 0,
-        --  frame_count = 1,
-        --  axially_symmetrical = false,
-        --  direction_count = 1,
-        --  shift = {0.0625, -1}
-        --
-        --},
-        --{
-        --  filename = "__Modular-Armor__/graphics/null.png",
-        --  line_length = 1,
-        --  width = 0,
-        --  height = 0,
-        --  frame_count = 1,
-        --  axially_symmetrical = false,
-        --  apply_runtime_tint = false,
-        --  direction_count = 1,
-        --  shift = {0.0625, -1.3125},
-        --},
-        --{
-        --  filename = "__Modular-Armor__/graphics/null.png",
-        --  line_length = 1,
-        --  width = 0,
-        --  height = 0,
-        --  frame_count = 1,
-        --  axially_symmetrical = false,
-        --  direction_count = 1,
-        --  draw_as_shadow = false,
-        --  shift = {1.59375, 0}
-        --}
+        {
+          filename = "__Modular-Armor__/graphics/null.png",
+          line_length = 1,
+          width = 1,
+          height = 1,
+          frame_count = 1,
+          axially_symmetrical = false,
+          direction_count = 1,
+          shift = {0.0625, -1}
+        
+        },
+        {
+          filename = "__Modular-Armor__/graphics/null.png",
+          line_length = 1,
+          width = 1,
+          height = 1,
+          frame_count = 1,
+          axially_symmetrical = false,
+          apply_runtime_tint = false,
+          direction_count = 1,
+          shift = {0.0625, -1.3125},
+        },
+        {
+          filename = "__Modular-Armor__/graphics/null.png",
+          line_length = 1,
+          width = 1,
+          height = 1,
+          frame_count = 1,
+          axially_symmetrical = false,
+          direction_count = 1,
+          draw_as_shadow = false,
+          shift = {1.59375, 0}
+        }
       }
     },
     folding_animation = 

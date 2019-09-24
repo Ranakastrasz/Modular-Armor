@@ -1,14 +1,14 @@
 
 {
   "name": "Modular-Armor",
-  "version": "16.1.3",
+  "version": "17.1.0",
   "title": "Modular Armor",
   "author": "Ranakastrasz",
   "contact": "~",
   "homepage": "https://forums.factorio.com/viewtopic.php?f=93&t=14894&p=100866#p100866",
   "description": "Alters Modular Armor and adds new Modules",
   "dependencies": ["base"],
-  "factorio_version": "0.16"
+  "factorio_version": "0.17"
 }
 
 
